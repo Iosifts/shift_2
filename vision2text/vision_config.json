@@ -1,0 +1,17 @@
+{
+    "question": "What are the key elements of the artwork",
+    "context": "",
+    "example": "",
+    "audience_age": "Elderly",
+    "audience_abilities": "Visually Impaired",
+    "audience_art": "Art-Professional",
+    "formality": "Formal",
+    "audience_difficulty": "Medium",
+    "sentiment": "Neutral",
+    "language": "English",
+    "model_choice": "xtuner/llava-llama-3-8b-v1_1-transformers",
+    "max_tokens": 200,
+    "api_key": "rrabsishan",
+    "api_query": "api_query"
+}
+

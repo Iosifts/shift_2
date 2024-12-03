@@ -1,0 +1,28 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file requirements.txt
+# platform: win-64
+beautifulsoup4==4.12.3
+bs4==0.0.2
+bzip2==1.0.8
+ca-certificates==2024.11.26
+certifi==2024.8.30
+charset-normalizer==3.4.0
+idna==3.10
+libffi==3.4.4
+openssl==1.1.1
+pillow==11.0.0
+pip==24.2
+prompt==0.4.1
+python==3.10.0
+requests==2.32.3
+setuptools==75.1.0
+soupsieve==2.6
+sqlite==3.45.3
+tk==8.6.14
+tzdata==2024b
+urllib3==2.2.3
+vc==14.40
+vs2015_runtime==14.40.33807
+wheel==0.44.0
+xz==5.4.6
+zlib==1.2.13
