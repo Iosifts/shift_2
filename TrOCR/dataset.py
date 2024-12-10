@@ -119,70 +119,51 @@ class OCRDataset(Dataset):
     | labels.txt
     ---------------------
     labels.txt contains:
-        'image0.png'/t'<text label>'
-        'image1.png'/t'<text label>'
+        'image0.png'\t'<text label>'
+        'image1.png'\t'<text label>'
         ...
     """
-    def __init__(self, root_dir, processor, 
-                 labels_file="labels.txt", max_target_length=128, 
-                 fraction=1.0, split="train"
-        ):
+    def __init__(self, root_dir, processor, labels_file="labels.txt",
+                 max_target_length=128, df=None):
         """
-        Initialize the OCR dataset with preprocessing and optional splitting.
-        
+        Initialize the OCR dataset with preprocessing.
+
         Args:
-        root_dir (str): Root directory containing the dataset.
-        processor: A processor for image and text (e.g., TrOCRProcessor).
-        labels_file (str): Name of the labels file in the dataset.
-        max_target_length (int): Maximum length of tokenized text.
-        fraction (float): Fraction of the dataset to use (e.g., 0.01 for 1%).
-        split (str): Whether to use "train" or "test" split.
+            root_dir (str): Root directory containing the dataset.
+            processor: A processor for image and text (e.g., TrOCRProcessor).
+            labels_file (str): Name of the labels file in the dataset.
+            max_target_length (int): Maximum length of tokenized text.
+            df (pd.DataFrame, optional): If provided, use this dataframe directly 
+                                         instead of reading and splitting.
         """
         self.root_dir = root_dir
         self.processor = processor
         self.labels_file = os.path.join(root_dir, labels_file)
         self.max_target_length = max_target_length
-        self.fraction = fraction
-        self.split = split
 
-        # Ensure the root directory exists
         os.makedirs(self.root_dir, exist_ok=True)
 
-        # Load and preprocess the dataset
-        self._prepare_dataset()
-
-    def _prepare_dataset(self):
-        """
-        Loads the dataset, processes file paths, and optionally splits into train and test sets.
-        """
-        # Load the dataset
-        df = pd.read_csv(self.labels_file, sep='\t', header=None, names=["file_name", "text"])
-        df['file_name'] = df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
-        df['file_path'] = df['file_name'].apply(lambda x: os.path.join(self.root_dir, "images", x))
-
-        # Sample the dataset fraction
-        df = df.sample(frac=self.fraction, random_state=42)
-
-        # Split into train and test sets
-        train_df, test_df = train_test_split(df, test_size=0.2)
-        train_df.reset_index(drop=True, inplace=True)
-        test_df.reset_index(drop=True, inplace=True)
-
-        # Assign the appropriate split
-        self.df = train_df if self.split == "train" else test_df
+        if df is not None:
+            # Use the provided DataFrame directly
+            self.df = df
+        else:
+            # If no dataframe is provided, load from file
+            df = pd.read_csv(self.labels_file, sep='\t', header=None, names=["file_name", "text"])
+            df['file_name'] = df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
+            df['file_path'] = df['file_name'].apply(lambda x: os.path.join(self.root_dir, "images", x))
+            self.df = df
 
     def __len__(self):
         return len(self.df)
 
     def __getitem__(self, idx):
-        # Get the file path and corresponding text
         file_path = self.df['file_path'].iloc[idx]
         text = self.df['text'].iloc[idx]
-        
+
         # Load and process the image
         image = Image.open(file_path).convert("RGB")
         pixel_values = self.processor(image, return_tensors="pt").pixel_values
-        
+
         # Encode the text into labels
         labels = self.processor.tokenizer(
             text,
@@ -190,17 +171,17 @@ class OCRDataset(Dataset):
             max_length=self.max_target_length,
             truncation=True
         ).input_ids
-        
+
         # Replace pad_token_id with -100 to ignore them in the loss computation
         labels = [
             label if label != self.processor.tokenizer.pad_token_id else -100 
             for label in labels
         ]
-        
-        # Prepare the output encoding
+
         encoding = {
             "pixel_values": pixel_values.squeeze(),
             "labels": torch.tensor(labels)
         }
         return encoding
+
     

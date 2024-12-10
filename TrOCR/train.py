@@ -28,25 +28,40 @@ import argparse
 def parse_args():
     """Returns: Command-line arguments"""
     parser = argparse.ArgumentParser('TrOCR Training')
-    parser.add_argument('--dataroot', type=str, default='data/ro-oscarv2.7_train', help='Search keyword(s) (required)', required=True)
+    parser.add_argument('--data', type=str, default='data/ro-oscarv2.7_train', help='Search keyword(s) (required)')
+    parser.add_argument('--output', type=str, default='output', help='Search keyword(s) (required)')
+    
     parser.add_argument('--epochs', type=int, default=15, help='Epochs to train')
+    parser.add_argument('--batchsize', type=int, default=4, help='Batchsize of DataLoader')
+    parser.add_argument('--val_iters', type=int, default=2, help='Number of epochs to eval at')
+    parser.add_argument('--lr', type=float, default=5e-5, help='Learning rate of update step')
+
+
+    parser.add_argument('--num_samples', type=float, default=10, help='Number of printed sample predictions')
+
     return parser.parse_args()
+
+
+
 
 
 if __name__ == '__main__':
     args = parse_args()
 
+    datapath = args.data
 
-    epochs = 20
-    val_interval = 5
-    batch_size = 4
-    lr = 5e-5
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    base_output_dir = "output" # base directory to store results in
+    base_output_dir = args.output
     os.makedirs(base_output_dir, exist_ok=True)
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     output_dir = os.path.join(base_output_dir, f"output_{timestamp}")
     os.makedirs(output_dir, exist_ok=True)
+
+    epochs = args.epochs
+    batch_size = args.batchsize
+    val_interval = args.val_iters
+    lr = args.lr
+    num_samples = args.num_samples
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Set up logging
     logger = logging.getLogger(__name__)
@@ -62,43 +77,96 @@ if __name__ == '__main__':
     custom = True
 
     # Define paths and processor
-    datapath = 'data/ro-oscarv2.7_train'
+    evalpath = 'data/balcesu_test'
+
     processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
 
     # Fraction of the dataset to use
     fraction = 0.01
+    eval_fraction = 0.25
 
     if custom:
-        train_dataset = OCRDataset(
-            root_dir=datapath,
-            processor=processor,
-            labels_file="labels.txt",
-            fraction=fraction,
-            split="train"
-        )
-        eval_dataset = OCRDataset(
-            root_dir=datapath,
-            processor=processor,
-            labels_file="labels.txt",
-            fraction=fraction,
-            split="test"
-        )
+
+        change_eval = True
+
+        if change_eval:
+
+            # Read train data
+            full_df = pd.read_csv(os.path.join(datapath, "labels.txt"), sep='\t', header=None, names=["file_name", "text"])
+            full_df['file_name'] = full_df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
+            full_df['file_path'] = full_df['file_name'].apply(lambda x: os.path.join(datapath, "images", x))
+            full_df = full_df.sample(frac=fraction, random_state=42)
+            train_df, test_df = train_test_split(full_df, test_size=0.2, random_state=42)
+            train_df.reset_index(drop=True, inplace=True)
+            test_df.reset_index(drop=True, inplace=True)
+            train_dataset = OCRDataset(
+                root_dir=datapath,
+                processor=processor,
+                df=train_df
+            )
+            # Read eval data
+            full_df = pd.read_csv(os.path.join(evalpath, "labels.txt"), sep='\t', header=None, names=["file_name", "text"])
+            full_df['file_name'] = full_df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
+            full_df['file_path'] = full_df['file_name'].apply(lambda x: os.path.join(datapath, "images", x))
+            full_df = full_df.sample(frac=eval_fraction, random_state=42)
+            test_df = full_df # use full dataframe for eval
+            test_df.reset_index(drop=True, inplace=True)
+
+            eval_dataset = OCRDataset(
+                root_dir=evalpath,
+                processor=processor,
+                df=test_df
+            )
+        else:
+
+            full_df = pd.read_csv(os.path.join(datapath, "labels.txt"), sep='\t', header=None, names=["file_name", "text"])
+            full_df['file_name'] = full_df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
+            full_df['file_path'] = full_df['file_name'].apply(lambda x: os.path.join(datapath, "images", x))
+            full_df = full_df.sample(frac=fraction, random_state=42)
+            train_df, test_df = train_test_split(full_df, test_size=0.2, random_state=42)
+            train_df.reset_index(drop=True, inplace=True)
+            test_df.reset_index(drop=True, inplace=True)
+            train_dataset = OCRDataset(
+                root_dir=datapath,
+                processor=processor,
+                df=train_df
+            )
+            eval_dataset = OCRDataset(
+                root_dir=datapath,
+                processor=processor,
+                df=test_df
+            )
+
     else:
+        # TODO
+        # Using the IAM dataset scenario
         root_dir = "path/to/IAM/"
         dataset_url = "https://fki.tic.heia-fr.ch/DBs/iamDB/data/words.tgz"
+        
+        # Here we assume you have already downloaded and created the labels file 
+        # (e.g., root_dir/labels.txt) or the _download_and_preprocess method will handle it.
+        full_df = pd.read_csv(os.path.join(root_dir, "labels.txt"))
+        full_df['file_path'] = full_df['file_name'].apply(lambda x: os.path.join(root_dir, "images", x))
+
+        # Fraction sampling
+        full_df = full_df.sample(frac=fraction, random_state=42)
+
+        # Single split outside the dataset class
+        train_df, test_df = train_test_split(full_df, test_size=0.2, random_state=42)
+        train_df.reset_index(drop=True, inplace=True)
+        test_df.reset_index(drop=True, inplace=True)
+
         train_dataset = IAMDataset(
             root_dir=root_dir,
             processor=processor,
             dataset_url=dataset_url,
-            fraction=fraction,
-            split="train"
+            df=train_df
         )
         eval_dataset = IAMDataset(
             root_dir=root_dir,
             processor=processor,
             dataset_url=dataset_url,
-            fraction=fraction,
-            split="test"
+            df=test_df
         )
 
 
@@ -140,7 +208,8 @@ if __name__ == '__main__':
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5)
     train_losses = []
     val_losses = []
-    num_samples = 10
+    
+    best_val_loss = 1e6
 
     for epoch in range(epochs):
         # Training
@@ -206,41 +275,40 @@ if __name__ == '__main__':
                     total_lev_dist += lev_dist
                     count += 1
 
-                    # Capture samples from the first validation batch
-                    if count == 1:
+                    # Collect samples until we reach num_samples
+                    if len(sample_preds) < num_samples:
                         pred_str = processor.batch_decode(pred_ids, skip_special_tokens=True)
 
                         labels_adj = labels.clone()
                         labels_adj[labels_adj == -100] = processor.tokenizer.pad_token_id
                         label_str = processor.batch_decode(labels_adj, skip_special_tokens=True)
 
-                        # Compute confidence scores for the samples
-                        # Each entry in pred_ids is a sequence of token IDs for that sample
-                        # scores_list is a list of distributions of shape [batch_size * beams, vocab_size]
-                        # for each decoded token after the first. Length of scores_list = seq_len - 1.
                         batch_size = pred_ids.size(0)
                         seq_len = pred_ids.size(1)
-                        # Note: scores_list[i] corresponds to token i+1 in the generated sequence
-                        # We need to find the probability of chosen tokens at each step.
-                        # We'll do this for the first `sample_size` samples only.
-                        sample_size = min(batch_size, num_samples)
-                        
+                        sample_needed = num_samples - len(sample_preds)
+                        sample_size = min(batch_size, sample_needed)
+
+                        # Compute confidence scores for these samples
                         for i in range(sample_size):
                             token_ids = pred_ids[i]
-                            # We'll get probabilities for all but the first token (no score for first token)
                             token_probs = []
                             for step_idx in range(seq_len - 1):
-                                logits = scores_list[step_idx][i]  # distribution for this sample at this step
+                                logits = scores_list[step_idx][i]
                                 probs = torch.softmax(logits, dim=-1)
-                                chosen_token_id = token_ids[step_idx+1]  # the token chosen at this step
+                                chosen_token_id = token_ids[step_idx+1]
                                 token_prob = probs[chosen_token_id].item()
                                 token_probs.append(token_prob)
-                            # Confidence is average token probability
                             confidence = sum(token_probs) / len(token_probs) if token_probs else 0.0
                             sample_confs.append(confidence)
 
-                        sample_preds = pred_str[:sample_size]
-                        sample_refs = label_str[:sample_size]
+                        sample_preds.extend(pred_str[:sample_size])
+                        sample_refs.extend(label_str[:sample_size])
+
+                        # Stop collecting
+                        if len(sample_preds) >= num_samples:
+                            # No need to process further batches for sample printing
+                            # But we still complete the evaluation loop to compute metrics over all batches if desired
+                            pass
 
             avg_val_loss = total_val_loss / count
             avg_val_cer = total_cer / count
@@ -269,7 +337,7 @@ if __name__ == '__main__':
                 logger.info(f"{'Prediction':<35} | {'Reference':<35} | {'Confidence':<8}")
                 logger.info("-" * 80)
                 for p, r, c in zip(sample_preds, sample_refs, sample_confs):
-                    logger.info(f"{p[:35]:<35} | {r[:35]:<35} | {c:.4f}\n")
+                    logger.info(f"{p[:35]:<35} | {r[:35]:<35} | {c:.4f}")
                 logger.info("-" * 80)
 
             # Save, if new best checkpoint
