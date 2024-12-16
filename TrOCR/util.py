@@ -1,4 +1,7 @@
 from evaluate import load as load_metric
+import os
+import pandas as pd
+from sklearn.model_selection import train_test_split
 
 cer_metric = load_metric("cer")
 wer_metric = load_metric("wer")
@@ -56,3 +59,26 @@ def compute_metrics(pred_ids, label_ids, processor):
     avg_lev_dist = sum(lev_dists) / len(lev_dists)
 
     return cer, wer, accuracy, char_accuracy, avg_lev_dist
+
+def process_data(file_path, image_dir, fraction=1.0, split=True, test_size=0.2):
+    """
+    Reads, processes, and optionally splits the dataset.
+    """
+    # Read data
+    df = pd.read_csv(file_path, encoding="utf-8", sep='\t', header=None, names=["file_name", "text"])
+    # File extensions and add paths
+    df['file_name'] = df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
+    df['file_path'] = df['file_name'].apply(lambda x: os.path.join(image_dir, x))
+    # Sample fraction
+    df = df.sample(frac=fraction, random_state=42).reset_index(drop=True)
+
+    if split:
+        train_df, test_df = train_test_split(df, test_size=test_size, random_state=42)
+        return train_df.reset_index(drop=True), test_df.reset_index(drop=True)
+    return None, df.reset_index(drop=True)
+
+def create_dataset(dataframe, root_dir, processor, dataset_class):
+    """
+    Creates a dataset instance using the provided dataframe.
+    """
+    return dataset_class(root_dir=root_dir, processor=processor, df=dataframe)

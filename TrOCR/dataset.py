@@ -5,6 +5,98 @@ from sklearn.model_selection import train_test_split
 from PIL import Image
 from torch.utils.data import Dataset
 import torch
+from pathlib import Path
+
+class OCRDataset(Dataset):
+    """
+    Custom OCR dataset that assumes data in the following format:
+    ---------------------
+    dataroot
+    | images
+      | image0.png
+      | image1.png
+    | labels.txt
+    ---------------------
+    labels.txt contains:
+        'image0.png'\t'<text label>'
+        'image1.png'\t'<text label>'
+        ...
+    """
+    def __init__(self, root_dir, processor, labels_file="labels.txt",
+                 max_target_length=128, df=None):
+        """
+        Initialize the OCR dataset with preprocessing.
+
+        Args:
+            root_dir (str): Root directory containing the dataset.
+            processor: A processor for image and text (e.g., TrOCRProcessor).
+            labels_file (str): Name of the labels file in the dataset.
+            max_target_length (int): Maximum length of tokenized text.
+            df (pd.DataFrame, optional): If provided, use this dataframe directly 
+                                         instead of reading and splitting.
+        """
+        self.root_dir = root_dir
+        self.processor = processor
+        self.labels_file = os.path.join(root_dir, labels_file)
+        self.max_target_length = max_target_length
+
+        os.makedirs(self.root_dir, exist_ok=True)
+
+        if df is not None:
+            # Use the provided DataFrame directly
+            self.df = df
+        else:
+            # Ensure labels file exists
+            if not self.labels_file.exists():
+                raise FileNotFoundError(f"Labels file '{self.labels_file}' not found.")
+            # If no dataframe is provided, load from file
+            df = pd.read_csv(self.labels_file, sep='\t', header=None, names=["file_name", "text"])
+            df['file_name'] = df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
+            df['file_path'] = df['file_name'].apply(lambda x: os.path.join(self.root_dir, "images", x))
+            self.df = df
+
+    def __len__(self):
+        return len(self.df)
+
+    def __getitem__(self, idx):
+        file_path = Path(self.df['file_path'].iloc[idx])
+        text = self.df['text'].iloc[idx]
+        if not file_path.exists():
+            raise FileNotFoundError(f"Image file '{file_path}' not found.")
+
+        # Load and process the image
+        image = Image.open(file_path).convert("RGB")
+        pixel_values = self.processor(image, return_tensors="pt").pixel_values
+
+        # Encode the text into labels
+        labels = self.processor.tokenizer(
+            text,
+            padding="max_length",
+            max_length=self.max_target_length,
+            truncation=True
+        ).input_ids
+
+        # Replace pad_token_id with -100 to ignore them in the loss computation
+        labels = [
+            label if label != self.processor.tokenizer.pad_token_id else -100 
+            for label in labels
+        ]
+
+        return {
+            "pixel_values": pixel_values.squeeze(),
+            "labels": torch.tensor(labels)
+        }
+    
+    @staticmethod
+    def _fix_file_extension(file_name):
+        """
+        Fix common file extension issues.
+        """
+        if file_name.endswith('jp'):  # Handle cases like `.jp` files
+            return file_name + 'g'
+        return file_name
+
+
 
 class IAMDataset(Dataset):
     """
@@ -108,80 +200,3 @@ class IAMDataset(Dataset):
         }
         return encoding
 
-class OCRDataset(Dataset):
-    """
-    Custom OCR dataset that assumes data in the following format:
-    ---------------------
-    dataroot
-    | images
-      | image0.png
-      | image1.png
-    | labels.txt
-    ---------------------
-    labels.txt contains:
-        'image0.png'\t'<text label>'
-        'image1.png'\t'<text label>'
-        ...
-    """
-    def __init__(self, root_dir, processor, labels_file="labels.txt",
-                 max_target_length=128, df=None):
-        """
-        Initialize the OCR dataset with preprocessing.
-
-        Args:
-            root_dir (str): Root directory containing the dataset.
-            processor: A processor for image and text (e.g., TrOCRProcessor).
-            labels_file (str): Name of the labels file in the dataset.
-            max_target_length (int): Maximum length of tokenized text.
-            df (pd.DataFrame, optional): If provided, use this dataframe directly 
-                                         instead of reading and splitting.
-        """
-        self.root_dir = root_dir
-        self.processor = processor
-        self.labels_file = os.path.join(root_dir, labels_file)
-        self.max_target_length = max_target_length
-
-        os.makedirs(self.root_dir, exist_ok=True)
-
-        if df is not None:
-            # Use the provided DataFrame directly
-            self.df = df
-        else:
-            # If no dataframe is provided, load from file
-            df = pd.read_csv(self.labels_file, sep='\t', header=None, names=["file_name", "text"])
-            df['file_name'] = df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
-            df['file_path'] = df['file_name'].apply(lambda x: os.path.join(self.root_dir, "images", x))
-            self.df = df
-
-    def __len__(self):
-        return len(self.df)
-
-    def __getitem__(self, idx):
-        file_path = self.df['file_path'].iloc[idx]
-        text = self.df['text'].iloc[idx]
-
-        # Load and process the image
-        image = Image.open(file_path).convert("RGB")
-        pixel_values = self.processor(image, return_tensors="pt").pixel_values
-
-        # Encode the text into labels
-        labels = self.processor.tokenizer(
-            text,
-            padding="max_length",
-            max_length=self.max_target_length,
-            truncation=True
-        ).input_ids
-
-        # Replace pad_token_id with -100 to ignore them in the loss computation
-        labels = [
-            label if label != self.processor.tokenizer.pad_token_id else -100 
-            for label in labels
-        ]
-
-        encoding = {
-            "pixel_values": pixel_values.squeeze(),
-            "labels": torch.tensor(labels)
-        }
-        return encoding
-
-    

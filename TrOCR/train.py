@@ -25,45 +25,51 @@ import util
 from dataset import OCRDataset, IAMDataset
 import argparse
 
+import random
+import numpy as np
+
+def set_seed(seed: int):
+    random.seed(seed) # Python's built-in random module
+    np.random.seed(seed) # Numpy random generator
+    torch.manual_seed(seed) # PyTorch random seed for CPU
+    if torch.cuda.is_available(): # PyTorch random seed for all GPU devices (if using CUDA)
+        torch.cuda.manual_seed_all(seed)
+        torch.backends.cudnn.deterministic = True  # Ensures deterministic behavior
+        torch.backends.cudnn.benchmark = False     # Slows down training but ensures reproducibility
+
 def parse_args():
-    """Returns: Command-line arguments"""
     parser = argparse.ArgumentParser('TrOCR Training')
-    parser.add_argument('--data', type=str, default='data/ro-oscarv2.7_train', help='Search keyword(s) (required)')
+    parser.add_argument('--data', type=str, default='data/ro-oscarv2.7_train', 
+                        help='Search keyword(s) (required)')
     parser.add_argument('--output', type=str, default='output', help='Search keyword(s) (required)')
-    
-    parser.add_argument('--epochs', type=int, default=15, help='Epochs to train')
+    parser.add_argument('--checkpoint', type=str, default=None, 
+                        help='Path to checkpoint to resume training from')
+    parser.add_argument('--model', default='microsoft/trocr-base-handwritten', 
+                        choices=['microsoft/trocr-base-stage1', 'microsoft/trocr-large-stage1', 
+                        'microsoft/trocr-base-handwritten'], help='Select the model to use.')
+    parser.add_argument('--epochs', type=int, default=10, help='Epochs to train')
     parser.add_argument('--batchsize', type=int, default=4, help='Batchsize of DataLoader')
     parser.add_argument('--val_iters', type=int, default=2, help='Number of epochs to eval at')
-    parser.add_argument('--lr', type=float, default=5e-5, help='Learning rate of update step')
-
-
-    parser.add_argument('--num_samples', type=float, default=10, help='Number of printed sample predictions')
-
+    parser.add_argument('--lr', type=float, default=1e-6, help='Learning rate of update step')
+    parser.add_argument('--lr_patience', type=int, default=1, help='Patience for lr scheduler')
+    parser.add_argument('--num_samples', type=float, default=10, 
+                        help='Number of printed sample predictions')
     return parser.parse_args()
 
 
-
-
-
 if __name__ == '__main__':
+    SEED = 42
+    set_seed(SEED)
     args = parse_args()
-
     datapath = args.data
-
     base_output_dir = args.output
     os.makedirs(base_output_dir, exist_ok=True)
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     output_dir = os.path.join(base_output_dir, f"output_{timestamp}")
     os.makedirs(output_dir, exist_ok=True)
-
-    epochs = args.epochs
-    batch_size = args.batchsize
-    val_interval = args.val_iters
-    lr = args.lr
-    num_samples = args.num_samples
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # Set up logging
+    """Logging"""
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
     console_handler = StreamHandler()
@@ -74,129 +80,69 @@ if __name__ == '__main__':
     logger.addHandler(console_handler)
     logger.addHandler(file_handler)
 
-    custom = True
-
-    # Define paths and processor
+    """Data Processing"""
+    custom = True # use custom dataset
+    change_eval = True # use different val dataset, instead of splitting
     evalpath = 'data/balcesu_test'
-
-    processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
-
-    # Fraction of the dataset to use
-    fraction = 0.01
+    processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten") # for data processing
+    fraction = 0.01 # fraction of train dataset used
     eval_fraction = 0.25
 
     if custom:
+        train_file = os.path.join(datapath, "labels.txt")
+        train_df, test_df = util.process_data(train_file, os.path.join(datapath, "images"), fraction=fraction)
 
-        change_eval = True
+        train_dataset = util.create_dataset(train_df, datapath, processor, OCRDataset)
+        eval_dataset = None
 
         if change_eval:
-
-            # Read train data
-            full_df = pd.read_csv(os.path.join(datapath, "labels.txt"), sep='\t', header=None, names=["file_name", "text"])
-            full_df['file_name'] = full_df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
-            full_df['file_path'] = full_df['file_name'].apply(lambda x: os.path.join(datapath, "images", x))
-            full_df = full_df.sample(frac=fraction, random_state=42)
-            train_df, test_df = train_test_split(full_df, test_size=0.2, random_state=42)
-            train_df.reset_index(drop=True, inplace=True)
-            test_df.reset_index(drop=True, inplace=True)
-            train_dataset = OCRDataset(
-                root_dir=datapath,
-                processor=processor,
-                df=train_df
-            )
-            # Read eval data
-            full_df = pd.read_csv(os.path.join(evalpath, "labels.txt"), sep='\t', header=None, names=["file_name", "text"])
-            full_df['file_name'] = full_df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
-            full_df['file_path'] = full_df['file_name'].apply(lambda x: os.path.join(datapath, "images", x))
-            full_df = full_df.sample(frac=eval_fraction, random_state=42)
-            test_df = full_df # use full dataframe for eval
-            test_df.reset_index(drop=True, inplace=True)
-
-            eval_dataset = OCRDataset(
-                root_dir=evalpath,
-                processor=processor,
-                df=test_df
-            )
+            eval_file = os.path.join(evalpath, "labels.txt")
+            _, eval_df = util.process_data(eval_file, os.path.join(evalpath, "images"), fraction=eval_fraction, split=False)
+            eval_dataset = util.create_dataset(eval_df, evalpath, processor, OCRDataset)
         else:
-
-            full_df = pd.read_csv(os.path.join(datapath, "labels.txt"), sep='\t', header=None, names=["file_name", "text"])
-            full_df['file_name'] = full_df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
-            full_df['file_path'] = full_df['file_name'].apply(lambda x: os.path.join(datapath, "images", x))
-            full_df = full_df.sample(frac=fraction, random_state=42)
-            train_df, test_df = train_test_split(full_df, test_size=0.2, random_state=42)
-            train_df.reset_index(drop=True, inplace=True)
-            test_df.reset_index(drop=True, inplace=True)
-            train_dataset = OCRDataset(
-                root_dir=datapath,
-                processor=processor,
-                df=train_df
-            )
-            eval_dataset = OCRDataset(
-                root_dir=datapath,
-                processor=processor,
-                df=test_df
-            )
-
+            eval_dataset = util.create_dataset(test_df, datapath, processor, OCRDataset)
     else:
-        # TODO
-        # Using the IAM dataset scenario
         root_dir = "path/to/IAM/"
         dataset_url = "https://fki.tic.heia-fr.ch/DBs/iamDB/data/words.tgz"
-        
-        # Here we assume you have already downloaded and created the labels file 
-        # (e.g., root_dir/labels.txt) or the _download_and_preprocess method will handle it.
-        full_df = pd.read_csv(os.path.join(root_dir, "labels.txt"))
-        full_df['file_path'] = full_df['file_name'].apply(lambda x: os.path.join(root_dir, "images", x))
+        labels_file = os.path.join(root_dir, "labels.txt")
 
-        # Fraction sampling
-        full_df = full_df.sample(frac=fraction, random_state=42)
-
-        # Single split outside the dataset class
-        train_df, test_df = train_test_split(full_df, test_size=0.2, random_state=42)
-        train_df.reset_index(drop=True, inplace=True)
-        test_df.reset_index(drop=True, inplace=True)
-
-        train_dataset = IAMDataset(
-            root_dir=root_dir,
-            processor=processor,
-            dataset_url=dataset_url,
-            df=train_df
-        )
-        eval_dataset = IAMDataset(
-            root_dir=root_dir,
-            processor=processor,
-            dataset_url=dataset_url,
-            df=test_df
-        )
-
+        train_df, test_df = util.process_data(labels_file, os.path.join(root_dir, "images"), fraction=fraction)
+        train_dataset = util.create_dataset(train_df, root_dir, processor, IAMDataset)
+        eval_dataset = util.create_dataset(test_df, root_dir, processor, IAMDataset)
 
     logger.info(f"Number of training examples: {len(train_dataset)}")
     logger.info(f"Number of validation examples: {len(eval_dataset)}")
+    
+    # Verify dataset encoding
     encoding = train_dataset[0]
     labels = encoding['labels']
     labels[labels == -100] = processor.tokenizer.pad_token_id
     label_str = processor.decode(labels, skip_special_tokens=True)
-    train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    eval_dataloader = DataLoader(eval_dataset, batch_size=batch_size)
 
-    # Model
-    # model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-stage1") # base model
-    model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-large-stage1") # bigger model
+    train_dataloader = DataLoader(train_dataset, batch_size=args.batchsize, shuffle=True)
+    eval_dataloader = DataLoader(eval_dataset, batch_size=args.batchsize)
+
+    """Model Initialization"""
+    logger.info(f"Model '{args.model}' selected.")
+    model = VisionEncoderDecoderModel.from_pretrained(args.model)
     model.to(device)
 
-    # account for romanian letters
+    # Add additional tokens
     special_chars = ["ă", "â", "î", "ș", "ț", "Ă", "Â", "Î", "Ș", "Ț"]
     processor.tokenizer.add_tokens(special_chars, special_tokens=False)
     model.decoder.resize_token_embeddings(len(processor.tokenizer))
+
     # Set special tokens for training and ensure model config consistency
-    model.config.decoder_start_token_id = processor.tokenizer.cls_token_id
-    model.config.pad_token_id = processor.tokenizer.pad_token_id
-    model.config.vocab_size = model.config.decoder.vocab_size
+    model.config.decoder_start_token_id = processor.tokenizer.bos_token_id  # 0 <s>
+    model.config.eos_token_id = processor.tokenizer.eos_token_id            # 2 </s>
+    model.config.pad_token_id = processor.tokenizer.pad_token_id            # 1 <pad>
+    model.config.vocab_size = len(processor.tokenizer)
+
     generation_config = GenerationConfig(
-        eos_token_id=processor.tokenizer.sep_token_id,
+        eos_token_id=model.config.eos_token_id,
         decoder_start_token_id=model.config.decoder_start_token_id,
         pad_token_id=model.config.pad_token_id,
-        max_length=64,
+        max_length=105,
         early_stopping=True,
         no_repeat_ngram_size=3,
         length_penalty=2.0,
@@ -204,15 +150,32 @@ if __name__ == '__main__':
     )
     model.generation_config = generation_config
 
-    optimizer = AdamW(model.parameters(), lr=lr)
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5)
+    """Training Setup"""
+    optimizer = AdamW(model.parameters(), lr=args.lr, weight_decay=0.01)
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=args.lr_patience)
     train_losses = []
     val_losses = []
-    
     best_val_loss = 1e6
+    best_val_char_acc = -1.0
 
-    for epoch in range(epochs):
-        # Training
+    # Load from (.pt) checkpoint if specified
+    start_epoch = 0
+    if args.checkpoint is not None:
+        logger.info(f"Resuming training from checkpoint: {args.checkpoint}")
+        checkpoint = torch.load(args.checkpoint, map_location=device, weights_only=False)
+
+        model.load_state_dict(checkpoint['model_state_dict'])
+        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
+        best_val_loss = checkpoint['best_val_loss']
+        train_losses = checkpoint['train_losses']
+        val_losses = checkpoint['val_losses']
+        start_epoch = checkpoint['epoch']  # epoch at which it was saved
+        
+        logger.info(f"Resumed at epoch {start_epoch} with best_val_loss {best_val_loss:.4f}")
+
+    """Training"""
+    for epoch in range(args.epochs):
         model.train()
         train_loss = 0.0
         for batch in tqdm(train_dataloader, desc=f"Training Epoch {epoch}", dynamic_ncols=True):
@@ -230,7 +193,7 @@ if __name__ == '__main__':
         logger.info(f"Train loss after epoch {epoch}: {avg_train_loss}")
 
         # Evaluation
-        if epoch % val_interval == 0:
+        if epoch % args.val_iters == 0:
             model.eval()
             total_cer = 0.0
             total_wer = 0.0
@@ -276,7 +239,7 @@ if __name__ == '__main__':
                     count += 1
 
                     # Collect samples until we reach num_samples
-                    if len(sample_preds) < num_samples:
+                    if len(sample_preds) < args.num_samples:
                         pred_str = processor.batch_decode(pred_ids, skip_special_tokens=True)
 
                         labels_adj = labels.clone()
@@ -285,7 +248,7 @@ if __name__ == '__main__':
 
                         batch_size = pred_ids.size(0)
                         seq_len = pred_ids.size(1)
-                        sample_needed = num_samples - len(sample_preds)
+                        sample_needed = args.num_samples - len(sample_preds)
                         sample_size = min(batch_size, sample_needed)
 
                         # Compute confidence scores for these samples
@@ -305,7 +268,7 @@ if __name__ == '__main__':
                         sample_refs.extend(label_str[:sample_size])
 
                         # Stop collecting
-                        if len(sample_preds) >= num_samples:
+                        if len(sample_preds) >= args.num_samples:
                             # No need to process further batches for sample printing
                             # But we still complete the evaluation loop to compute metrics over all batches if desired
                             pass
@@ -327,7 +290,7 @@ if __name__ == '__main__':
                 f"Acc: {avg_val_acc:.4f} | "
                 f"CharAcc: {avg_val_char_acc:.4f} | "
                 f"LevDist: {avg_val_lev_dist:.4f} | "
-                f"LR: {optimizer.param_groups[0]['lr']:.6f}"
+                f"LR: {optimizer.param_groups[0]['lr']:.1e}"
             )
 
             # Log sample predictions
@@ -340,7 +303,7 @@ if __name__ == '__main__':
                     logger.info(f"{p[:35]:<35} | {r[:35]:<35} | {c:.4f}")
                 logger.info("-" * 80)
 
-            # Save, if new best checkpoint
+            # Save checkpoint if it's the best val_loss
             if avg_val_loss < best_val_loss:
                 best_val_loss = avg_val_loss
                 best_checkpoint_path = os.path.join(output_dir, "best_checkpoint.pt")
@@ -350,10 +313,27 @@ if __name__ == '__main__':
                     'optimizer_state_dict': optimizer.state_dict(),
                     'scheduler_state_dict': scheduler.state_dict(),
                     'best_val_loss': best_val_loss,
+                    'best_val_char_acc': best_val_char_acc,
                     'train_losses': train_losses,
                     'val_losses': val_losses,
                 }, best_checkpoint_path)
                 logger.info(f"New best checkpoint saved to {best_checkpoint_path} with Val Loss: {best_val_loss:.4f}")
+
+            # Save checkpoint if it's the best char_acc
+            if avg_val_char_acc > best_val_char_acc:
+                best_val_char_acc = avg_val_char_acc
+                best_checkpoint_char_acc_path = os.path.join(output_dir, "best_checkpoint_char_acc.pt")
+                torch.save({
+                    'epoch': epoch + 1,
+                    'model_state_dict': model.state_dict(),
+                    'optimizer_state_dict': optimizer.state_dict(),
+                    'scheduler_state_dict': scheduler.state_dict(),
+                    'best_val_loss': best_val_loss,
+                    'best_val_char_acc': best_val_char_acc,
+                    'train_losses': train_losses,
+                    'val_losses': val_losses,
+                }, best_checkpoint_char_acc_path)
+                logger.info(f"New best checkpoint saved to {best_checkpoint_char_acc_path} with CharAcc: {best_val_char_acc:.4f}")
 
             # LR scheduler steps on val loss
             scheduler.step(avg_val_loss)
@@ -361,8 +341,14 @@ if __name__ == '__main__':
             # Not validating this epoch
             pass
 
-    # Plot Losses
-    val_epochs = range(0, epochs, val_interval)
+    """Plotting & Saving"""
+    val_epochs = [i * args.val_iters for i in range(len(val_losses))]
+    val_epochs = [ve for ve in val_epochs if ve < len(train_losses)]
+    max_len = min(len(val_epochs), len(val_losses))
+    val_epochs = val_epochs[:max_len]
+    val_losses = val_losses[:max_len]
+    if len(val_epochs) != len(val_losses):
+        logger.warning("Still mismatch in val_losses and val_epochs lengths after trimming!")
     plt.figure(figsize=(10, 6))
     plt.plot(val_epochs, [train_losses[i] for i in val_epochs], label='Train Loss (sampled)')
     plt.plot(val_epochs, val_losses, label='Val Loss')
@@ -374,7 +360,7 @@ if __name__ == '__main__':
     plt.savefig(os.path.join(output_dir, "training_validation_loss.pdf"))
     plt.show()
 
-    # Save model
+    # Save in Hugging Face format
     model.save_pretrained(output_dir)
     processor.save_pretrained(output_dir)
     logger.info(f"Model saved to {output_dir}")
