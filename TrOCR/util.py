@@ -2,6 +2,7 @@ from evaluate import load as load_metric
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from io import BytesIO
 
 cer_metric = load_metric("cer")
 wer_metric = load_metric("wer")
@@ -82,3 +83,12 @@ def create_dataset(dataframe, root_dir, processor, dataset_class):
     Creates a dataset instance using the provided dataframe.
     """
     return dataset_class(root_dir=root_dir, processor=processor, df=dataframe)
+
+def pil_image_to_bytes(image):
+    """
+        Convert input image map into byte array
+    """
+    img_byte_arr = BytesIO()
+    image.save(img_byte_arr, format='PNG')
+    img_byte_arr = img_byte_arr.getvalue()
+    return img_byte_arr

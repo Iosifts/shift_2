@@ -39,7 +39,7 @@ def set_seed(seed: int):
 
 def parse_args():
     parser = argparse.ArgumentParser('TrOCR Training')
-    parser.add_argument('--data', type=str, default='data/ro-oscarv2.7_train', 
+    parser.add_argument('--data', type=str, default='data/oscar_v1.10', 
                         help='Search keyword(s) (required)')
     parser.add_argument('--output', type=str, default='output', help='Search keyword(s) (required)')
     parser.add_argument('--checkpoint', type=str, default=None, 
@@ -49,13 +49,12 @@ def parse_args():
                         'microsoft/trocr-base-handwritten'], help='Select the model to use.')
     parser.add_argument('--epochs', type=int, default=10, help='Epochs to train')
     parser.add_argument('--batchsize', type=int, default=4, help='Batchsize of DataLoader')
-    parser.add_argument('--val_iters', type=int, default=2, help='Number of epochs to eval at')
-    parser.add_argument('--lr', type=float, default=1e-6, help='Learning rate of update step')
-    parser.add_argument('--lr_patience', type=int, default=1, help='Patience for lr scheduler')
+    parser.add_argument('--val_iters', type=int, default=1, help='Number of epochs to eval at')
+    parser.add_argument('--lr', type=float, default=4e-5, help='Learning rate of update step')
+    parser.add_argument('--lr_patience', type=int, default=2, help='Patience for lr scheduler')
     parser.add_argument('--num_samples', type=float, default=10, 
                         help='Number of printed sample predictions')
     return parser.parse_args()
-
 
 if __name__ == '__main__':
     SEED = 42
@@ -85,7 +84,7 @@ if __name__ == '__main__':
     change_eval = True # use different val dataset, instead of splitting
     evalpath = 'data/balcesu_test'
     processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten") # for data processing
-    fraction = 0.01 # fraction of train dataset used
+    fraction = 1.0 # fraction of train dataset used
     eval_fraction = 0.25
 
     if custom:
@@ -281,6 +280,9 @@ if __name__ == '__main__':
             avg_val_lev_dist = total_lev_dist / count
             val_losses.append(avg_val_loss)
 
+            # LR scheduler steps on val loss
+            scheduler.step(avg_val_loss)
+
             # Log metrics
             logger.info(
                 f"Epoch {epoch} | "
@@ -335,8 +337,6 @@ if __name__ == '__main__':
                 }, best_checkpoint_char_acc_path)
                 logger.info(f"New best checkpoint saved to {best_checkpoint_char_acc_path} with CharAcc: {best_val_char_acc:.4f}")
 
-            # LR scheduler steps on val loss
-            scheduler.step(avg_val_loss)
         else:
             # Not validating this epoch
             pass
