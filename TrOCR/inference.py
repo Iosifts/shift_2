@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import re
 import sys
@@ -14,6 +15,7 @@ import matplotlib.pyplot as plt
 import pdfplumber
 import easyocr
 import warnings
+import util
 
 def extract_text_ckpt(model, processor, image_bytes, draw, mode='img'):
     """
@@ -217,7 +219,7 @@ if __name__ == '__main__':
 
     draw = True # Enable to draw bounding boxes on input for visualization
 
-    # Inference based on input
+    # Inference
     if image_path.lower().endswith('.pdf'):
         extracted_text, image_parts = extract_text_ckpt(model, processor, 
                                                         file_bytes, draw, mode='pdf')
@@ -228,6 +230,13 @@ if __name__ == '__main__':
         print("Unsupported file format. Please provide a .pdf, .jpg, or .png file.")
         sys.exit(1)
 
-    print(extracted_text)
+    print("Recognized Text:", extracted_text)
+
+    # Compare input to output 
+    reference_text = """12 Abia astăzi însă, două-zeci și cinci de ani după a lui moarte, ele se îndeplinesc in parte 1). D. Insfrucțiunei publice al României, împreună cu raportul trimisului nostru, fusese Încredințat de însuși răposatul, consulului turcesc din acea localitate. Simțind sfârșitul său, el puse să i se facă o listă amănunțită de tot ce poseda cu sine, în care arăta că voința sa este ca manuscrisele lui să se dea d-lui Ion Ghica, carele se afla pe atunci în Turcia. Un preot grec din vecinătate primi, de pe cererea sa, cea după urmă a lui mărturisire și cel după urmă al lui suspin, bădiță cu obiectele rămase de la Bălcescu a fost de mult trimisă familiei sale de către proprietarul ospătăriei „alia Trinacria". Ast-fel s'a întâmplat ca d-nul C. Bălcescu, care avea manuscriptele la sine, să mi le încredințeze încă de la 1861 spre a le tipări în Reulsto Română. De atunci ele au stat până estimp la mine (1876).Pe de altă parte, testamentul adus în țară de d. N„ lonescu la 1863, rămăsese și el uitat în dosarele Ministerului-In fine abia acum, prin concursul d-lor Ion Ghica, C. Bălcescu și al meu, voințele ilustrului răposat începu a-și căpăta a lor realisare. 1) Bălcescu, într'o adresă către patronii Asociației lite­ rare române, arăta că scrierea sa asupra Epocei Iul Michaiu Viteazul fiind aproape terminată și având numai câte-va luni de lucru spre a o sfârși, el dorește ca ea să fie tipărită în două frumoase volume în 8”, de pe împăr­ țirea expusă mai sus, și tot de o dată să fie ornată cu un portret al lui Mihaiu Viteazul, gravat pe oțel, de pe al lui Sadeler, făcut în Viena la 1601, precum șî alte patru executate în xilografie. Dorește asemeni să se trimită un june inginer român în țara ca să ridice planurile deose­bitelor localități mai importante, citate în cursul opereii. Aceste cheltiueli cere de la Asociație ca să le facă ; iar pentru ostenelile sale proprii și pentru toate cheltuielile făcute cu cumpărări de cărți rare și cu traducțiuni, el nu reclamă nici o indemnisare, nici măcar cele 400 exemplare"""
+    metrics = util.compute_all_metrics(extracted_text, reference_text)
+    print(metrics)
+    print("Groundtruth:", reference_text)
+
 
     # visualize_image_parts_lines(image_parts[:1])

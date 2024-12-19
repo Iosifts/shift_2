@@ -61,6 +61,52 @@ def compute_metrics(pred_ids, label_ids, processor):
 
     return cer, wer, accuracy, char_accuracy, avg_lev_dist
 
+def compute_all_metrics(predicted_text, reference_text):
+    """
+    Compute the requested metrics on a single pair of predicted_text and reference_text:
+    LDist, Char Acc, Word Acc, Norm LD, Lev Acc, CER, WER
+    """
+    # Compute CER and WER using the evaluate metrics
+    cer = cer_metric.compute(predictions=[predicted_text], references=[reference_text])
+    wer = wer_metric.compute(predictions=[predicted_text], references=[reference_text])
+
+    # Levenshtein distance (character-level)
+    ldist = levenshtein_distance(predicted_text, reference_text)
+
+    # Reference length at character level
+    ref_len = len(reference_text)
+
+    # CER and WER are already computed
+    # Char Acc: typically 1 - CER
+    if ref_len > 0:
+        char_acc = 1.0 - cer
+    else:
+        char_acc = 1.0 if len(predicted_text) == 0 else 0.0
+
+    # Word-level calculations
+    pred_words = predicted_text.split()
+    ref_words = reference_text.split()
+    ref_word_count = len(ref_words)
+
+    # Word Accuracy: 1 - WER
+    word_acc = 1 - wer
+
+    # Normalized LD: LDist / max(len(predicted_text), ref_len)
+    norm_ld = ldist / max(len(predicted_text), ref_len) if max(len(predicted_text), ref_len) > 0 else 0.0
+
+    # Lev Acc: 1 - (LDist / ref_len)
+    lev_acc = 1 - (ldist / ref_len) if ref_len > 0 else (1.0 if len(predicted_text) == 0 else 0.0)
+
+    return {
+        "LDist": ldist,
+        "Char Acc": char_acc,
+        "Word Acc": word_acc,
+        "Norm LD": norm_ld,
+        "Lev Acc": lev_acc,
+        "CER": cer,
+        "WER": wer
+    }
+
 def process_data(file_path, image_dir, fraction=1.0, split=True, test_size=0.2):
     """
     Reads, processes, and optionally splits the dataset.
@@ -92,3 +138,11 @@ def pil_image_to_bytes(image):
     image.save(img_byte_arr, format='PNG')
     img_byte_arr = img_byte_arr.getvalue()
     return img_byte_arr
+
+def format_lr(lr):
+    if 'e' in f"{lr}":
+        parts = f"{lr}".split('e')
+        return f"{parts[0]}e{parts[1]}"
+    else:
+        return f"{lr}".replace('.', 'p')
+    

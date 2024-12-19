@@ -5,42 +5,36 @@ import time
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 import os
-
 from PIL import Image
-
+from datetime import datetime
 from transformers import TrOCRProcessor
 from transformers import logging
 from transformers import VisionEncoderDecoderModel
 logging.set_verbosity_error()  # Only errors will be printed
 from transformers import GenerationConfig
-
 from torch.utils.data import DataLoader
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch.optim import AdamW
-
 import logging
 from logging import FileHandler, StreamHandler, Formatter
-
 import util
 from dataset import OCRDataset, IAMDataset
 import argparse
-
 import random
 import numpy as np
 
 def set_seed(seed: int):
-    random.seed(seed) # Python's built-in random module
-    np.random.seed(seed) # Numpy random generator
-    torch.manual_seed(seed) # PyTorch random seed for CPU
-    if torch.cuda.is_available(): # PyTorch random seed for all GPU devices (if using CUDA)
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
-        torch.backends.cudnn.deterministic = True  # Ensures deterministic behavior
-        torch.backends.cudnn.benchmark = False     # Slows down training but ensures reproducibility
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
 
 def parse_args():
     parser = argparse.ArgumentParser('TrOCR Training')
-    parser.add_argument('--data', type=str, default='data/oscar_v1.10', 
-                        help='Search keyword(s) (required)')
+    parser.add_argument('--data', type=str, help='Search keyword(s) (required)', required=True)
     parser.add_argument('--output', type=str, default='output', help='Search keyword(s) (required)')
     parser.add_argument('--checkpoint', type=str, default=None, 
                         help='Path to checkpoint to resume training from')
@@ -59,29 +53,36 @@ def parse_args():
 if __name__ == '__main__':
     SEED = 42
     set_seed(SEED)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     args = parse_args()
+
     datapath = args.data
     base_output_dir = args.output
     os.makedirs(base_output_dir, exist_ok=True)
-    timestamp = time.strftime("%Y%m%d-%H%M%S")
-    output_dir = os.path.join(base_output_dir, f"output_{timestamp}")
+    timestamp = time.strftime("%m%d")
+    formatted_lr = util.format_lr(args.lr)
+    dataset_name = os.path.basename(os.path.normpath(datapath))
+    output_dir_name = f"{dataset_name}_e{args.epochs}_lr{formatted_lr}_b{args.batchsize}_{timestamp}"
+    output_dir = os.path.join(base_output_dir, output_dir_name)
     os.makedirs(output_dir, exist_ok=True)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     """Logging"""
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
     console_handler = StreamHandler()
-    file_handler = FileHandler(os.path.join(output_dir, "training.log"), encoding='utf-8', errors='replace')
+    file_handler = FileHandler(os.path.join(output_dir, "training.log"), encoding='utf-8', 
+                               errors='replace') # Python will raise an error if it encounters a character it cannot encode
     formatter = Formatter('%(asctime)s - %(levelname)s - %(message)s')
     console_handler.setFormatter(formatter)
     file_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
     logger.addHandler(file_handler)
 
+    logger.info("Initializing Logging")
+
     """Data Processing"""
     custom = True # use custom dataset
-    change_eval = True # use different val dataset, instead of splitting
+    change_eval = False # use different val dataset, instead of splitting
     evalpath = 'data/balcesu_test'
     processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten") # for data processing
     fraction = 1.0 # fraction of train dataset used
@@ -90,9 +91,7 @@ if __name__ == '__main__':
     if custom:
         train_file = os.path.join(datapath, "labels.txt")
         train_df, test_df = util.process_data(train_file, os.path.join(datapath, "images"), fraction=fraction)
-
         train_dataset = util.create_dataset(train_df, datapath, processor, OCRDataset)
-        eval_dataset = None
 
         if change_eval:
             eval_file = os.path.join(evalpath, "labels.txt")
