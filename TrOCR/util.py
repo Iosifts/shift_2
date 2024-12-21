@@ -23,14 +23,9 @@ def levenshtein_distance(str1, str2):
                            dp[i-1][j-1]+cost) # substitution
     return dp[m][n]
 
-def compute_metrics(pred_ids, label_ids, processor):
-    label_ids[label_ids == -100] = processor.tokenizer.pad_token_id
-    pred_str = processor.batch_decode(pred_ids, skip_special_tokens=True)
-    label_str = processor.batch_decode(label_ids, skip_special_tokens=True)
+def compute_metrics(pred_str, label_str):
 
-    # CER
     cer = cer_metric.compute(predictions=pred_str, references=label_str)
-    # WER
     wer = wer_metric.compute(predictions=pred_str, references=label_str)
     
     # Exact match accuracy
@@ -111,29 +106,35 @@ def process_data(file_path, image_dir, fraction=1.0, split=True, test_size=0.2):
     """
     Reads, processes, and optionally splits the dataset.
     """
+    def normalize_apostrophes(text):
+        text = text.replace("’", "'").replace("`", "'").replace("\u2019", "'")
+        text = text.replace("\u00A0", " ").strip()  # Replace non-breaking spaces with standard spaces
+        return text
+    
     # Read data
     df = pd.read_csv(file_path, encoding="utf-8", sep='\t', header=None, names=["file_name", "text"])
+    
+    # Normalize apostrophes in the text column
+    df['text'] = df['text'].apply(normalize_apostrophes)
+    
     # File extensions and add paths
     df['file_name'] = df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
     df['file_path'] = df['file_name'].apply(lambda x: os.path.join(image_dir, x))
+    
     # Sample fraction
     df = df.sample(frac=fraction, random_state=42).reset_index(drop=True)
-
+    
     if split:
         train_df, test_df = train_test_split(df, test_size=test_size, random_state=42)
         return train_df.reset_index(drop=True), test_df.reset_index(drop=True)
+    
     return None, df.reset_index(drop=True)
 
+
 def create_dataset(dataframe, root_dir, processor, dataset_class):
-    """
-    Creates a dataset instance using the provided dataframe.
-    """
     return dataset_class(root_dir=root_dir, processor=processor, df=dataframe)
 
 def pil_image_to_bytes(image):
-    """
-        Convert input image map into byte array
-    """
     img_byte_arr = BytesIO()
     image.save(img_byte_arr, format='PNG')
     img_byte_arr = img_byte_arr.getvalue()
@@ -146,3 +147,19 @@ def format_lr(lr):
     else:
         return f"{lr}".replace('.', 'p')
     
+def custom_decode(token_ids, tokenizer, token_to_char_map, logger):
+        decoded_chars = []
+        for token_id in token_ids:
+            # Skip padding and special tokens explicitly
+            if token_id in [tokenizer.pad_token_id, tokenizer.bos_token_id, tokenizer.eos_token_id]:
+                continue
+            # Use manual mapping if available
+            if token_id in token_to_char_map:
+                decoded_chars.append(token_to_char_map[token_id])
+            else:
+                # Log unmapped tokens
+                # logger.warning(f"Failed to decode token ID {token_id} using fallback decode.")
+                decoded_char = tokenizer.decode([token_id], skip_special_tokens=False)
+                decoded_chars.append(decoded_char if decoded_char != "�" else f"[UNK-{token_id}]")
+        return ''.join(decoded_chars)
+

@@ -10,18 +10,33 @@ from datetime import datetime
 from transformers import TrOCRProcessor
 from transformers import logging
 from transformers import VisionEncoderDecoderModel
+from transformers import AutoImageProcessor, AutoTokenizer
 logging.set_verbosity_error()  # Only errors will be printed
 from transformers import GenerationConfig
+from transformers import AutoModel
 from torch.utils.data import DataLoader
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch.optim import AdamW
 import logging
 from logging import FileHandler, StreamHandler, Formatter
 import util
+from util import custom_decode
+import models
 from dataset import OCRDataset, IAMDataset
 import argparse
 import random
 import numpy as np
+
+# TODO: 
+# - print top N number of wrong predicted characters to adapt dataset
+# - implement IAM dataset loading
+# - add requirements.txt
+# - rename/restructure output
+# - add train-val-test split, with test iterations
+#   - chose ANBPR subset as testset
+# - implement custom transformer stack
+#   - Encoder: Romanian BERT?
+#   - Decoder: 
 
 def set_seed(seed: int):
     random.seed(seed)
@@ -34,17 +49,20 @@ def set_seed(seed: int):
 
 def parse_args():
     parser = argparse.ArgumentParser('TrOCR Training')
-    parser.add_argument('--data', type=str, help='Search keyword(s) (required)', required=True)
-    parser.add_argument('--output', type=str, default='output', help='Search keyword(s) (required)')
+    parser.add_argument('data', type=str, help='Search keyword(s) (required)')
+    parser.add_argument('--output', type=str, default='data/output', help='Search keyword(s) (required)')
     parser.add_argument('--checkpoint', type=str, default=None, 
                         help='Path to checkpoint to resume training from')
-    parser.add_argument('--model', default='microsoft/trocr-base-handwritten', 
+    parser.add_argument('--model', default='microsoft/trocr-large-handwritten', 
                         choices=['microsoft/trocr-base-stage1', 'microsoft/trocr-large-stage1', 
-                        'microsoft/trocr-base-handwritten'], help='Select the model to use.')
+                        'microsoft/trocr-base-handwritten', 'microsoft/trocr-large-handwritten', 
+                        'custom'], help='Select the model to use.')
+    parser.add_argument('--dataset', default='custom', choices=['IAM', 'custom'], help='Select the dataset to use. \
+                        For choice \'custom\' refer to dataset.OCRDataset')
     parser.add_argument('--epochs', type=int, default=10, help='Epochs to train')
     parser.add_argument('--batchsize', type=int, default=4, help='Batchsize of DataLoader')
     parser.add_argument('--val_iters', type=int, default=1, help='Number of epochs to eval at')
-    parser.add_argument('--lr', type=float, default=4e-5, help='Learning rate of update step')
+    parser.add_argument('--lr', type=float, default=1e-6, help='Learning rate of update step')
     parser.add_argument('--lr_patience', type=int, default=2, help='Patience for lr scheduler')
     parser.add_argument('--num_samples', type=float, default=10, 
                         help='Number of printed sample predictions')
@@ -55,15 +73,27 @@ if __name__ == '__main__':
     set_seed(SEED)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     args = parse_args()
-
+    
+    """File Structure"""
     datapath = args.data
+
+    # Select/Create output directory
     base_output_dir = args.output
     os.makedirs(base_output_dir, exist_ok=True)
+
+    # Extract dataset and model names
+    dataset_name = os.path.basename(os.path.normpath(datapath))
+    model_name = os.path.basename(os.path.normpath(args.model))
+
+    # Create nested directories: base_output_dir/dataset_name/model_name
+    nested_output_dir = os.path.join(base_output_dir, dataset_name, model_name)
+    os.makedirs(nested_output_dir, exist_ok=True)
+
+    # Final output directory with timestamp and other formatting
     timestamp = time.strftime("%m%d")
     formatted_lr = util.format_lr(args.lr)
-    dataset_name = os.path.basename(os.path.normpath(datapath))
-    output_dir_name = f"{dataset_name}_e{args.epochs}_lr{formatted_lr}_b{args.batchsize}_{timestamp}"
-    output_dir = os.path.join(base_output_dir, output_dir_name)
+    output_dir_name = f"e{args.epochs}_lr{formatted_lr}_b{args.batchsize}_{timestamp}"
+    output_dir = os.path.join(nested_output_dir, output_dir_name)
     os.makedirs(output_dir, exist_ok=True)
 
     """Logging"""
@@ -77,18 +107,31 @@ if __name__ == '__main__':
     file_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
     logger.addHandler(file_handler)
-
     logger.info("Initializing Logging")
 
     """Data Processing"""
-    custom = True # use custom dataset
+    datasets = ['custom', 'IAM']
+    ocrdataset = True # use custom dataset, False==IAM (not implemented) TODO make list of choices
     change_eval = False # use different val dataset, instead of splitting
-    evalpath = 'data/balcesu_test'
-    processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten") # for data processing
-    fraction = 1.0 # fraction of train dataset used
-    eval_fraction = 0.25
 
-    if custom:
+    # Path for separate evaluation set, used if change_eval is True
+    evalpath = 'data/training/balcesu_test'
+
+    # Choose fraction of loaded data
+    # default is 1.0=100%
+    fraction = .01
+    eval_fraction = .1
+
+    # Load data processors
+    if args.model != 'custom':
+        processor = TrOCRProcessor.from_pretrained(args.model)
+    else:
+        image_processor = AutoImageProcessor.from_pretrained("microsoft/swin-base-patch4-window7-224")
+        tokenizer = AutoTokenizer.from_pretrained("dumitrescustefan/bert-base-romanian-cased-v1")
+        processor = models.CustomProcessor(image_processor, tokenizer)
+
+    # Crate datasets
+    if ocrdataset:
         train_file = os.path.join(datapath, "labels.txt")
         train_df, test_df = util.process_data(train_file, os.path.join(datapath, "images"), fraction=fraction)
         train_dataset = util.create_dataset(train_df, datapath, processor, OCRDataset)
@@ -121,15 +164,51 @@ if __name__ == '__main__':
     eval_dataloader = DataLoader(eval_dataset, batch_size=args.batchsize)
 
     """Model Initialization"""
-    logger.info(f"Model '{args.model}' selected.")
-    model = VisionEncoderDecoderModel.from_pretrained(args.model)
+    if args.model != 'custom':
+        # Use Pretrained huggingface model
+        # Please refer to microsoft's model hub on hf
+        logger.info(f"Model '{args.model}' selected.")
+        model = VisionEncoderDecoderModel.from_pretrained(args.model)
+    else:
+        # Debug fix remaining errors
+        # Use Custom encoder
+        logger.info(f"Custom model selected.")
+        # Vision Encoder (from VisionEncoderDecoderModel)
+        vision_encoder = AutoModel.from_pretrained("microsoft/swin-base-patch4-window7-224")
+        # Text Encoder
+        text_encoder = models.CustomEncoder(pretrained_bert_model='dumitrescustefan/bert-base-romanian-cased-v1')
+        # Text Decoder
+        vocab_size = len(processor.tokenizer)
+        hidden_size = text_encoder.encoder.config.hidden_size
+        text_decoder = models.CustomDecoder(vocab_size, hidden_size)
+        # Initialize combined model
+        model = models.CustomVisionEncoderDecoderModel(vision_encoder, text_encoder, text_decoder, vocab_size)
     model.to(device)
 
-    # Add additional tokens
+    """Tokenization"""
+    # Define manual mapping for special characters
     special_chars = ["ă", "â", "î", "ș", "ț", "Ă", "Â", "Î", "Ș", "Ț"]
     processor.tokenizer.add_tokens(special_chars, special_tokens=False)
     model.decoder.resize_token_embeddings(len(processor.tokenizer))
 
+    char_to_token_map = {}
+    token_to_char_map = {}
+
+    for char in special_chars:
+        token_id = processor.tokenizer.convert_tokens_to_ids(char)
+        char_to_token_map[char] = token_id
+        token_to_char_map[token_id] = char
+
+    # Verify the mappings
+    for char in special_chars:
+        token_id = char_to_token_map[char]
+        decoded_char = processor.tokenizer.decode([token_id], skip_special_tokens=False)
+        if decoded_char != char:
+            logger.error(f"Decoder Mapping Error: '{char}' -> Token ID {token_id} -> Decoded as '{decoded_char}'")
+        else:
+            logger.info(f"Decoder Mapping Success: '{char}' -> Token ID {token_id} -> Decoded as '{decoded_char}'")
+
+    """Model Config"""
     # Set special tokens for training and ensure model config consistency
     model.config.decoder_start_token_id = processor.tokenizer.bos_token_id  # 0 <s>
     model.config.eos_token_id = processor.tokenizer.eos_token_id            # 2 </s>
@@ -140,11 +219,11 @@ if __name__ == '__main__':
         eos_token_id=model.config.eos_token_id,
         decoder_start_token_id=model.config.decoder_start_token_id,
         pad_token_id=model.config.pad_token_id,
-        max_length=105,
+        max_length=105, # 105
         early_stopping=True,
         no_repeat_ngram_size=3,
         length_penalty=2.0,
-        num_beams=4,
+        num_beams=4, # 4
     )
     model.generation_config = generation_config
 
@@ -207,15 +286,14 @@ if __name__ == '__main__':
 
             with torch.no_grad():
                 for batch in tqdm(eval_dataloader, dynamic_ncols=True):
+
                     pixel_values = batch["pixel_values"].to(device)
                     labels = batch["labels"].to(device)
 
-                    # Compute validation loss
                     val_outputs = model(pixel_values=pixel_values, labels=labels)
                     val_loss = val_outputs.loss.item()
                     total_val_loss += val_loss
 
-                    # Generate predictions with scores
                     generation_outputs = model.generate(
                         pixel_values, 
                         output_scores=True, 
@@ -224,11 +302,18 @@ if __name__ == '__main__':
 
                     pred_ids = generation_outputs.sequences
                     scores_list = generation_outputs.scores  # List of logits for each generated token step
+                    
+                     # Normalize and decode
+                    labels_adj = labels.clone()
+                    labels_adj[labels_adj == -100] = processor.tokenizer.pad_token_id
+                    # Use custom_decode instead of processor.decode
+                    label_str = [custom_decode(label.tolist(), processor.tokenizer, token_to_char_map, logger) for label in labels_adj]
+                    pred_str = [custom_decode(pred.tolist(), processor.tokenizer, token_to_char_map, logger) for pred in pred_ids]
+                    # Alternatively: use processor decoder
+                    # label_str = processor.batch_decode(labels_adj, skip_special_tokens=True)
+                    # pred_str = processor.batch_decode(pred_ids, skip_special_tokens=True)
 
-                    cer, wer, acc, char_acc, lev_dist = util.compute_metrics(
-                        pred_ids=pred_ids, label_ids=labels, processor=processor
-                    )
-
+                    cer, wer, acc, char_acc, lev_dist = util.compute_metrics(pred_str, label_str)
                     total_cer += cer
                     total_wer += wer
                     total_acc += acc
@@ -238,12 +323,6 @@ if __name__ == '__main__':
 
                     # Collect samples until we reach num_samples
                     if len(sample_preds) < args.num_samples:
-                        pred_str = processor.batch_decode(pred_ids, skip_special_tokens=True)
-
-                        labels_adj = labels.clone()
-                        labels_adj[labels_adj == -100] = processor.tokenizer.pad_token_id
-                        label_str = processor.batch_decode(labels_adj, skip_special_tokens=True)
-
                         batch_size = pred_ids.size(0)
                         seq_len = pred_ids.size(1)
                         sample_needed = args.num_samples - len(sample_preds)

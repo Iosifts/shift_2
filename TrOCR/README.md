@@ -4,16 +4,19 @@ This repo contains python scripts for training, inference, and data generation f
 
 ## Training:
 
-See script train.py.
+You can download a dataset from here: https://drive.google.com/drive/folders/1Cm01jChTA63NOoM_9WkMBLkBy8XkxSAB?usp=drive_link \
+Place the dataset in data/training and run the following
+command to start the training. For hyperparameter tuning
+check out the train.py script.
 
 ### Usage Example:
 To run the Training, use the following command:
 ```sh
-python train.py --data data/training/oscar 
+python train.py data/training/oscar_v1.12_5k
 ```
 
 ## Inference:
-To run Inference, use the following command:
+To run Inference on an image or .pdf using an existing huggingface or pytorch checkpoint, use the following command:
 
 ```sh
 python inference.py Balcescu.png output/output_dir_with_checkpoint/best_checkpoint_char_acc.pt
@@ -23,9 +26,11 @@ The first parameter should be an image or .pdf. the second parameter points to a
 
 ## Generator:
 
-The generator is a script relying on trdg package that generates images from a text file for Optical Character Recognition (OCR) training
+The generator is a script relying on trdg package that generates images from a text file for Optical Character Recognition (OCR) training.
 
 ### Setup
+
+Requires python 3.6 or lower, trdg package is not updated.
 
 Backgrounds: 
 - To use different backgrounds need to be added to each environments trdg/generators/images folder
@@ -45,7 +50,7 @@ Fonts:
 To run the script, use the following command:
 
 ```sh
-python generator.py path/to/input.txt path/to/output_dir --bytes_to_read 100000 --chunk_count 1 --chunk_length 100
+python generator.py path/to/input.txt path/to/output_dir --bytes_to_read 1000 --chunk_count 1 --chunk_length 100
 ```
 Reads 10^{6} characters = 1 MB of text.\
 Creates 10^{6} / (chunk_count * chunk_length) images.
