@@ -37,6 +37,8 @@ import numpy as np
 # - implement custom transformer stack
 #   - Encoder: Romanian BERT?
 #   - Decoder: 
+# - add naming to outdir
+
 
 def set_seed(seed: int):
     random.seed(seed)
@@ -111,16 +113,19 @@ if __name__ == '__main__':
 
     """Data Processing"""
     datasets = ['custom', 'IAM']
+    evalpath = 'data/training/balcesu_test'
+
     ocrdataset = True # use custom dataset, False==IAM (not implemented) TODO make list of choices
     change_eval = False # use different val dataset, instead of splitting
-
-    # Path for separate evaluation set, used if change_eval is True
-    evalpath = 'data/training/balcesu_test'
+    if change_eval:
+        logger.info(f"Use different eval set at {evalpath}")
+    else:
+        logger.info("Use Train-val datasplit")
 
     # Choose fraction of loaded data
     # default is 1.0=100%
-    fraction = .01
-    eval_fraction = .1
+    fraction = 1.0
+    eval_fraction = 1.0
 
     # Load data processors
     if args.model != 'custom':
@@ -219,11 +224,11 @@ if __name__ == '__main__':
         eos_token_id=model.config.eos_token_id,
         decoder_start_token_id=model.config.decoder_start_token_id,
         pad_token_id=model.config.pad_token_id,
-        max_length=105, # 105
+        max_length=64, # 105
         early_stopping=True,
         no_repeat_ngram_size=3,
-        length_penalty=2.0,
-        num_beams=4, # 4
+        length_penalty=1.5, # preference for shorter or longer
+        num_beams=6, # 4
     )
     model.generation_config = generation_config
 

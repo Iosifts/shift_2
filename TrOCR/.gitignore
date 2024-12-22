@@ -8,10 +8,11 @@ data/training/*
 # !data/output/.gitkeep
 data/output/*.pt
 data/output/*.safetensors
-data/output/*.json
 data/output/*.txt
 # Keep .log files explicitly
 !data/output/*.log
+!data/output/*.pdf
+!data/output/*.json
 
 data/inference/*
 !data/inference/.gitkeep

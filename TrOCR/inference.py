@@ -178,6 +178,8 @@ if __name__ == '__main__':
         with open(image_path, 'rb') as file:
             file_bytes = file.read()
 
+    model = "microsoft/trocr-large-handwritten"
+
     # Checkpoint loading
     if hf_or_pt_path is None:
         raise ValueError("No Hugging Face model or checkpoint provided.")
@@ -187,9 +189,9 @@ if __name__ == '__main__':
         model = VisionEncoderDecoderModel.from_pretrained(hf_or_pt_path).to(device)
     elif os.path.isfile(hf_or_pt_path) and hf_or_pt_path.endswith('.pt'):
         # Load a default Hugging Face model and update it with the checkpoint
-        print("Loading default Hugging Face model and updating with checkpoint...")
-        processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")  # Default model
-        model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-handwritten").to(device)
+        print(f"Loading .pt model {model} and updating with checkpoint...")
+        processor = TrOCRProcessor.from_pretrained(model)  # Default model
+        model = VisionEncoderDecoderModel.from_pretrained(model).to(device)
         # Add special tokens used during training
         special_chars = ["ă", "â", "î", "ș", "ț", "Ă", "Â", "Î", "Ș", "Ț"]
         processor.tokenizer.add_tokens(special_chars, special_tokens=False)
