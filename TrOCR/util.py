@@ -1,8 +1,10 @@
 from evaluate import load as load_metric
 import os
+import math
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from io import BytesIO
+import matplotlib.pyplot as plt
 
 cer_metric = load_metric("cer")
 wer_metric = load_metric("wer")
@@ -24,7 +26,7 @@ def levenshtein_distance(str1, str2):
     return dp[m][n]
 
 def compute_metrics(pred_str, label_str):
-
+    """Remove"""
     cer = cer_metric.compute(predictions=pred_str, references=label_str)
     wer = wer_metric.compute(predictions=pred_str, references=label_str)
     
@@ -102,44 +104,6 @@ def compute_all_metrics(predicted_text, reference_text):
         "WER": wer
     }
 
-def process_data(file_path, image_dir, fraction=1.0, split=True, test_size=0.2):
-    """
-    Reads, processes, and optionally splits the dataset.
-    """
-    def normalize_apostrophes(text):
-        text = text.replace("’", "'").replace("`", "'").replace("\u2019", "'")
-        text = text.replace("\u00A0", " ").strip()  # Replace non-breaking spaces with standard spaces
-        return text
-    
-    # Read data
-    df = pd.read_csv(file_path, encoding="utf-8", sep='\t', header=None, names=["file_name", "text"])
-    
-    # Normalize apostrophes in the text column
-    df['text'] = df['text'].apply(normalize_apostrophes)
-    
-    # File extensions and add paths
-    df['file_name'] = df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
-    df['file_path'] = df['file_name'].apply(lambda x: os.path.join(image_dir, x))
-    
-    # Sample fraction
-    df = df.sample(frac=fraction, random_state=42).reset_index(drop=True)
-    
-    if split:
-        train_df, test_df = train_test_split(df, test_size=test_size, random_state=42)
-        return train_df.reset_index(drop=True), test_df.reset_index(drop=True)
-    
-    return None, df.reset_index(drop=True)
-
-
-def create_dataset(dataframe, root_dir, processor, dataset_class):
-    return dataset_class(root_dir=root_dir, processor=processor, df=dataframe)
-
-def pil_image_to_bytes(image):
-    img_byte_arr = BytesIO()
-    image.save(img_byte_arr, format='PNG')
-    img_byte_arr = img_byte_arr.getvalue()
-    return img_byte_arr
-
 def format_lr(lr):
     if 'e' in f"{lr}":
         parts = f"{lr}".split('e')
@@ -163,3 +127,146 @@ def custom_decode(token_ids, tokenizer, token_to_char_map, logger):
                 decoded_chars.append(decoded_char if decoded_char != "�" else f"[UNK-{token_id}]")
         return ''.join(decoded_chars)
 
+def dynamic_decode(token_ids, tokenizer, token_to_char_map, 
+    logger, missing_tokens_freq, fallback_map=None
+):
+    if fallback_map is None:
+        fallback_map = {}
+
+    decoded_chars = []
+    for token_id in token_ids:
+        # Skip special/padding tokens
+        if token_id in [
+            tokenizer.pad_token_id, 
+            tokenizer.bos_token_id, 
+            tokenizer.eos_token_id
+        ]:
+            continue
+
+        if token_id in token_to_char_map:
+            # We have a direct mapping
+            decoded_chars.append(token_to_char_map[token_id])
+        else:
+            # Record that we missed this token
+            missing_tokens_freq[token_id] += 1
+
+            # Attempt a fallback decode (if you have a fallback map or partial logic)
+            decoded_str = tokenizer.decode([token_id], skip_special_tokens=False)
+            if decoded_str == "�":  # Replacement char
+                decoded_chars.append(f"[UNK-{token_id}]")
+            else:
+                # Optionally see if fallback_map can help
+                # e.g. if decoded_str in fallback_map -> use fallback_map[decoded_str]
+                replaced_str = decoded_str
+                for k, v in fallback_map.items():
+                    replaced_str = replaced_str.replace(k, v)
+
+                # If replaced_str is non-empty, use it
+                if replaced_str.strip():
+                    decoded_chars.append(replaced_str)
+                else:
+                    decoded_chars.append(f"[UNK-{token_id}]")
+
+    return ''.join(decoded_chars)
+
+
+def create_unique_directory(base_dir, dir_name):
+    full_path = os.path.join(base_dir, dir_name)
+    counter = 1
+    while os.path.exists(full_path):
+        full_path = os.path.join(base_dir, f"{dir_name}_{counter}")
+        counter += 1
+    os.makedirs(full_path, exist_ok=True)
+    return full_path
+
+def plot_metric(
+    train_data: list[tuple[int, float]], 
+    val_data: list[tuple[int, float]],
+    test_data: list[tuple[int, float]],    # <--- new param
+    metric_name: str, 
+    output_dir: str, 
+    logger,
+    show_epoch: bool = False,
+    iters_per_epoch: int = None
+):
+    """
+    train_data / val_data / test_data: Lists of (iteration_step, metric_value)
+      e.g. [(0, 11.2), (1, 10.5), (2, 9.8), ...]
+      
+    metric_name: e.g. "loss", "wer", "char_acc"
+    output_dir: directory to save the plot (pdf)
+    logger: your logging instance
+    
+    show_epoch: if True, label & tick x-axis in epochs instead of raw iterations
+    iters_per_epoch: integer # of iterations (batches) per epoch (e.g. 121).
+                     Used only if show_epoch=True.
+    """
+    # If everything is empty, do nothing.
+    if not train_data and not val_data and not test_data:
+        return
+
+    plt.figure(figsize=(10, 6))
+
+    # -------------------------
+    #  PLOT THE LINES
+    # -------------------------
+    # Plot TRAIN
+    if train_data:
+        x_steps_train, y_values_train = zip(*train_data)
+        plt.plot(x_steps_train, y_values_train, label=f"Train {metric_name}", color='blue')
+    # Plot VAL
+    if val_data:
+        x_steps_val, y_values_val = zip(*val_data)
+        plt.plot(x_steps_val, y_values_val, label=f"Val {metric_name}", color='orange')
+    # Plot TEST
+    if test_data:
+        x_steps_test, y_values_test = zip(*test_data)
+        plt.plot(x_steps_test, y_values_test, label=f"Test {metric_name}", color='green')
+
+    # -------------------------
+    #  EPOCH MODE vs. ITER MODE
+    # -------------------------
+    if show_epoch and iters_per_epoch is not None and iters_per_epoch > 0:
+        # We'll display the X-axis ticks in units of epochs (0,1,2,3,...)
+        # but the actual data remain at raw iteration positions (0, 200, 400,...).
+        
+        # 1) Determine the maximum iteration among the three datasets.
+        max_iter = 0
+        if train_data:
+            max_iter = max(max_iter, max(x for x, _ in train_data))
+        if val_data:
+            max_iter = max(max_iter, max(x for x, _ in val_data))
+        if test_data:
+            max_iter = max(max_iter, max(x for x, _ in test_data))
+
+        # 2) Figure out how many total epochs that corresponds to (round up).
+        num_epochs = math.ceil(max_iter / iters_per_epoch)
+
+        # 3) Create tick positions = [0, iters_per_epoch, 2*iters_per_epoch, ...].
+        tick_positions = [epoch_idx * iters_per_epoch for epoch_idx in range(num_epochs + 1)]
+        tick_labels = list(range(num_epochs + 1))
+
+        # 4) Apply them
+        plt.xticks(tick_positions, tick_labels)
+        plt.xlabel("Epoch")
+        plt.title(f"{metric_name} vs. Epoch")
+    else:
+        # Default iteration-based labeling
+        plt.xlabel("Iteration")
+        plt.title(f"{metric_name} vs. Iteration")
+
+    # -------------------------
+    #  FINALIZE & SAVE
+    # -------------------------
+    plt.ylabel(metric_name)
+    plt.legend()
+    plt.grid(True)
+
+    # Decide naming convention for file
+    x_axis_label = "epoch" if show_epoch else "iteration"
+    save_name = f"{metric_name}_train_val_test_{x_axis_label}.pdf"
+    save_path = os.path.join(output_dir, save_name)
+
+    plt.savefig(save_path)
+    logger.info(f"Saved {metric_name} plot (Train, Val, Test) to {save_path}")
+    plt.close()

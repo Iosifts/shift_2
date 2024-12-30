@@ -1,5 +1,5 @@
 {
-  "_name_or_path": "microsoft/trocr-base-handwritten",
+  "_name_or_path": "microsoft/trocr-large-handwritten",
   "architectures": [
     "VisionEncoderDecoderModel"
   ],
@@ -16,7 +16,7 @@
     "bos_token_id": 0,
     "chunk_size_feed_forward": 0,
     "classifier_dropout": 0.0,
-    "cross_attention_hidden_size": 768,
+    "cross_attention_hidden_size": 1024,
     "d_model": 1024,
     "decoder_attention_heads": 16,
     "decoder_ffn_dim": 4096,
@@ -109,14 +109,14 @@
     "forced_eos_token_id": null,
     "hidden_act": "gelu",
     "hidden_dropout_prob": 0.0,
-    "hidden_size": 768,
+    "hidden_size": 1024,
     "id2label": {
       "0": "LABEL_0",
       "1": "LABEL_1"
     },
     "image_size": 384,
     "initializer_range": 0.02,
-    "intermediate_size": 3072,
+    "intermediate_size": 4096,
     "is_decoder": false,
     "is_encoder_decoder": false,
     "label2id": {
@@ -129,11 +129,11 @@
     "min_length": 0,
     "model_type": "vit",
     "no_repeat_ngram_size": 0,
-    "num_attention_heads": 12,
+    "num_attention_heads": 16,
     "num_beam_groups": 1,
     "num_beams": 1,
     "num_channels": 3,
-    "num_hidden_layers": 12,
+    "num_hidden_layers": 24,
     "num_return_sequences": 1,
     "output_attentions": false,
     "output_hidden_states": false,
@@ -167,7 +167,6 @@
   "is_encoder_decoder": true,
   "model_type": "vision-encoder-decoder",
   "pad_token_id": 1,
-  "processor_class": "TrOCRProcessor",
   "tie_word_embeddings": false,
   "torch_dtype": "float32",
   "transformers_version": "4.47.0",

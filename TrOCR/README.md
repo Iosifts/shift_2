@@ -1,10 +1,53 @@
-# TrOCR Trainer
+# Transformer-Based OCR
 
-This repo contains python scripts for training, inference, and data generation for Transformer-based Optical Character Recognition (OCR).
+<div align="center">
+  <img src="data/logo.png" alt="Transformer-Based OCR Logo" width="800"/>
+</div>
 
-## Training:
+Welcome to the **Transformer-Based OCR** repository! This project leverages state-of-the-art transformer architectures to accurately recognize and extract text from images and documents. With a focus on adaptability, scalability, and precision, this model is ideal for applications like document digitization, handwriting recognition, and more.
 
-You can download a dataset from here: https://drive.google.com/drive/folders/1Cm01jChTA63NOoM_9WkMBLkBy8XkxSAB?usp=drive_link \
+---
+
+## 🛠️ Installation
+
+Clone the repository and install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## 📂 Data Structure
+
+You can download a romanian language dataset from here to test: https://drive.google.com/drive/folders/1Cm01jChTA63NOoM_9WkMBLkBy8XkxSAB?usp=drive_link \
+This repository assumes the following structure of dataset:
+```bash
+> tree dataset_name
+dataset_name
+├── images
+│   ├── image0.png
+│   ├── image1.png
+│   ├── image2.png
+│             .
+│             .
+├── labels.txt
+
+> cat labels.txt
+image0.png	12
+image1.png	Abia
+image2.png	astăzi
+image3.png	însă,
+image4.png	două-zeci
+image5.png	și
+image6.png	cinci
+image7.png	de
+image8.png	ani
+image9.png	după
+     .
+     .
+```
+
+## 🧪 Training
+
 Place the dataset in data/training and run the following
 command to start the training. For hyperparameter tuning
 check out the train.py script.
@@ -12,8 +55,84 @@ check out the train.py script.
 ### Usage Example:
 To run the Training, use the following command:
 ```sh
-python train.py data/training/oscar_v1.12_5k
+python train.py data/training/oscar_v1.12_5k --epochs 5
 ```
+
+To continue training from checkpoint:
+```sh
+python train.py data/training/oscar_v1.12_5k --checkpoint data\output\oscar_v1.12_5k\trocr-large-handwritten\e20_lr1e-06_b4_1222\best_checkpoint.pt --epochs 20
+```
+
+To use different model
+```sh
+python train.py data/training/oscar_v1.12_5k --epochs 5 --model naver-clova-ix/donut-base
+```
+
+## Arguments for `train.py`
+
+Below is a detailed explanation of all arguments available in the `train.py` script:
+
+### Positional Arguments
+- **`data`** *(str)*:  
+  Path to the directory containing labeled image data for training. This is a required argument.
+
+### Optional Arguments
+- **`--evaldata`** *(str)*:  
+  Path to the directory containing labeled image data for evaluation.  
+  Default: `data/training/balcesu_test`.
+
+- **`--output`** *(str)*:  
+  Directory where checkpoints, logs, and other outputs will be saved.  
+  Default: `data/output`.
+
+- **`--checkpoint`** *(str)*:  
+  Path to an existing checkpoint `.pt` file to resume training from. If not provided, training starts from scratch.  
+  Default: `None`.
+
+- **`--model`** *(str)*:  
+  Specifies the pre-trained model to use. Available options are:
+  - `microsoft/trocr-base-stage1`
+  - `microsoft/trocr-large-stage1`
+  - `microsoft/trocr-base-handwritten`
+  - `microsoft/trocr-large-handwritten`
+  - `custom` (For custom models)  
+  Default: `microsoft/trocr-large-handwritten`.
+
+- **`--dataset`** *(str)*:  
+  Specifies the dataset type. Available options are:
+  - `IAM`
+  - `custom` (For custom datasets, refer to `dataset.OCRDataset`)  
+  Default: `custom`.
+
+- **`--epochs`** *(int)*:  
+  Number of epochs to train the model.  
+  Default: `5`.
+
+- **`--batchsize`** *(int)*:  
+  Batch size for the DataLoader.  
+  Default: `4`.
+
+- **`--val_iters`** *(int)*:  
+  Specifies how frequently (in epochs) the evaluation is performed during training.  
+  Default: `1`.
+
+- **`--lr`** *(float)*:  
+  Learning rate for the optimizer during the update step.  
+  Default: `1e-6`.
+
+- **`--lr_patience`** *(int)*:  
+  Number of epochs to wait before reducing the learning rate if no improvement is observed.  
+  Default: `2`.
+
+- **`--num_samples`** *(float)*:  
+  Number of sample predictions to print during evaluation.  
+  Default: `10`.
+
+### Example Commands
+
+- **Start training a model:**
+  ```sh
+  python train.py data/training/oscar_v1.12_5k --epochs 5
 
 ## Inference:
 To run Inference on an image or .pdf using an existing huggingface or pytorch checkpoint, use the following command:
@@ -24,9 +143,10 @@ python inference.py Balcescu.png output/output_dir_with_checkpoint/best_checkpoi
 
 The first parameter should be an image or .pdf. the second parameter points to a directory with a checkpoint.
 
-## Generator:
+## 📦 Generator:
 
 The generator is a script relying on trdg package that generates images from a text file for Optical Character Recognition (OCR) training.
+The output of the generator script fits the data structure of the train.py script.
 
 ### Setup
 
@@ -35,7 +155,7 @@ Requires python 3.6 or lower, trdg package is not updated.
 Backgrounds: 
 - To use different backgrounds need to be added to each environments trdg/generators/images folder
 
-Fonts:
+Fonts: More than thousands of fonts can be used to inject more variance in the distribution of the dataset
 - The usage of Fonts may cause an AttributeError 'FreeTypeFont' to appear. To fix this bug in the trdg package, simply replace the following:             
 ```sh
 # modify trdg.utils.py:
@@ -75,7 +195,7 @@ dataset
     └── ...
 ```
 
-### References:
+## 👤 Acknowledgments:
 
 ### Image generation:
 - https://github.com/Belval/TextRecognitionDataGenerator
