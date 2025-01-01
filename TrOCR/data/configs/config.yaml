@@ -1,0 +1,27 @@
+# Training parameters
+epochs: 5
+batchsize: 4
+lr: 1e-6
+lr_patience: 2
+
+# Model configuration
+model: "microsoft/trocr-large-handwritten"
+dataset: "custom"
+
+# Special characters
+special_chars:
+  - "ă"
+  - "â"
+  - "î"
+  - "ș"
+  - "ț"
+  - "Ă"
+  - "Â"
+  - "Î"
+  - "Ș"
+  - "Ț"
+
+# Paths
+data: "data/datasets/oscar_v1.12_5k"
+output: "data/output"
+testdata: "data/datasets/balcesu_test"

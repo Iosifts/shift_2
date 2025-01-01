@@ -5,6 +5,12 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from io import BytesIO
 import matplotlib.pyplot as plt
+from collections import defaultdict
+import yaml
+from typing import Dict, Any
+import random
+import numpy as np
+import torch
 
 cer_metric = load_metric("cer")
 wer_metric = load_metric("wer")
@@ -182,12 +188,14 @@ def create_unique_directory(base_dir, dir_name):
 def plot_metric(
     train_data: list[tuple[int, float]], 
     val_data: list[tuple[int, float]],
-    test_data: list[tuple[int, float]],    # <--- new param
+    test_data: list[tuple[int, float]],
     metric_name: str, 
     output_dir: str, 
     logger,
     show_epoch: bool = False,
-    iters_per_epoch: int = None
+    iters_per_epoch: int = None,
+    use_log_scale: bool = False,
+    high_value_threshold: float = 10.0
 ):
     """
     train_data / val_data / test_data: Lists of (iteration_step, metric_value)
@@ -222,6 +230,25 @@ def plot_metric(
     if test_data:
         x_steps_test, y_values_test = zip(*test_data)
         plt.plot(x_steps_test, y_values_test, label=f"Test {metric_name}", color='green')
+
+    # -------------------------
+    #  Automatically decide on log scale?
+    # -------------------------
+    if use_log_scale:
+        # Force log scale
+        plt.yscale('log')
+    else:
+        # Or detect large values automatically
+        all_values = []
+        if train_data:
+            all_values.extend(v for _, v in train_data)
+        if val_data:
+            all_values.extend(v for _, v in val_data)
+        if test_data:
+            all_values.extend(v for _, v in test_data)
+
+        if all_values and max(all_values) > high_value_threshold:
+            plt.yscale('log')
 
     # -------------------------
     #  EPOCH MODE vs. ITER MODE
@@ -270,3 +297,17 @@ def plot_metric(
     plt.savefig(save_path)
     logger.info(f"Saved {metric_name} plot (Train, Val, Test) to {save_path}")
     plt.close()
+
+def set_seed(seed: int):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+
+def load_config(config_path: str) -> Dict[Any, Any]:
+    """Load YAML config file"""
+    with open(config_path, 'r', encoding='utf-8') as f:
+        return yaml.safe_load(f)

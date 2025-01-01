@@ -1,10 +1,6 @@
 # Transformer-Based OCR
 
-<div align="center">
-  <img src="data/logo.png" alt="Transformer-Based OCR Logo" width="800"/>
-</div>
-
-Welcome to the **Transformer-Based OCR** repository! This project leverages state-of-the-art transformer architectures to accurately recognize and extract text from images and documents. With a focus on adaptability, scalability, and precision, this model is ideal for applications like document digitization, handwriting recognition, and more.
+This repository offers a training pipeline for transformer-based text detection (OCR) models.
 
 ---
 
@@ -16,56 +12,54 @@ Clone the repository and install the required dependencies:
 pip install -r requirements.txt
 ```
 
-## 📂 Data Structure
+## 📂 Data
 
-You can download a romanian language dataset from here to test: https://drive.google.com/drive/folders/1Cm01jChTA63NOoM_9WkMBLkBy8XkxSAB?usp=drive_link \
-This repository assumes the following structure of dataset:
-```bash
-> tree dataset_name
-dataset_name
-├── images
-│   ├── image0.png
-│   ├── image1.png
-│   ├── image2.png
-│             .
-│             .
-├── labels.txt
+Currently two dataset formats are accepted - IAM words and any dataset 
+correctly fitting the custom dataset class.
 
-> cat labels.txt
-image0.png	12
-image1.png	Abia
-image2.png	astăzi
-image3.png	însă,
-image4.png	două-zeci
-image5.png	și
-image6.png	cinci
-image7.png	de
-image8.png	ani
-image9.png	după
-     .
-     .
-```
+1. Download the public benchmark dataset IAM words:
+https://www.kaggle.com/datasets/nibinv23/iam-handwriting-word-database
+
+2. Download an old document example dataset from google drive in romanian language:
+https://drive.google.com/drive/folders/1Cm01jChTA63NOoM_9WkMBLkBy8XkxSAB?usp=drive_link \
+This data was acquired and labeled using a synthetic neural network for handwritten
+text generation (see generator.py)
+
+Please refer to dataset.py for file structure
 
 ## 🧪 Training
 
-Place the dataset in data/training and run the following
+Place the dataset in data/datasets and run the following
 command to start the training. For hyperparameter tuning
 check out the train.py script.
 
 ### Usage Example:
+
 To run the Training, use the following command:
 ```sh
-python train.py data/training/oscar_v1.12_5k --epochs 5
+python train.py --data data/datasets/oscar_v1.12_5k --epochs 5
 ```
 
-To continue training from checkpoint:
+To use different dataset
 ```sh
-python train.py data/training/oscar_v1.12_5k --checkpoint data\output\oscar_v1.12_5k\trocr-large-handwritten\e20_lr1e-06_b4_1222\best_checkpoint.pt --epochs 20
+python train.py --data data/datasets/iam_words --epochs 5 --dataset IAM
 ```
 
 To use different model
 ```sh
-python train.py data/training/oscar_v1.12_5k --epochs 5 --model naver-clova-ix/donut-base
+python train.py --data data/datasets/oscar_v1.12_5k --epochs 5 --model naver-clova-ix/donut-base --batchsize 1
+
+python train.py --data data/datasets/oscar_v1.12_5k --epochs 5 --model facebook/nougat-base --batchsize 1
+```
+
+To continue training from checkpoint:
+```sh
+python train.py --data data/datasets/oscar_v1.12_5k --checkpoint data\output\oscar_v1.12_5k\trocr-large-handwritten\e20_lr1e-06_b4_1222\best_checkpoint.pt --epochs 20
+```
+
+And provide a config.yaml for easier handling:
+```sh
+python train.py --config data/configs/config.yaml
 ```
 
 ## Arguments for `train.py`
@@ -79,7 +73,7 @@ Below is a detailed explanation of all arguments available in the `train.py` scr
 ### Optional Arguments
 - **`--evaldata`** *(str)*:  
   Path to the directory containing labeled image data for evaluation.  
-  Default: `data/training/balcesu_test`.
+  Default: `data/datasets/balcesu_test`.
 
 - **`--output`** *(str)*:  
   Directory where checkpoints, logs, and other outputs will be saved.  
@@ -132,7 +126,7 @@ Below is a detailed explanation of all arguments available in the `train.py` scr
 
 - **Start training a model:**
   ```sh
-  python train.py data/training/oscar_v1.12_5k --epochs 5
+  python train.py data/datasets/oscar_v1.12_5k --epochs 5
 
 ## Inference:
 To run Inference on an image or .pdf using an existing huggingface or pytorch checkpoint, use the following command:
@@ -150,7 +144,7 @@ The output of the generator script fits the data structure of the train.py scrip
 
 ### Setup
 
-Requires python 3.6 or lower, trdg package is not updated.
+Requires python 3.6 or lower, trdg package is not updated. A separate execution environment is therefore recommended to run generator.py.
 
 Backgrounds: 
 - To use different backgrounds need to be added to each environments trdg/generators/images folder
@@ -172,14 +166,10 @@ To run the script, use the following command:
 ```sh
 python generator.py path/to/input.txt path/to/output_dir --bytes_to_read 1000 --chunk_count 1 --chunk_length 100
 ```
-Reads 10^{6} characters = 1 MB of text.\
-Creates 10^{6} / (chunk_count * chunk_length) images.
-Default: ~ 2 * 10^{3} images created. time: 10 minutes.
-
 - input_path: Path to the input text file.
 - output_dir: Directory to save the output images and labels.
 - --bytes_to_read: Number of bytes to read from the input file. Default is 1 GiB (1,073,741,824 bytes).
-- --chunk_count: Number of lines per image. It is refered to as chunks, since one page can have arbitrarily long lines of text. This can be fixated in the code about chunk lengths.
+- --chunk_count: Number of lines one the final output page. If 1, then just one string of text.
 - --chunk_length: Maximum length of each text line/chunk. 
 
 Output structure (running example):

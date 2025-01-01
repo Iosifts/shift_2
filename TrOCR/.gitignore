@@ -10,9 +10,9 @@ data/output/*.pt
 data/output/*.safetensors
 data/output/*.txt
 # Keep .log files explicitly
-!data/output/*.log.gitkeep
-!data/output/*.pdf.gitkeep
-!data/output/*.json.gitkeep
+!data/output/*.log
+!data/output/*.pdf
+!data/output/*.json
 
 data/inference/*
 !data/inference/.gitkeep
