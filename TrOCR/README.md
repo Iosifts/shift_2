@@ -14,16 +14,15 @@ pip install -r requirements.txt
 
 ## 📂 Data
 
-Currently two dataset formats are accepted - IAM words and any dataset 
-correctly fitting the custom dataset class.
+Currently three datasets are accepted:
 
-1. Download the public benchmark dataset IAM words:
+1. IAM words dataset:
 https://www.kaggle.com/datasets/nibinv23/iam-handwriting-word-database
 
-2. Download an old document example dataset from google drive in romanian language:
-https://drive.google.com/drive/folders/1Cm01jChTA63NOoM_9WkMBLkBy8XkxSAB?usp=drive_link \
-This data was acquired and labeled using a synthetic neural network for handwritten
-text generation (see generator.py)
+2. Custom old document example dataset from google drive in romanian language: https://drive.google.com/drive/folders/1Cm01jChTA63NOoM_9WkMBLkBy8XkxSAB?usp=drive_link \
+This data was acquired and labeled using a synthetic neural network for handwritten text generation (see generator.py)
+
+3. MNIST dataset
 
 Please refer to dataset.py for file structure
 
@@ -40,16 +39,18 @@ To run the Training, use the following command:
 python train.py --data data/datasets/oscar_v1.12_5k --epochs 5
 ```
 
-To use different dataset
+To use a different dataset
 ```sh
 python train.py --data data/datasets/iam_words --epochs 5 --dataset IAM
+# automatically downloads the dataset:
+python train.py --epochs 5 --dataset MNIST --fraction 0.01
 ```
 
-To use different model
+To use a different model
 ```sh
 python train.py --data data/datasets/oscar_v1.12_5k --epochs 5 --model naver-clova-ix/donut-base --batchsize 1
 
-python train.py --data data/datasets/oscar_v1.12_5k --epochs 5 --model facebook/nougat-base --batchsize 1
+python train.py --data data/datasets/oscar_v1.12_5k --epochs 20 --model facebook/nougat-base --batchsize 4
 ```
 
 To continue training from checkpoint:
@@ -57,7 +58,7 @@ To continue training from checkpoint:
 python train.py --data data/datasets/oscar_v1.12_5k --checkpoint data\output\oscar_v1.12_5k\trocr-large-handwritten\e20_lr1e-06_b4_1222\best_checkpoint.pt --epochs 20
 ```
 
-And provide a config.yaml for easier handling:
+Or provide a config.yaml to overwrite all args:
 ```sh
 python train.py --config data/configs/config.yaml
 ```

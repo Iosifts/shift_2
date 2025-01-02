@@ -1,51 +1,55 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
-import torch
-import time
-from tqdm import tqdm
-import matplotlib.pyplot as plt
 import os
-from PIL import Image
-from datetime import datetime
-from transformers import TrOCRProcessor
-from transformers import logging
-from transformers import VisionEncoderDecoderModel
-from transformers import DonutProcessor, AutoImageProcessor, AutoTokenizer
-logging.set_verbosity_error()  # Only errors will be printed
-from transformers import GenerationConfig
-from transformers import AutoModel
+import time
+import logging
+from logging import FileHandler, StreamHandler, Formatter
+import argparse
+import torch
 from torch.utils.data import DataLoader
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch.optim import AdamW
-import logging
-from logging import FileHandler, StreamHandler, Formatter
+from tqdm import tqdm
+# from transformers import logging
+# logging.set_verbosity_error()
 import util
-from util import custom_decode, plot_metric, set_seed, load_config
-import models
-from models import get_processor_and_model, train_step, generate_step, get_model_specific_config
 import dataset
-from dataset import OCRDataset, IAMDataset
-import argparse
-import random
-import numpy as np
+from util import plot_metric, set_seed, load_config
+from models import (
+    get_processor_and_model,
+    train_step,
+    generate_step,
+    get_model_specific_config
+)
 from collections import defaultdict
-import yaml
-from typing import Dict, Any
 missing_tokens_freq = defaultdict(int)
 
 def parse_args():
     parser = argparse.ArgumentParser('TrOCR Training')
-    # Overwrite following args with config.yaml
+
+    # Overwrite args with config.yaml
     parser.add_argument('--config', type=str, default=None,
         help='Path to YAML config file that overrides command line arguments')
+    
+    # Data Parameters
     parser.add_argument('--data', type=str, 
         help='Directory containing labeled image data')
-    parser.add_argument('--testdata', type=str, default='data/datasets/balcesu_test',
-        help='Directory containing labeled image data to replace test split distribution')
+    parser.add_argument('--fraction', type=float, default=1.0, 
+        help='Fraction of dataset used for train-val-test split')
+    parser.add_argument('--dataset', default='custom', choices=[
+            'IAM', 
+            'MNIST',
+            'custom'
+        ],
+        help='Select the dataset to use. For choice \'custom\' refer to dataset.OCRDataset')
     parser.add_argument('--output', type=str, default='data/output', 
         help='Directory in which to store checkpoints, logs, etc.')
     parser.add_argument('--checkpoint', type=str, default=None, 
         help='Path to checkpoint (.pt currently)')
+    parser.add_argument('--testdata', type=str, default=None,
+        help='Directory (of OCRDataset currently) containing labeled image data to replace test split distribution')
+    parser.add_argument('--test_frac', type=float, default=1.0, 
+        help='Fraction of dataset used for test split')
+
+    # Model Parameters
     parser.add_argument('--model', default='microsoft/trocr-large-handwritten', choices=[
             # TrOCR models
             'microsoft/trocr-base-stage1', 
@@ -68,11 +72,10 @@ def parse_args():
             'custom'
         ], 
         help='Select the model to use.')
-    parser.add_argument('--dataset', default='custom', choices=[
-            'IAM', 
-            'custom'
-        ],
-        help='Select the dataset to use. For choice \'custom\' refer to dataset.OCRDataset')
+    parser.add_argument('--special_chars', nargs='+', default=["ă", "â", "î", "ș", "ț", "Ă", "Â", "Î", "Ș", "Ț"],
+        help='List of special characters to add to tokenizer')
+    
+    # Training parameters
     parser.add_argument('--epochs', type=int, default=5, 
         help='Epochs to train')
     parser.add_argument('--batchsize', type=int, default=4, 
@@ -88,17 +91,20 @@ def parse_args():
     parser.add_argument('--num_samples', type=float, default=10, 
         help='Number of printed sample predictions')
     parser.add_argument('--seed', type=int, default=42, 
-        help='Patience for lr scheduler')
-    parser.add_argument('--special_chars', nargs='+', default=["ă", "â", "î", "ș", "ț", "Ă", "Â", "Î", "Ș", "Ț"],
-        help='List of special characters to add to tokenizer')
+        help='Seed for randomized arguments for reproducability')
     
+    # Naming parameters
+    parser.add_argument('--name_timestamp', type=bool, default=False,
+        help='Append a timestamp to the outdir name')
+
     args = parser.parse_args()
 
+    # Overwrite args with config if given
     if args.config is not None:
         config = load_config(args.config)
         args_dict = vars(args)
         for key, value in config.items():
-            if value is not None:  # Override if value is provided
+            if value is not None:
                 args_dict[key] = value
 
     return args
@@ -124,25 +130,33 @@ def create_logger(output_dir):
 def train():
     args = parse_args()
     set_seed(args.seed)
-    fraction = 0.05 # fraction of train data used 
-    test_frac = 0.5
-    change_test = True
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # Extract and create paths
+
+    """I/O Handling"""
     datapath = args.data
+
+    # Handle automatic dataset download
+    if datapath is None and args.dataset in ['MNIST']:
+        mnist_dir = os.path.join('data', 'datasets', args.dataset)
+        os.makedirs(mnist_dir, exist_ok=True)
+        datapath = mnist_dir
+        args.data = datapath
+
     base_output_dir = args.output
     os.makedirs(base_output_dir, exist_ok=True)
     dataset_name = os.path.basename(os.path.normpath(datapath))
     model_name = os.path.basename(os.path.normpath(args.model))
     nested_output_dir = os.path.join(base_output_dir, dataset_name, model_name)
     os.makedirs(nested_output_dir, exist_ok=True)
+
     # Create outdir name
-    extraname = 'balcescu' if change_test else ''
+    testname = os.path.basename(os.path.normpath(args.testdata)) if args.testdata else ''
     timestamp = time.strftime("%m%d")
     formatted_lr = util.format_lr(args.lr)
     output_dir_name = f"e{args.epochs}_lr{formatted_lr}" + \
-        f"_b{args.batchsize}_fr{fraction}_tfr{test_frac}" + \
-        f"{extraname}"
+        f"_b{args.batchsize}_fr{args.fraction}_tfr{args.test_frac}" + \
+        f"{testname}"
     if args.checkpoint is not None:
         output_dir_name += f"_ckpt" 
     output_dir = util.create_unique_directory(nested_output_dir, output_dir_name)
@@ -159,7 +173,7 @@ def train():
     
     """Create dataset"""
     try:
-        datasets = dataset.create_dataset(args, processor, fraction, test_frac, logger)
+        datasets = dataset.create_dataset(args, processor, args.fraction, args.test_frac, logger)
         train_dataset = datasets['train']
         eval_dataset = datasets['eval']
         test_dataset = datasets['test']

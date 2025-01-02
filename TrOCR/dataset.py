@@ -7,12 +7,15 @@ from torch.utils.data import Dataset
 import torch
 from pathlib import Path
 import numpy as np
+from torchvision.datasets import MNIST
+from torchvision import transforms
 
 class OCRDataset(Dataset):
     """
     Dataset as created with the generator.py script.
     Examples can be found here: 
     https://drive.google.com/drive/folders/1ErvjszLBqVIrO7wnsVUc6zWv5CtPmgF_?usp=drive_link
+    ---------------------
     Assumes data in the following format:
     ---------------------
     dataroot
@@ -88,6 +91,39 @@ class OCRDataset(Dataset):
             "labels": torch.tensor(labels)
         }
     
+    @classmethod
+    def create_dataset(cls, datapath, processor, fraction, test_frac, args, logger):
+        """Create dataset from custom format with labels.txt file"""
+        train_file = os.path.join(datapath, "labels.txt")
+        df = pd.read_csv(train_file, sep='\t', header=None, names=["file_name", "text"])
+        df['file_name'] = df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
+        df['file_path'] = df['file_name'].apply(lambda x: os.path.join(datapath, "images", x))
+
+        df = df.sample(frac=fraction, random_state=args.seed).reset_index(drop=True)
+        train_df, remainder_df = train_test_split(df, test_size=0.4, random_state=args.seed)
+        eval_df, test_df = train_test_split(remainder_df, test_size=0.5, random_state=args.seed)
+        datasets = {
+            'train': OCRDataset(root_dir=datapath, processor=processor, df=train_df),
+            'eval': OCRDataset(root_dir=datapath, processor=processor, df=eval_df),
+            'test': OCRDataset(root_dir=datapath, processor=processor, df=test_df)
+        }
+        
+        if args.testdata:
+            logger.info(f"Replacing test set with data from {args.testdata}")
+            new_test_df = pd.read_csv(
+                os.path.join(args.testdata, "labels.txt"), 
+                sep='\t', header=None, 
+                names=["file_name", "text"]
+            )
+            new_test_df['file_name'] = new_test_df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
+            new_test_df['file_path'] = new_test_df['file_name'].apply(
+                lambda x: os.path.join(args.testdata, "images", x)
+            )
+            new_test_df = new_test_df.sample(frac=test_frac, random_state=args.seed).reset_index(drop=True)
+            datasets['test'] = OCRDataset(root_dir=args.testdata, processor=processor, df=new_test_df)
+        
+        return datasets
+    
     @staticmethod
     def _fix_file_extension(file_name):
         """
@@ -155,22 +191,10 @@ class IAMDataset(Dataset):
         return len(self.df)
 
     def __getitem__(self, idx):
-        # Get image path and text
         image_path = self.df.iloc[idx]['file_path']
         text = str(self.df.iloc[idx]['transcription'])
 
-        # Open/convert again (guaranteed to work for valid rows)
-        image = Image.open(image_path)
-        # (Optional) Debug prints:
-        # print(f"Original mode for {image_path}: {image.mode}")
-
-        image = image.convert("RGB")
-        # print(f"Converted mode for {image_path}: {image.mode}")
-
-        arr = np.array(image)
-        # print(f"Shape for {image_path}: {arr.shape}")
-
-        # Process the image using the processor
+        image = Image.open(image_path).convert("RGB")
         encoding = self.processor(
             image,
             text,
@@ -179,87 +203,156 @@ class IAMDataset(Dataset):
             max_length=self.max_target_length,
             truncation=True
         )
-        
         # Remove the batch dimension
         for k, v in encoding.items():
             encoding[k] = v.squeeze(dim=0)
             
         return encoding
+    
+    @classmethod
+    def create_dataset(cls, datapath, processor, fraction, test_frac, args, logger):
+        """Create dataset from IAM format"""             
+        labels_file = os.path.join(datapath, "words.txt")
+        try:
+            df = pd.read_csv(labels_file, sep='\s+', header=None, comment='#',
+                names=["word_id", "segmentation_status", "graylevel", "x", "y", 
+                    "width", "height", "grammatical_tag", "transcription"],
+                on_bad_lines='skip', engine='python')
+            logger.info(f"Dataset loaded successfully with {len(df)} entries.")
+        except Exception as e:
+            logger.error(f"Error reading dataset: {e}")
+            raise
 
-def create_custom_dataset(datapath, processor, fraction, test_frac, args, logger):
-    """Create dataset from custom format with labels.txt file"""
-    train_file = os.path.join(datapath, "labels.txt")
-    df = pd.read_csv(train_file, sep='\t', header=None, names=["file_name", "text"])
-    df['file_name'] = df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
-    df['file_path'] = df['file_name'].apply(lambda x: os.path.join(datapath, "images", x))
-    
-    # Split dataset
-    df = df.sample(frac=fraction, random_state=args.seed).reset_index(drop=True)
-    train_df, remainder_df = train_test_split(df, test_size=0.4, random_state=args.seed)
-    eval_df, test_df = train_test_split(remainder_df, test_size=0.5, random_state=args.seed)
-    
-    datasets = {
-        'train': OCRDataset(root_dir=datapath, processor=processor, df=train_df),
-        'eval': OCRDataset(root_dir=datapath, processor=processor, df=eval_df),
-        'test': OCRDataset(root_dir=datapath, processor=processor, df=test_df)
-    }
-    
-    # Optionally replace test set
-    if args.testdata:
-        logger.info(f"Replacing test set with data from {args.testdata}")
-        new_test_df = pd.read_csv(
-            os.path.join(args.testdata, "labels.txt"), 
-            sep='\t', header=None, 
-            names=["file_name", "text"]
+        df['file_path'] = df['word_id'].apply(
+            lambda x: os.path.join(datapath, "words",
+                x.split('-')[0],                # "a01"
+                x.split('-')[0] + "-" + x.split('-')[1],  # "a01-000u"
+                x + ".png"                      # "a01-000u-00-00.png"
+            )
         )
-        new_test_df['file_name'] = new_test_df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
-        new_test_df['file_path'] = new_test_df['file_name'].apply(
-            lambda x: os.path.join(args.testdata, "images", x)
-        )
-        new_test_df = df.sample(frac=test_frac, random_state=args.seed).reset_index(drop=True)
-        datasets['test'] = OCRDataset(root_dir=args.testdata, processor=processor, df=new_test_df)
-    
-    return datasets
+        df = validate_files(df, logger)
+        df = df.sample(frac=fraction, random_state=args.seed).reset_index(drop=True)
+        train_df, remainder_df = train_test_split(df, test_size=0.4, random_state=args.seed)
+        eval_df, test_df = train_test_split(remainder_df, test_size=0.5, random_state=args.seed)
+        
+        datasets = {
+            'train': IAMDataset(df=train_df, processor=processor, max_target_length=128),
+            'eval': IAMDataset(df=eval_df, processor=processor, max_target_length=128),
+            'test': IAMDataset(df=test_df, processor=processor, max_target_length=128)
+        }
+        
+        if args.testdata:
+            logger.info(f"Replacing test set with data from {args.testdata}")
+            new_test_df = pd.read_csv(
+                os.path.join(args.testdata, "labels.txt"), 
+                sep='\t', header=None, 
+                names=["file_name", "text"]
+            )
+            new_test_df['file_name'] = new_test_df['file_name'].apply(lambda x: x + 'g' if x.endswith('jp') else x)
+            new_test_df['file_path'] = new_test_df['file_name'].apply(
+                lambda x: os.path.join(args.testdata, "images", x)
+            )
+            # Rename 'text' column to match IAM dataset's 'transcription' column
+            new_test_df = new_test_df.rename(columns={'text': 'transcription'})
+            new_test_df = new_test_df.sample(frac=test_frac, random_state=args.seed).reset_index(drop=True)
+            datasets['test'] = IAMDataset(df=new_test_df, processor=processor, max_target_length=128)
+        
+        return datasets
 
-def create_iam_dataset(datapath, processor, fraction, args, logger):
-    """Create dataset from IAM format"""
-    labels_file = os.path.join(datapath, "words.txt")
-    try:
-        df = pd.read_csv(
-            labels_file, 
-            sep='\s+', 
-            header=None, 
-            comment='#',
-            names=["word_id", "segmentation_status", "graylevel", "x", "y", 
-                  "width", "height", "grammatical_tag", "transcription"],
-            on_bad_lines='skip', 
-            engine='python'
-        )
-        logger.info(f"Dataset loaded successfully with {len(df)} entries.")
-    except Exception as e:
-        logger.error(f"Error reading dataset: {e}")
-        raise
-    
-    # Create file paths and validate
-    df['file_path'] = df['word_id'].apply(
-        lambda x: os.path.join(datapath, "words",
-            x.split('-')[0],                # "a01"
-            x.split('-')[0] + "-" + x.split('-')[1],  # "a01-000u"
-            x + ".png"                      # "a01-000u-00-00.png"
-        )
-    )
-    df = validate_files(df, logger)
-    
-    # Split dataset
-    df = df.sample(frac=fraction, random_state=args.seed).reset_index(drop=True)
-    train_df, remainder_df = train_test_split(df, test_size=0.4, random_state=args.seed)
-    eval_df, test_df = train_test_split(remainder_df, test_size=0.5, random_state=args.seed)
-    
-    return {
-        'train': IAMDataset(df=train_df, processor=processor, max_target_length=128),
-        'eval': IAMDataset(df=eval_df, processor=processor, max_target_length=128),
-        'test': IAMDataset(df=test_df, processor=processor, max_target_length=128)
-    }
+class MNISTDataset(Dataset):
+    """
+    MNIST Dataset for OCR training.
+    Download and preprocessing is handled automatically.
+    """
+    def __init__(self, root_dir, processor, df=None, max_target_length=128):
+        from torchvision.datasets import MNIST
+        from torchvision import transforms
+        
+        self.processor = processor
+        self.max_target_length = max_target_length
+        self.df = df
+        
+        # Define transforms to convert to RGB (MNIST is grayscale)
+        self.transform = transforms.Compose([
+            transforms.Lambda(lambda x: x.convert('RGB')),
+            transforms.ToTensor(),
+            transforms.ToPILImage()  # Convert back to PIL for processor
+        ])
+        
+        self.mnist = MNIST(root_dir, train=True, download=True)
+
+    def __len__(self):
+        return len(self.df) if self.df is not None else len(self.mnist)
+
+    def __getitem__(self, idx):
+        if self.df is not None:
+            image_id = self.df.iloc[idx]['image_id']
+            label = self.df.iloc[idx]['transcription']
+            image, _ = self.mnist[image_id]
+        else:
+            image, label = self.mnist[idx]
+            label = str(label)
+        
+        # Convert to RGB and preprocess
+        image = self.transform(image)
+        pixel_values = self.processor(image, return_tensors="pt").pixel_values
+        
+        # Tokenize label
+        labels = self.processor.tokenizer(
+            text_target=label,
+            padding="max_length",
+            max_length=self.max_target_length,
+            truncation=True
+        ).input_ids
+        
+        # Replace padding token id with -100 for loss calculation
+        labels = [
+            label if label != self.processor.tokenizer.pad_token_id else -100 
+            for label in labels
+        ]
+
+        return {
+            "pixel_values": pixel_values.squeeze(),
+            "labels": torch.tensor(labels)
+        }
+
+    @classmethod
+    def create_dataset(cls, datapath, processor, fraction, test_frac, args, logger):
+        """Create MNIST dataset splits"""
+        
+        # Load the full dataset
+        mnist = MNIST(datapath, train=True, download=True)
+        
+        # Create a DataFrame similar to other datasets
+        df = pd.DataFrame({
+            'image_id': range(len(mnist)),
+            'transcription': [str(label) for _, label in mnist],
+        })
+        
+        # Split dataset
+        df = df.sample(frac=fraction, random_state=args.seed).reset_index(drop=True)
+        train_df, remainder_df = train_test_split(df, test_size=0.4, random_state=args.seed)
+        eval_df, test_df = train_test_split(remainder_df, test_size=0.5, random_state=args.seed)
+        
+        datasets = {
+            'train': MNISTDataset(datapath, processor, df=train_df),
+            'eval': MNISTDataset(datapath, processor, df=eval_df),
+            'test': MNISTDataset(datapath, processor, df=test_df)
+        }
+        
+        if args.testdata:
+            logger.info(f"Replacing test set with data from {args.testdata}")
+            new_test_df = pd.read_csv(
+                os.path.join(args.testdata, "labels.txt"), 
+                sep='\t', 
+                header=None, 
+                names=["file_name", "text"]
+            )
+            new_test_df = new_test_df.rename(columns={'text': 'transcription'})
+            new_test_df = new_test_df.sample(frac=test_frac, random_state=args.seed).reset_index(drop=True)
+            datasets['test'] = MNISTDataset(args.testdata, processor, df=new_test_df)
+        
+        return datasets
 
 def validate_files(df, logger):
     """Validate that all image files exist"""
@@ -272,20 +365,18 @@ def validate_files(df, logger):
         raise ValueError("Empty dataset after validation")
     return df
 
+
 def create_dataset(args, processor, fraction, test_frac, logger):
     """Factory function to create appropriate dataset"""
-    dataset_creators = {
-        'custom': create_custom_dataset,
-        'IAM': create_iam_dataset
+    dataset_classes = {
+        'custom': OCRDataset,
+        'IAM': IAMDataset,
+        'MNIST': MNISTDataset
     }
     
-    if args.dataset not in dataset_creators:
+    if args.dataset not in dataset_classes:
         raise ValueError(f"Dataset {args.dataset} not available")
     
-    creator = dataset_creators[args.dataset]
-    if args.dataset == 'custom':
-        return creator(args.data, processor, fraction, test_frac, args, logger)
-    else:
-        return creator(args.data, processor, fraction, args, logger)
-    
+    dataset_class = dataset_classes[args.dataset]
+    return dataset_class.create_dataset(args.data, processor, fraction, test_frac, args, logger)
 
