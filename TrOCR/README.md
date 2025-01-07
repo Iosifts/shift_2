@@ -1,200 +1,153 @@
+<div align="center">
+
 # Transformer-Based OCR
 
-This repository offers a training pipeline for transformer-based text detection (OCR) models.
+**A Framework for Training Transformer-Based Text Detection Models**
 
----
+[Key Features](#-key-features) •
+[Quick Start](#️-quick-start) •
+[Supported Datasets](#-supported-datasets) •
+[Training Examples](#-training-examples) •
+[Inference](#-inference) •
+[Data Generation](#-data-generation)
 
-## 🛠️ Installation
+<!-- <p align="center">
+  <img src="data/logo.png" alt="Project Logo" width="600"/>
+</p> -->
 
-Clone the repository and install the required dependencies:
+<!-- [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) -->
 
+</div>
+
+## 🛠️ Quick Start
 ```bash
+# Install dependencies
 pip install -r requirements.txt
+
+# Train using default settings
+python train.py --epochs 5 --dataset MNIST --fraction 0.01
+
+# Run inference
+python inference.py --image_path input.png --model_path data/output/MNIST/.../best_checkpoint_char_acc.pt
 ```
 
-## 📂 Data
-
-Currently three datasets are accepted:
-
-1. IAM words dataset:
-https://www.kaggle.com/datasets/nibinv23/iam-handwriting-word-database
-
-2. Custom old document example dataset from google drive in romanian language: https://drive.google.com/drive/folders/1Cm01jChTA63NOoM_9WkMBLkBy8XkxSAB?usp=drive_link \
-This data was acquired and labeled using a synthetic neural network for handwritten text generation (see generator.py)
-
-3. MNIST dataset
-
-Please refer to dataset.py for file structure
+## 📂 Supported Datasets
+1. **IAM Words Dataset** - [Download Link](https://www.kaggle.com/datasets/nibinv23/iam-handwriting-word-database)
+2. **Synthetic Dataset** - Romanian examples at [Download Link](https://drive.google.com/drive/folders/1ErvjszLBqVIrO7wnsVUc6zWv5CtPmgF_?usp=sharing) or create your own using the `generator.py` script. An alternative is to use the trdg library to generate synthetic data [Download Link](https://github.com/Belval/TextRecognitionDataGenerator), they use the same dataset structure.
+3. **MNIST Dataset** - (Auto-downloads)
 
 ## 🧪 Training
 
-Place the dataset in data/datasets and run the following
-command to start the training. For hyperparameter tuning
-check out the train.py script.
-
-### Usage Example:
-
-To run the Training, use the following command:
 ```sh
-python train.py --data data/datasets/oscar_v1.12_5k --epochs 5
-```
+# Basic training
+python train.py --data data/datasets/ocr_dataset --epochs 5
 
-To use a different dataset
-```sh
+# Different datasets
 python train.py --data data/datasets/iam_words --epochs 5 --dataset IAM
-# automatically downloads the dataset:
-python train.py --epochs 5 --dataset MNIST --fraction 0.01
+python train.py --epochs 5 --dataset MNIST --fraction 0.01  # Auto-downloads
+
+# Alternative models
+python train.py --data data/datasets/ocr_dataset --model naver-clova-ix/donut-base --batchsize 1
+python train.py --data data/datasets/ocr_dataset --model facebook/nougat-base --batchsize 4
+
+# Resume from checkpoint
+python train.py --data data/datasets/ocr_dataset \
+                --checkpoint data/output/ocr_dataset/trocr-large-handwritten/e20_lr1e-06_b4_1222/best_checkpoint.pt \
+                --epochs 20
+
+# Use config file
+python train.py --config data/configs/ocr_config.yaml
 ```
 
-To use a different model
+### Training Arguments
+
+| Argument | Description | Default |
+|----------|-------------|---------|
+| `data` | Training data directory path | Required |
+| `--evaldata` | Evaluation data directory | `data/datasets/balcesu_test` |
+| `--output` | Output directory for checkpoints/logs | `data/output` |
+| `--checkpoint` | Path to resume training from | `None` |
+| `--model` | Model choice (trocr-base/large, handwritten) | `microsoft/trocr-large-handwritten` |
+| `--dataset` | Dataset type (IAM/MNIST/custom) | `custom` |
+| `--epochs` | Number of training epochs | `5` |
+| `--batchsize` | Training batch size | `4` |
+| `--lr` | Learning rate | `1e-6` |
+| `--lr_patience` | Epochs before LR reduction | `2` |
+| `--val_iters` | Evaluation frequency (epochs) | `1` |
+| `--num_samples` | Validation samples to display | `10` |
+
+## 🔍 Inference
+
+```bash
+# Basic usage with just an image
+python inference.py --image_path path/to/image.jpg
+
+# Using a specific model and checkpoint
+python inference.py --image_path path/to/image.jpg --model_path path/to/model --checkpoint_path path/to/checkpoint.pt
+
+# Using all options
+python inference.py --image_path path/to/image.jpg \
+                   --model_path custom/model/path \
+                   --checkpoint_path custom/checkpoint.pt \
+                   --reference_text_path custom/reference.txt \
+                   --predictions_file custom/predictions.json \
+                   --draw # Draw bounding boxes on the image
+
+# One-line string:
+python inference.py --image_path data\inference\Balcescu.png --checkpoint_path data\output\ocr_dataset\trocr-large-handwritten\e20_lr1e-06_b4_fr1.0_tfr1.0_balcesu_test\trocr-large-handwritten-best-char_acc.pt --predictions_file data\output\ocr_dataset\trocr-large-handwritten\e20_lr1e-06_b4_fr1.0_tfr1.0_balcesu_test\trocr-large-handwritten-best-char_acc.pt
+```
+
+## 📦 Data Generation
+
+The `generator.py` script creates synthetic OCR training data. It requires a text dataset (.txt file) and a set of fonts and backgrounds. An alternative is to use the trdg library to generate synthetic data [Download Link](https://github.com/Belval/TextRecognitionDataGenerator), they use the same dataset structure. You may run into some issues setting it up, because the trdg package does not receive support anymore. But once set up the integrated generator has better augmentation than the generator offered here.
+
+First, you need some text data. You can download a sample text dataset in romanian language.
 ```sh
-python train.py --data data/datasets/oscar_v1.12_5k --epochs 5 --model naver-clova-ix/donut-base --batchsize 1
-
-python train.py --data data/datasets/oscar_v1.12_5k --epochs 20 --model facebook/nougat-base --batchsize 4
+python data/generation/download_text_dataset.py
 ```
 
-To continue training from checkpoint:
+Next, consider the following input structure:
 ```sh
-python train.py --data data/datasets/oscar_v1.12_5k --checkpoint data\output\oscar_v1.12_5k\trocr-large-handwritten\e20_lr1e-06_b4_1222\best_checkpoint.pt --epochs 20
+generation/
+├── assets
+    ├── fonts # place your fonts here
+    ├── backgrounds # place your backgrounds here
+└── data/
+    ├── input/
+        ├── text-dataset.txt # arbitrary text dataset
+    ├── output/
+        # empty directory
+├── generator.py
 ```
 
-Or provide a config.yaml to overwrite all args:
+Run this command in your environment to generate synthetic dataset:
 ```sh
-python train.py --config data/configs/config.yaml
+python generator.py data/generation/data/input/text-dataset.txt data/generation/data/output/ocr_dataset --image_count 50 --sentences_per_page 1 --max_length 100 --characters "ăâîșțĂÂÎȘȚ"
 ```
-
-## Arguments for `train.py`
-
-Below is a detailed explanation of all arguments available in the `train.py` script:
-
-### Positional Arguments
-- **`data`** *(str)*:  
-  Path to the directory containing labeled image data for training. This is a required argument.
-
-### Optional Arguments
-- **`--evaldata`** *(str)*:  
-  Path to the directory containing labeled image data for evaluation.  
-  Default: `data/datasets/balcesu_test`.
-
-- **`--output`** *(str)*:  
-  Directory where checkpoints, logs, and other outputs will be saved.  
-  Default: `data/output`.
-
-- **`--checkpoint`** *(str)*:  
-  Path to an existing checkpoint `.pt` file to resume training from. If not provided, training starts from scratch.  
-  Default: `None`.
-
-- **`--model`** *(str)*:  
-  Specifies the pre-trained model to use. Available options are:
-  - `microsoft/trocr-base-stage1`
-  - `microsoft/trocr-large-stage1`
-  - `microsoft/trocr-base-handwritten`
-  - `microsoft/trocr-large-handwritten`
-  - `custom` (For custom models)  
-  Default: `microsoft/trocr-large-handwritten`.
-
-- **`--dataset`** *(str)*:  
-  Specifies the dataset type. Available options are:
-  - `IAM`
-  - `custom` (For custom datasets, refer to `dataset.OCRDataset`)  
-  Default: `custom`.
-
-- **`--epochs`** *(int)*:  
-  Number of epochs to train the model.  
-  Default: `5`.
-
-- **`--batchsize`** *(int)*:  
-  Batch size for the DataLoader.  
-  Default: `4`.
-
-- **`--val_iters`** *(int)*:  
-  Specifies how frequently (in epochs) the evaluation is performed during training.  
-  Default: `1`.
-
-- **`--lr`** *(float)*:  
-  Learning rate for the optimizer during the update step.  
-  Default: `1e-6`.
-
-- **`--lr_patience`** *(int)*:  
-  Number of epochs to wait before reducing the learning rate if no improvement is observed.  
-  Default: `2`.
-
-- **`--num_samples`** *(float)*:  
-  Number of sample predictions to print during evaluation.  
-  Default: `10`.
-
-### Example Commands
-
-- **Start training a model:**
-  ```sh
-  python train.py data/datasets/oscar_v1.12_5k --epochs 5
-
-## Inference:
-To run Inference on an image or .pdf using an existing huggingface or pytorch checkpoint, use the following command:
-
+We get a new directoru in under *generation/data/output*:
 ```sh
-python inference.py Balcescu.png output/output_dir_with_checkpoint/best_checkpoint_char_acc.pt
+├── output/
+    ├── ocr_dataset/
+      ├── labels.csv
+      ├── labels.txt
+      └── images/
+          ├── image0.png
+          ├── image1.png
+          └── ...
 ```
 
-The first parameter should be an image or .pdf. the second parameter points to a directory with a checkpoint.
-
-## 📦 Generator:
-
-The generator is a script relying on trdg package that generates images from a text file for Optical Character Recognition (OCR) training.
-The output of the generator script fits the data structure of the train.py script.
-
-### Setup
-
-Requires python 3.6 or lower, trdg package is not updated. A separate execution environment is therefore recommended to run generator.py.
-
-Backgrounds: 
-- To use different backgrounds need to be added to each environments trdg/generators/images folder
-
-Fonts: More than thousands of fonts can be used to inject more variance in the distribution of the dataset
-- The usage of Fonts may cause an AttributeError 'FreeTypeFont' to appear. To fix this bug in the trdg package, simply replace the following:             
+labels.txt:
 ```sh
-# modify trdg.utils.py:
-    from PIL import ImageFont
-    # replace get_text_height in utils.py:
-    def get_text_height(font: ImageFont.FreeTypeFont, text: str) -> int:
-        return font.getbbox(text)[3]
-```
-            
-### Usage Example
-
-To run the script, use the following command:
-
-```sh
-python generator.py path/to/input.txt path/to/output_dir --bytes_to_read 1000 --chunk_count 1 --chunk_length 100
-```
-- input_path: Path to the input text file.
-- output_dir: Directory to save the output images and labels.
-- --bytes_to_read: Number of bytes to read from the input file. Default is 1 GiB (1,073,741,824 bytes).
-- --chunk_count: Number of lines one the final output page. If 1, then just one string of text.
-- --chunk_length: Maximum length of each text line/chunk. 
-
-Output structure (running example):
-The structure of data folder as below.
-```
-dataset
-├── labels.csv
-├── labels.txt
-└── images
-    ├── image0.png
-    ├── image1.png
-    ├── image2.png
-    └── ...
+{image0.png}\t{text0}
+{image1.png}\t{text1}
+...
 ```
 
-## 👤 Acknowledgments:
+You can use the generated dataset for training your OCR model by chosing the `--data` argument to point to the generated dataset and `--dataset` to `custom`.
 
-### Image generation:
+## 👤 Acknowledgments
+
+- https://github.com/microsoft/unilm/tree/master/trocr
 - https://github.com/Belval/TextRecognitionDataGenerator
-### Training / finetuning:
-Output format designed for EasyOCR, as explained here:
-- https://github.com/clovaai/deep-text-recognition-benchmark
-
-Alternative labeling schemes possible by using: --create_csv and adapting code for respective columns.
-### General:
-- https://www.freecodecamp.org/news/how-to-fine-tune-easyocr-with-a-synthetic-dataset/
-
+- https://github.com/naver-ai/donut
+- https://github.com/facebookresearch/nougat

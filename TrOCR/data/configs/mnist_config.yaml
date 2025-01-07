@@ -1,9 +1,9 @@
 # Data Parameters
-data: "data/datasets/oscar_v1.12_5k"  # Directory with labeled image data
-dataset: "custom"                      # Dataset type: IAM, MNIST, custom
-fraction: 0.1                        # Dataset fraction for splits
-testdata: "data/datasets/balcesu_test" # Optional separate test data directory
-test_frac: 1.0                        # Test data fraction if testdata used
+data: null                           # Not needed for MNIST dataset
+dataset: "MNIST"                     # Dataset type: using built-in MNIST
+fraction: 0.05                       # Dataset fraction for splits
+testdata: null                       # Not needed for MNIST (uses built-in test set)
+test_frac: 1.0                      # Use full MNIST test set
 
 # Model Parameters
 model: "microsoft/trocr-large-handwritten"  # Model identifier
@@ -22,7 +22,7 @@ special_chars:                              # Special characters to add to token
 
 # Training Parameters
 epochs: 20                    # Number of training epochs
-batchsize: 1                 # Batch size for training
+batchsize: 4                 # Batch size for training
 val_iters: 1                 # Run validation every N epochs
 test_iters: 2               # Run testing every N epochs
 lr: 0.000001                # Learning rate (1e-6)
@@ -34,3 +34,4 @@ seed: 42                    # Random seed for reproducibility
 # Output Parameters
 output: "data/output"       # Output directory path
 timestamp: false            # Whether to add timestamp to output directory
+

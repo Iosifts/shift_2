@@ -1,529 +1,313 @@
 import os
-import time
-import logging
-from logging import FileHandler, StreamHandler, Formatter
 import argparse
+import json
+from datetime import datetime
 import torch
 from torch.utils.data import DataLoader
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch.optim import AdamW
 from tqdm import tqdm
-# from transformers import logging
-# logging.set_verbosity_error()
-import util
-import dataset
-from util import plot_metric, set_seed, load_config
-from models import (
-    get_processor_and_model,
-    train_step,
-    generate_step,
-    get_model_specific_config
-)
+from transformers import logging
+logging.set_verbosity_error()
 from collections import defaultdict
 missing_tokens_freq = defaultdict(int)
 
+from util import (
+    plot_metric, set_seed, load_config, 
+    setup_directories, save_checkpoint,
+    create_logger, update_tokenizer,
+    load_checkpoint, compute_metrics,
+    custom_decode,
+)
+from models import (
+    get_processor_and_model, train_step,
+    generate_step, calculate_confidence_scores,
+)
+from dataset import (
+    init_dataset,
+)
+
 def parse_args():
-    parser = argparse.ArgumentParser('TrOCR Training')
-
-    # Overwrite args with config.yaml
-    parser.add_argument('--config', type=str, default=None,
-        help='Path to YAML config file that overrides command line arguments')
+    """Implements CLI and config file system"""
+    p = argparse.ArgumentParser('TrOCR Training')
     
-    # Data Parameters
-    parser.add_argument('--data', type=str, 
-        help='Directory containing labeled image data')
-    parser.add_argument('--fraction', type=float, default=1.0, 
-        help='Fraction of dataset used for train-val-test split')
-    parser.add_argument('--dataset', default='custom', choices=[
-            'IAM', 
-            'MNIST',
-            'custom'
-        ],
-        help='Select the dataset to use. For choice \'custom\' refer to dataset.OCRDataset')
-    parser.add_argument('--output', type=str, default='data/output', 
-        help='Directory in which to store checkpoints, logs, etc.')
-    parser.add_argument('--checkpoint', type=str, default=None, 
-        help='Path to checkpoint (.pt currently)')
-    parser.add_argument('--testdata', type=str, default=None,
-        help='Directory (of OCRDataset currently) containing labeled image data to replace test split distribution')
-    parser.add_argument('--test_frac', type=float, default=1.0, 
-        help='Fraction of dataset used for test split')
+    # Config override
+    p.add_argument('--config', type=str, default=None, help='YAML config file to override arguments')
 
-    # Model Parameters
-    parser.add_argument('--model', default='microsoft/trocr-large-handwritten', choices=[
-            # TrOCR models
-            'microsoft/trocr-base-stage1', 
-            'microsoft/trocr-large-stage1',
-            'microsoft/trocr-base-handwritten', 
-            'microsoft/trocr-large-handwritten',
-            'microsoft/trocr-small-handwritten',
-            'microsoft/trocr-base-printed',
-            'microsoft/trocr-small-printed',
-            # Donut models
-            'naver-clova-ix/donut-base',
-            'naver-clova-ix/donut-base-finetuned-rvlcdip',
-            'naver-clova-ix/donut-proto',
-            # ViT-based models
-            'facebook/nougat-base',
-            'facebook/nougat-small',
-            'microsoft/dit-base',
-            'microsoft/dit-large',
-            # Custom models (TODO)
-            'custom'
-        ], 
-        help='Select the model to use.')
-    parser.add_argument('--special_chars', nargs='+', default=["ă", "â", "î", "ș", "ț", "Ă", "Â", "Î", "Ș", "Ț"],
-        help='List of special characters to add to tokenizer')
+    # Data params
+    p.add_argument('--data', type=str, help='Directory with labeled image data')
+    p.add_argument('--dataset', default='custom', choices=['IAM', 'MNIST', 'custom'])
+    p.add_argument('--fraction', type=float, default=1.0, help='Dataset fraction for splits')
+    p.add_argument('--testdata', type=str, default=None, help='Optional separate test data directory')
+    p.add_argument('--test_frac', type=float, default=1.0, help='Test data fraction if --testdata used')
     
-    # Training parameters
-    parser.add_argument('--epochs', type=int, default=5, 
-        help='Epochs to train')
-    parser.add_argument('--batchsize', type=int, default=4, 
-        help='Batchsize of DataLoader')
-    parser.add_argument('--val_iters', type=int, default=1, 
-        help='Number of epochs to eval at')
-    parser.add_argument('--test_iters', type=int, default=2,
-        help='Run test loop every N epochs')
-    parser.add_argument('--lr', type=float, default=1e-6, 
-        help='Learning rate of update step')
-    parser.add_argument('--lr_patience', type=int, default=2, 
-        help='Patience for lr scheduler')
-    parser.add_argument('--num_samples', type=float, default=10, 
-        help='Number of printed sample predictions')
-    parser.add_argument('--seed', type=int, default=42, 
-        help='Seed for randomized arguments for reproducability')
-    
-    # Naming parameters
-    parser.add_argument('--name_timestamp', type=bool, default=False,
-        help='Append a timestamp to the outdir name')
+    # Model params
+    p.add_argument('--model', default='microsoft/trocr-large-handwritten', choices=[
+        'microsoft/trocr-base-stage1', 'microsoft/trocr-large-stage1',
+        'microsoft/trocr-base-handwritten', 'microsoft/trocr-large-handwritten',
+        'microsoft/trocr-small-handwritten', 'microsoft/trocr-base-printed',
+        'microsoft/trocr-small-printed', 'naver-clova-ix/donut-base',
+        'naver-clova-ix/donut-base-finetuned-rvlcdip', 'naver-clova-ix/donut-proto',
+        'facebook/nougat-base', 'facebook/nougat-small',
+        'microsoft/dit-base', 'microsoft/dit-large', 'custom'
+    ])
+    p.add_argument('--tokenizer', type=str, default=None, help='Overwrite processor tokenizer')
+    p.add_argument('--special_chars', nargs='+', default=None, help='Add special characters to tokenizer')
+    p.add_argument('--checkpoint', type=str, default=None, help='Load checkpoint')
 
-    args = parser.parse_args()
+    # Training params
+    p.add_argument('--epochs', type=int, default=5)
+    p.add_argument('--batchsize', type=int, default=4)
+    p.add_argument('--lr', type=float, default=2e-5, help='Learning rate')
+    p.add_argument('--lr_patience', type=int, default=2, help='LR scheduler patience')
+    p.add_argument('--lr_factor', type=int, default=0.5, help='LR scheduler reduction')
+    p.add_argument('--seed', type=int, default=42)
+    p.add_argument('--val_iters', type=int, default=1, help='Eval every N epochs')
+    p.add_argument('--test_iters', type=int, default=2, help='Test every N epochs')
+    p.add_argument('--num_samples', type=float, default=10, help='Samples to print')
 
-    # Overwrite args with config if given
-    if args.config is not None:
+    # Output params
+    p.add_argument('--output', type=str, default='data/output', help='Output directory')
+    p.add_argument('--timestamp', type=bool, default=False, help='Add timestamp to output dir')
+    p.add_argument('--save_predictions', type=bool, default=False, help='Save predictions to file')
+    p.add_argument('--suffix', type=str, default='', help='Suffix for the output directory')
+
+    # Add augmentation flag
+    p.add_argument('--use_augmentation', type=bool, default=False,
+                  help='Whether to use data augmentation during training')
+
+    args = p.parse_args()
+    if args.config:
         config = load_config(args.config)
         args_dict = vars(args)
-        for key, value in config.items():
-            if value is not None:
-                args_dict[key] = value
-
+        args_dict.update({k: v for k, v in config.items() if v is not None})
     return args
 
-def create_logger(output_dir):
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.INFO)
-    console_handler = StreamHandler()
-    # console_handler.setLevel(logging.INFO)
-    # os.makedirs(output_dir, exist_ok=True)
-    file_handler = FileHandler(
-        os.path.join(output_dir, "training.log"), 
-        encoding='utf-8', errors='replace') 
-    # file_handler.setLevel(logging.INFO)
-    formatter = Formatter("%(asctime)s - %(levelname)s - %(message)s")
-    console_handler.setFormatter(formatter)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
-    logger.addHandler(file_handler)
-    logger.info("Initialized Logging")
-    return logger
-
-def train():
-    args = parse_args()
+def train(args):
+    """Main training function"""
     set_seed(args.seed)
-
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    """I/O Handling"""
-    datapath = args.data
+    # Setup directories and logging
+    model_name, output_dir, predictions_dir = setup_directories(args)
+    logger = create_logger(output_dir)
 
-    # Handle automatic dataset download
-    if datapath is None and args.dataset in ['MNIST']:
-        mnist_dir = os.path.join('data', 'datasets', args.dataset)
-        os.makedirs(mnist_dir, exist_ok=True)
-        datapath = mnist_dir
-        args.data = datapath
-
-    base_output_dir = args.output
-    os.makedirs(base_output_dir, exist_ok=True)
-    dataset_name = os.path.basename(os.path.normpath(datapath))
-    model_name = os.path.basename(os.path.normpath(args.model))
-    nested_output_dir = os.path.join(base_output_dir, dataset_name, model_name)
-    os.makedirs(nested_output_dir, exist_ok=True)
-
-    # Create outdir name
-    testname = os.path.basename(os.path.normpath(args.testdata)) if args.testdata else ''
-    timestamp = time.strftime("%m%d")
-    formatted_lr = util.format_lr(args.lr)
-    output_dir_name = f"e{args.epochs}_lr{formatted_lr}" + \
-        f"_b{args.batchsize}_fr{args.fraction}_tfr{args.test_frac}" + \
-        f"{testname}"
-    if args.checkpoint is not None:
-        output_dir_name += f"_ckpt" 
-    output_dir = util.create_unique_directory(nested_output_dir, output_dir_name)
-    os.makedirs(output_dir, exist_ok=True)
-    logger = create_logger(output_dir) # Set up logger
-
-    """Initialize model and data processor"""
-    model_config = get_model_specific_config(args)
-    processor, model = get_processor_and_model(args)
+    # Initialize model and data processing
+    processor, model = get_processor_and_model(args, logger)
     model.to(device)
-    if model_config['generation_config'] is not None:
-            model.generation_config = model_config['generation_config']
-            logger.info(f"Updated generation config: {model.generation_config}")
+
+    # Create datasets and dataloaders
+    datasets = init_dataset(args, processor, args.fraction, args.test_frac, logger)
+    train_dataloader = DataLoader(datasets['train'], batch_size=args.batchsize, shuffle=True)
+    eval_dataloader = DataLoader(datasets['eval'], batch_size=args.batchsize)
+    test_dataloader = DataLoader(datasets['test'], batch_size=args.batchsize)
+
+    # Update tokenizer with special characters
+    char_to_token_map, token_to_char_map = update_tokenizer(
+        processor, model, args.special_chars, logger)
     
-    """Create dataset"""
-    try:
-        datasets = dataset.create_dataset(args, processor, args.fraction, args.test_frac, logger)
-        train_dataset = datasets['train']
-        eval_dataset = datasets['eval']
-        test_dataset = datasets['test']
-        logger.info(f"Number of training examples: {len(train_dataset)}")
-        logger.info(f"Number of validation examples: {len(eval_dataset)}")
-        logger.info(f"Number of test examples: {len(test_dataset)}")
-    except Exception as e:
-        logger.error(f"Failed to create dataset: {e}")
-        exit(1)
-    encoding = train_dataset[0]
-    labels = encoding['labels']
-    labels[labels == -100] = processor.tokenizer.pad_token_id
-    label_str = processor.decode(labels, skip_special_tokens=True)
-    train_dataloader = DataLoader(train_dataset, batch_size=args.batchsize, shuffle=True)
-    eval_dataloader = DataLoader(eval_dataset, batch_size=args.batchsize)
-    test_dataloader = DataLoader(test_dataset, batch_size=args.batchsize)
-
-    """Tokenization"""
-    special_chars = args.special_chars
-    processor.tokenizer.add_tokens(special_chars, special_tokens=False)
-    model.decoder.resize_token_embeddings(len(processor.tokenizer))
-    char_to_token_map = {}
-    token_to_char_map = {}
-    for char in special_chars:
-        token_id = processor.tokenizer.convert_tokens_to_ids(char)
-        char_to_token_map[char] = token_id
-        token_to_char_map[token_id] = char
-    for char in special_chars: # Verify decoder mappings
-        token_id = char_to_token_map[char]
-        decoded_char = processor.tokenizer.decode([token_id], skip_special_tokens=False)
-        if decoded_char != char:
-            logger.error(f"Decoder Mapping Error: '{char}' -> Token ID {token_id} -> Decoded as '{decoded_char}'")
-        else:
-            logger.info(f"Decoder Mapping Success: '{char}' -> Token ID {token_id} -> Decoded as '{decoded_char}'")
-
-    """Training Setup"""
+    # Initialize optimizer and scheduler
     optimizer = AdamW(model.parameters(), lr=args.lr, weight_decay=0.01)
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=args.lr_patience)
-    best_val_loss = float('inf')
-    best_val_char_acc = -1.0
-    train_metrics = {'loss': []}
-    val_metrics = {'loss': [], 'char_acc': [], 'wer': []}
-    test_metrics = {'loss': [], 'char_acc': [], 'wer': []}
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=args.lr_factor, patience=args.lr_patience)
 
-    start_epoch = 0
-    if args.checkpoint is not None:
-        logger.info(f"Resuming training from checkpoint: {args.checkpoint}")
-        checkpoint = torch.load(args.checkpoint, map_location=device, weights_only=False)
-        model.load_state_dict(checkpoint['model_state_dict'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
-        best_val_loss = checkpoint['best_val_loss']
-        best_val_char_acc = checkpoint['best_val_char_acc']
-        start_epoch = checkpoint['epoch']
-        train_metrics = checkpoint['train_metrics']
-        val_metrics = checkpoint['val_metrics']
-        logger.info(f"Resumed at epoch {start_epoch} with best_val_loss {best_val_loss:.4f}")
-
-    """Training"""
+    # Initialize tracking variables
+    metrics = {
+        'train': {'loss': []},
+        'val': {'loss': [], 'char_acc': [], 'wer': []},
+        'test': {'loss': [], 'char_acc': [], 'wer': []}
+    }
+    best_metrics = {'loss': float('inf'), 'char_acc': -1.0}
     global_step = 0
     epoch = 1
-
-    while True:
-        # -------------------- TRAIN --------------------
-        if epoch <= args.epochs:
-            model.train()
-            running_train_loss = 0.0
-
-            for batch in tqdm(train_dataloader, desc=f"Training Epoch {epoch}", dynamic_ncols=True):
-                loss = train_step(model, batch, device, args.model)
-                loss.backward()
-                optimizer.step()
-                optimizer.zero_grad()
-                
-                running_train_loss += loss.item()
-                train_metrics['loss'].append((global_step, loss.item()))
-                global_step += 1
-
-            avg_train_loss = running_train_loss / len(train_dataloader)
-            logger.info(f"Train loss after epoch {epoch}: {avg_train_loss}")
-        else: 
-            logger.info(f"Reached epoch {epoch}. Finishing Training.")
-            break
-
-        # -------------------- EVAL ---------------------
-        if epoch % args.val_iters == 0:
-            model.eval()
-            total_val_loss = 0.0
-            total_cer, total_wer, total_acc, total_char_acc, total_lev_dist = 0, 0, 0, 0, 0
-            count = 0
-            sample_preds, sample_refs, sample_confs = [], [], []
-
-            with torch.no_grad():
-                for batch in tqdm(eval_dataloader, dynamic_ncols=True):
-                    val_loss = train_step(model, batch, device, args.model)
-                    total_val_loss += val_loss
-
-                    generation_outputs = generate_step(
-                        model, 
-                        batch, 
-                        device, 
-                        args.model,
-                        model.generation_config
-                    )
-
-                    pred_ids = generation_outputs.sequences
-                    scores_list = generation_outputs.scores
-                    
-                    # Get the labels from batch
-                    labels = batch["labels"]
-                    labels_adj = labels.clone()
-                    labels_adj[labels_adj == -100] = processor.tokenizer.pad_token_id
-                    
-                    # Decode predictions and labels
-                    label_str = processor.batch_decode(labels_adj, skip_special_tokens=True)
-                    pred_str = processor.batch_decode(pred_ids, skip_special_tokens=True)
-
-                    # Make sure pred_str and label_str have the same batch size
-                    if len(pred_str) != len(label_str):
-                        if len(pred_str) == 1:
-                            pred_str = pred_str * len(label_str)  # Repeat prediction to match batch size
-                        else:
-                            pred_str = pred_str[:len(label_str)]  # Truncate to match batch size
-
-                    # Compute metrics
-                    cer, wer, acc, char_acc, lev_dist = util.compute_metrics(pred_str, label_str)
-                    total_cer += cer
-                    total_wer += wer
-                    total_acc += acc
-                    total_char_acc += char_acc
-                    total_lev_dist += lev_dist
-                    count += 1
-
-                    """Collect samples with confidence scores"""
-                    if len(sample_preds) < args.num_samples:
-                        batch_size = pred_ids.size(0)
-                        seq_len = pred_ids.size(1)
-                        sample_needed = args.num_samples - len(sample_preds)
-                        sample_size = min(batch_size, sample_needed)
-
-                        # Compute confidence scores
-                        for i in range(sample_size):
-                            token_ids = pred_ids[i]
-                            token_probs = []
-                            for step_idx in range(seq_len - 1):
-                                logits = scores_list[step_idx][i]
-                                probs = torch.softmax(logits, dim=-1)
-                                chosen_token_id = token_ids[step_idx+1]
-                                token_prob = probs[chosen_token_id].item()
-                                token_probs.append(token_prob)
-                            confidence = sum(token_probs) / len(token_probs) if token_probs else 0.0
-                            sample_confs.append(confidence)
-
-                        sample_preds.extend(pred_str[:sample_size])
-                        sample_refs.extend(label_str[:sample_size])
-
-                        if len(sample_preds) >= args.num_samples:
-                            pass
-
-            """Metrics, scheduler, checkpointing"""
-            avg_val_loss = total_val_loss / count if count > 0 else 0
-            avg_val_cer = total_cer / count if count > 0 else 0
-            avg_val_wer = total_wer / count if count > 0 else 0
-            avg_val_acc = total_acc / count if count > 0 else 0
-            avg_val_char_acc = total_char_acc / count if count > 0 else 0
-            avg_val_lev_dist = total_lev_dist / count if count > 0 else 0
-
-            val_metrics['loss'].append((global_step, avg_val_loss))
-            val_metrics['wer'].append((global_step, avg_val_wer))
-            val_metrics['char_acc'].append((global_step, avg_val_char_acc))
-
-            scheduler.step(avg_val_loss) # step on val loss
-
-            logger.info(
-                f"[EVAL] Epoch {epoch} | "
-                f"Val Loss: {avg_val_loss:.4f} | "
-                f"CER: {avg_val_cer:.4f} | "
-                f"WER: {avg_val_wer:.4f} | "
-                f"Acc: {avg_val_acc:.4f} | "
-                f"CharAcc: {avg_val_char_acc:.4f} | "
-                f"LevDist: {avg_val_lev_dist:.4f} | "
-                f"LR: {optimizer.param_groups[0]['lr']:.1e}"
-            )
-
-            if sample_preds and sample_refs:
-                logger.info("[EVAL] Sample Predictions:")
-                logger.info("-" * 80)
-                logger.info(f"{'Prediction':<35} | {'Reference':<35} | {'Confidence':<8}")
-                logger.info("-" * 80)
-                for p, r, c in zip(sample_preds, sample_refs, sample_confs):
-                    logger.info(f"{p[:35]:<35} | {r[:35]:<35} | {c:.4f}")
-                logger.info("-" * 80)
-
-            if avg_val_loss < best_val_loss:
-                best_val_loss = avg_val_loss
-                best_checkpoint_path = os.path.join(output_dir, "best_checkpoint.pt")
-                torch.save({
-                    'epoch': epoch + 1,
-                    'model_state_dict': model.state_dict(),
-                    'optimizer_state_dict': optimizer.state_dict(),
-                    'scheduler_state_dict': scheduler.state_dict(),
-                    'best_val_loss': best_val_loss,
-                    'best_val_char_acc': best_val_char_acc,
-                    'train_metrics': train_metrics,
-                    'val_metrics': val_metrics,
-                }, best_checkpoint_path)
-                logger.info(f"New best checkpoint saved to {best_checkpoint_path} with Val Loss: {best_val_loss:.4f}")
-
-            if avg_val_char_acc > best_val_char_acc:
-                best_val_char_acc = avg_val_char_acc
-                best_checkpoint_char_acc_path = os.path.join(output_dir, "best_checkpoint_char_acc.pt")
-                torch.save({
-                    'epoch': epoch + 1,
-                    'model_state_dict': model.state_dict(),
-                    'optimizer_state_dict': optimizer.state_dict(),
-                    'scheduler_state_dict': scheduler.state_dict(),
-                    'best_val_loss': best_val_loss,
-                    'best_val_char_acc': best_val_char_acc,
-                    'train_metrics': train_metrics,
-                    'val_metrics': val_metrics,
-                }, best_checkpoint_char_acc_path)
-                logger.info(f"New best checkpoint saved to {best_checkpoint_char_acc_path} with CharAcc: {best_val_char_acc:.4f}")
-
-        # -------------------- TEST ---------------------
-        if epoch % args.test_iters == 0:
-            model.eval()
-            total_test_loss  = 0.0
-            total_cer, total_wer, total_acc, total_char_acc, total_lev_dist = 0, 0, 0, 0, 0 # overwrite val
-            count_test  = 0
-            sample_preds_test, sample_refs_test, sample_confs_test = [], [], []
-
-            with torch.no_grad():
-                for batch in tqdm(test_dataloader, desc=f"Test Epoch {epoch}", dynamic_ncols=True):
-                    test_loss = train_step(model, batch, device, args.model)
-                    total_test_loss += test_loss
-
-                    generation_outputs = generate_step(
-                        model, 
-                        batch, 
-                        device, 
-                        args.model,
-                        model.generation_config
-                    )
-                    pred_ids = generation_outputs.sequences
-                    scores_list = generation_outputs.scores
-
-                    labels = batch["labels"]
-                    labels_adj = labels.clone()
-                    labels_adj[labels_adj == -100] = processor.tokenizer.pad_token_id
-
-                    label_str = processor.batch_decode(labels_adj, skip_special_tokens=True)
-                    pred_str = processor.batch_decode(pred_ids, skip_special_tokens=True)
-
-                    if len(pred_str) != len(label_str):
-                        if len(pred_str) == 1:
-                            pred_str = pred_str * len(label_str)  # Repeat prediction to match batch size
-                        else:
-                            pred_str = pred_str[:len(label_str)]  # Truncate to match batch size
-
-                    cer, wer, acc, char_acc, lev_dist = util.compute_metrics(pred_str, label_str)
-                    total_cer += cer
-                    total_wer += wer
-                    total_acc += acc
-                    total_char_acc += char_acc
-                    total_lev_dist += lev_dist
-                    count_test += 1
-
-                    """Collect samples with confidence scores"""
-                    if len(sample_preds_test) < args.num_samples:
-                        batch_size = pred_ids.size(0)
-                        seq_len = pred_ids.size(1)
-                        sample_needed = args.num_samples - len(sample_preds_test)
-                        sample_size = min(batch_size, sample_needed)
-
-                        # Compute confidence scores
-                        for i in range(sample_size):
-                            token_ids = pred_ids[i]
-                            token_probs = []
-                            for step_idx in range(seq_len - 1):
-                                logits = scores_list[step_idx][i]
-                                probs = torch.softmax(logits, dim=-1)
-                                chosen_token_id = token_ids[step_idx+1]
-                                token_prob = probs[chosen_token_id].item()
-                                token_probs.append(token_prob)
-                            confidence = sum(token_probs) / len(token_probs) if token_probs else 0.0
-                            sample_confs_test.append(confidence)
-
-                        sample_preds_test.extend(pred_str[:sample_size])
-                        sample_refs_test.extend(label_str[:sample_size])
-
-                        if len(sample_preds_test) >= args.num_samples:
-                            pass
-
-            """Metrics"""
-            avg_test_loss = total_test_loss / count_test if count_test > 0 else 0
-            avg_test_cer = total_cer / count_test if count_test > 0 else 0
-            avg_test_wer = total_wer / count_test if count_test > 0 else 0
-            avg_test_acc = total_acc / count_test if count_test > 0 else 0
-            avg_test_char_acc = total_char_acc / count_test if count_test > 0 else 0
-            avg_test_lev_dist = total_lev_dist / count_test if count_test > 0 else 0
-            
-            test_metrics['loss'].append((global_step, avg_test_loss))
-            test_metrics['wer'].append((global_step, avg_test_wer))
-            test_metrics['char_acc'].append((global_step, avg_test_char_acc))
-
-            logger.info(
-                f"[TEST] Epoch {epoch} | "
-                f"Test Loss: {avg_test_loss:.4f} | "
-                f"CER: {avg_test_cer:.4f} | "
-                f"WER: {avg_test_wer:.4f} | "
-                f"Acc: {avg_test_acc:.4f} | "
-                f"CharAcc: {avg_test_char_acc:.4f} | "
-                f"LevDist: {avg_test_lev_dist:.4f} | "
-                f"LR: {optimizer.param_groups[0]['lr']:.1e}"
-            )
-
-            if sample_preds_test and sample_refs_test:
-                logger.info("[TEST] Sample Predictions:")
-                logger.info("-" * 80)
-                logger.info(f"{'Prediction':<35} | {'Reference':<35} | {'Confidence':<8}")
-                logger.info("-" * 80)
-                for p, r, c in zip(sample_preds_test, sample_refs_test, sample_confs_test):
-                    logger.info(f"{p[:35]:<35} | {r[:35]:<35} | {c:.4f}")
-                logger.info("-" * 80)
     
-        epoch += 1
+    # Load checkpoint if specified
+    if args.checkpoint:
+        epoch, best_metrics, metrics['train'], metrics['val'], metrics['test'] = \
+            load_checkpoint(args.checkpoint, model, optimizer, scheduler, device, logger)
+        args.epochs = epoch + args.epochs
+
+    # Train loop
+    while epoch <= args.epochs:
+        # Training phase
+        model.train()
+        running_train_loss = 0.0
+        for batch in tqdm(train_dataloader, desc=f"Training Epoch {epoch}", dynamic_ncols=True):
+            loss = train_step(model, batch, device, args.model)
+            loss.backward()
+            optimizer.step()
+            optimizer.zero_grad()
+            running_train_loss += loss.item()
+            metrics['train']['loss'].append((global_step, loss.item()))
+            global_step += 1
+
+        avg_train_loss = running_train_loss / len(train_dataloader)
+        logger.info(f"Train loss after epoch {epoch}: {avg_train_loss}")
+
+        # Validation phase  
+        if epoch % args.val_iters == 0:
+            val_metrics = evaluate(model, optimizer, eval_dataloader, processor, device, args, 
+                token_to_char_map, logger, epoch, prefix="EVAL")
+            metrics['val']['loss'].append((global_step, val_metrics['loss']))
+            metrics['val']['wer'].append((global_step, val_metrics['wer']))
+            metrics['val']['char_acc'].append((global_step, val_metrics['char_acc']))
+
+            scheduler.step(val_metrics['loss'])
         
+        # Test phase
+        if epoch % args.test_iters == 0:
+            test_metrics = evaluate(model, optimizer, test_dataloader, processor, device, args, 
+                token_to_char_map, logger, epoch, predictions_dir, prefix="TEST")
+            metrics['test']['loss'].append((global_step, test_metrics['loss']))
+            metrics['test']['wer'].append((global_step, test_metrics['wer']))
+            metrics['test']['char_acc'].append((global_step, test_metrics['char_acc']))
 
-    """Plotting & Saving"""
-    plot_metric( # Track train, val, test losses simultaneously
-        train_metrics['loss'], 
-        val_metrics['loss'], 
-        test_metrics['loss'],
-        metric_name="loss", 
-        output_dir=output_dir, 
-        logger=logger,
-        use_log_scale=True
-    )
+            # Plot metrics
+            plot_metric(metrics['train']['loss'], metrics['val']['loss'], metrics['test']['loss'],
+                metric_name="loss", output_dir=output_dir, logger=logger, use_log_scale=True)
+            plot_metric(
+                [], [], metrics['test']['wer'], metric_name="wer", output_dir=output_dir, 
+                logger=logger, show_epoch=True, iters_per_epoch=len(train_dataloader))
+            plot_metric(
+                [], [], metrics['test']['char_acc'], metric_name="char_acc", output_dir=output_dir, 
+                logger=logger, show_epoch=True, iters_per_epoch=len(train_dataloader))
 
-    plot_metric( # Track test metrics
-        [], [], test_metrics['wer'], metric_name="wer", output_dir=output_dir, 
-        logger=logger, show_epoch=True, iters_per_epoch=len(train_dataloader))
+            # Save checkpoint
+            best_metrics = save_checkpoint(
+                model=model, optimizer=optimizer, scheduler=scheduler,
+                epoch=epoch, metrics=test_metrics, best_metrics=best_metrics,
+                train_metrics=metrics['train'], val_metrics=metrics['val'],
+                test_metrics=metrics['test'], output_dir=output_dir,
+                model_name=model_name, logger=logger
+            )
 
-    plot_metric(
-        [], [], test_metrics['char_acc'], metric_name="char_acc", output_dir=output_dir, 
-        logger=logger, show_epoch=True, iters_per_epoch=len(train_dataloader))
+        epoch += 1
 
     model.save_pretrained(output_dir)
     processor.save_pretrained(output_dir)
     logger.info(f"Model saved to {output_dir}")
 
+def evaluate(model, optimizer,dataloader, processor, device, args, 
+             token_to_char_map, logger, epoch, predictions_dir=None, prefix="EVAL"):
+    """Run evaluation loop"""
+    model.eval()
+    metrics_totals = {
+        'loss': 0.0, 'cer': 0.0, 'wer': 0.0, 
+        'acc': 0.0, 'char_acc': 0.0, 'lev_dist': 0.0
+    }
+    count = 0
+    sample_preds, sample_refs, sample_confs = [], [], []
+
+    if prefix == "TEST":
+        all_predictions = []
+    
+    with torch.no_grad():
+        for batch in tqdm(dataloader, desc=f"{prefix}", dynamic_ncols=True):
+            # Forward pass
+            val_loss = train_step(model, batch, device, args.model)
+            generation_outputs = generate_step(model, batch, device, args.model, model.generation_config)
+            pred_ids = generation_outputs.sequences
+            
+            # Prepare labels
+            labels_adj = batch["labels"].clone()
+            labels_adj[labels_adj == -100] = processor.tokenizer.pad_token_id
+            
+            # Decode predictions and labels
+            label_str = processor.batch_decode(labels_adj, skip_special_tokens=True)
+            pred_str = processor.batch_decode(pred_ids, skip_special_tokens=True)
+
+            # Custom decode predictions and labels
+            # pred_str = []
+            # for ids in pred_ids:
+            #     decoded = custom_decode(
+            #         ids.tolist(), processor.tokenizer,
+            #         token_to_char_map, logger)
+            #     pred_str.append(decoded)
+            
+            # label_str = []
+            # for ids in labels_adj:
+            #     decoded = custom_decode(
+            #         ids.tolist(), processor.tokenizer,
+            #         token_to_char_map, logger)
+            #     label_str.append(decoded)
+
+            if len(pred_str) != len(label_str):
+                pred_str = pred_str * len(label_str) if len(pred_str) == 1 else pred_str[:len(label_str)]
+            
+            # Save test predictions
+            if prefix == "TEST" and args.save_predictions:
+                scores_list = generation_outputs.scores
+                confidences = calculate_confidence_scores(
+                    pred_ids=pred_ids, scores_list=scores_list, 
+                    sample_size=len(pred_str)
+                )
+                for pred, ref, conf, ids in zip(pred_str, label_str, confidences, pred_ids):
+                    all_predictions.append({
+                        'prediction': pred,
+                        'reference': ref,
+                        'confidence': float(conf),
+                        'token_ids': ids.tolist()
+                    })
+
+            # Compute metrics
+            metrics_totals['loss'] += val_loss
+            batch_metrics = compute_metrics(pred_str, label_str, logger)
+            for name, value in zip(['cer', 'wer', 'acc', 'char_acc', 'lev_dist'], batch_metrics):
+                metrics_totals[name] += value
+            count += 1
+
+            # Collect samples
+            scores_list = generation_outputs.scores
+            if len(sample_preds) < args.num_samples:
+                batch_size = pred_ids.size(0)
+                sample_needed = args.num_samples - len(sample_preds)
+                sample_size = min(batch_size, sample_needed)
+                sample_confs.extend(calculate_confidence_scores(
+                    pred_ids=pred_ids, scores_list=scores_list, sample_size=sample_size))
+                sample_preds.extend(pred_str[:sample_size])
+                sample_refs.extend(label_str[:sample_size])
+
+    # Calculate averages
+    metrics_avg = {
+        k: float(v / count) if count > 0 else 0.0
+        for k, v in metrics_totals.items()
+    }
+
+    # Log results
+    logger.info(
+        f"[{prefix}] | "
+        f"Loss: {metrics_avg['loss']:.4f} | "
+        f"CER: {metrics_avg['cer']:.4f} | "
+        f"WER: {metrics_avg['wer']:.4f} | "
+        f"Acc: {metrics_avg['acc']:.4f} | "
+        f"CharAcc: {metrics_avg['char_acc']:.4f} | "
+        f"LevDist: {metrics_avg['lev_dist']:.4f}"
+        f"LR: {optimizer.param_groups[0]['lr']:.2e}"
+    )
+
+    # Save test predictions to file
+    if prefix == "TEST" and args.save_predictions:
+        predictions_file = os.path.join(predictions_dir, f'test_preds_e{epoch}.json')
+        with open(predictions_file, 'w', encoding='utf-8') as f:
+            json.dump({
+                'predictions': all_predictions,
+                'metrics': metrics_avg,
+                'model': args.model,
+                'epoch': epoch,
+            }, f, ensure_ascii=False, indent=2)
+        logger.info(f"Saved {len(all_predictions)} test predictions to {predictions_file}")
+
+    # Log samples
+    if sample_preds and sample_refs:
+        logger.info(f"[{prefix}] Sample Predictions:")
+        logger.info("-" * 80)
+        logger.info(f"{'Prediction':<35} | {'Reference':<35} | {'Confidence':<8}")
+        logger.info("-" * 80)
+        for p, r, c in zip(sample_preds, sample_refs, sample_confs):
+            logger.info(f"{p[:35]:<35} | {r[:35]:<35} | {c:.4f}")
+        logger.info("-" * 80)
+
+    return metrics_avg
+
 if __name__ == "__main__":
-    train()
+    args = parse_args()
+    train(args)

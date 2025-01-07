@@ -16,6 +16,8 @@ import pdfplumber
 import easyocr
 import warnings
 import util
+import argparse
+import json
 
 def extract_text_ckpt(model, processor, image_bytes, draw, mode='img'):
     """
@@ -158,50 +160,76 @@ def visualize_image_parts_lines(image_parts):
         plt.axis('off')
     plt.show()
 
-if __name__ == '__main__':
+def parse_args():
+    """Parse command line arguments"""
+    parser = argparse.ArgumentParser(description='OCR Inference')
+    
+    # Required arguments
+    parser.add_argument('--image_path', type=str, required=True,
+                       help='Path to input image or PDF file')
+    
+    # Optional arguments with defaults
+    parser.add_argument('--model_path', type=str, 
+                       default="microsoft/trocr-large-handwritten",
+                       help='Path to HuggingFace model or checkpoint')
+    
+    parser.add_argument('--checkpoint_path', type=str, 
+                       default=None,
+                       help='Path to .pt checkpoint file')
+    
+    parser.add_argument('--reference_text_path', type=str,
+                       default='data/reference_texts/sample.txt',
+                       help='Path to reference text file for comparison')
+    
+    parser.add_argument('--predictions_file', type=str,
+                       default='data/output/oscar_v2_50k/trocr-large-handwritten/e20_lr1e-06_b4_fr1.0_tfr1.0_balcesu_test/predictions/test_preds_e2.json',
+                       help='Path to predictions JSON file')
+    
+    parser.add_argument('--draw', action='store_true', default=True,
+                       help='Enable drawing bounding boxes on input for visualization')
+    
+    return parser.parse_args()
 
+if __name__ == '__main__':
+    args = parse_args()
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     reader = easyocr.Reader(['ro'])
 
-    # Argument parsing
-    if len(sys.argv) < 2:
-        print("Usage: python inference.py <image_path> <hf_or_pt_path>")
-        sys.exit(1)
-
-    image_path = sys.argv[1]
-    hf_or_pt_path = sys.argv[2] if len(sys.argv) > 2 else None
-
-    if not os.path.isfile(image_path):
-        print(f"Image/PDF file {image_path} does not exist.")
+    # Validate input file
+    if not os.path.isfile(args.image_path):
+        print(f"Image/PDF file {args.image_path} does not exist.")
         sys.exit(1)
     else:
-        with open(image_path, 'rb') as file:
+        with open(args.image_path, 'rb') as file:
             file_bytes = file.read()
 
-    model = "microsoft/trocr-large-handwritten"
-
     # Checkpoint loading
-    if hf_or_pt_path is None:
+    if args.model_path is None and args.checkpoint_path is None:
         raise ValueError("No Hugging Face model or checkpoint provided.")
-    if os.path.isdir(hf_or_pt_path):
+        
+    if os.path.isdir(args.model_path):
         # Load processor and model from Hugging Face directory
-        processor = TrOCRProcessor.from_pretrained(hf_or_pt_path)
-        model = VisionEncoderDecoderModel.from_pretrained(hf_or_pt_path).to(device)
-    elif os.path.isfile(hf_or_pt_path) and hf_or_pt_path.endswith('.pt'):
+        processor = TrOCRProcessor.from_pretrained(args.model_path)
+        model = VisionEncoderDecoderModel.from_pretrained(args.model_path).to(device)
+    elif args.checkpoint_path and os.path.isfile(args.checkpoint_path) and args.checkpoint_path.endswith('.pt'):
         # Load a default Hugging Face model and update it with the checkpoint
-        print(f"Loading .pt model {model} and updating with checkpoint...")
-        processor = TrOCRProcessor.from_pretrained(model)  # Default model
-        model = VisionEncoderDecoderModel.from_pretrained(model).to(device)
+        print(f"Loading .pt model {args.model_path} and updating with checkpoint...")
+        processor = TrOCRProcessor.from_pretrained(args.model_path)  # Default model
+        model = VisionEncoderDecoderModel.from_pretrained(args.model_path).to(device)
+        
         # Add special tokens used during training
         special_chars = ["ă", "â", "î", "ș", "ț", "Ă", "Â", "Î", "Ș", "Ț"]
         processor.tokenizer.add_tokens(special_chars, special_tokens=False)
         model.decoder.resize_token_embeddings(len(processor.tokenizer))
+        
         # Load checkpoint
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", category=FutureWarning)
-            checkpoint = torch.load(hf_or_pt_path, map_location=device)
+            checkpoint = torch.load(args.checkpoint_path, map_location=device)
+            
         # Extract state_dict from checkpoint
         checkpoint_state_dict = checkpoint["model_state_dict"] if "model_state_dict" in checkpoint else checkpoint
+        
         # Adjust mismatched embedding sizes
         state_dict = model.state_dict()
         for key in ["decoder.model.decoder.embed_tokens.weight", "decoder.output_projection.weight"]:
@@ -212,33 +240,54 @@ if __name__ == '__main__':
                         checkpoint_state_dict[key],
                         (0, 0, 0, state_dict[key].size(0) - checkpoint_state_dict[key].size(0))
                     )
-
         # Load the updated state_dict
         model.load_state_dict(checkpoint_state_dict)
     else:
         print("Invalid path provided. It must be either a Hugging Face model directory or a .pt checkpoint file.")
         sys.exit(1)
 
-    draw = True # Enable to draw bounding boxes on input for visualization
-
     # Inference
-    if image_path.lower().endswith('.pdf'):
+    if args.image_path.lower().endswith('.pdf'):
         extracted_text, image_parts = extract_text_ckpt(model, processor, 
-                                                        file_bytes, draw, mode='pdf')
-    elif image_path.lower().endswith(('.jpg', '.png')):
+                                                      file_bytes, args.draw, mode='pdf')
+    elif args.image_path.lower().endswith(('.jpg', '.png')):
         extracted_text, image_parts = extract_text_ckpt(model, processor, 
-                                                        file_bytes, draw, mode='img')
+                                                      file_bytes, args.draw, mode='img')
     else:
         print("Unsupported file format. Please provide a .pdf, .jpg, or .png file.")
         sys.exit(1)
 
     print("Recognized Text:", extracted_text)
 
-    # Compare input to output 
-    reference_text = """12 Abia astăzi însă, două-zeci și cinci de ani după a lui moarte, ele se îndeplinesc in parte 1). D. Insfrucțiunei publice al României, împreună cu raportul trimisului nostru, fusese Încredințat de însuși răposatul, consulului turcesc din acea localitate. Simțind sfârșitul său, el puse să i se facă o listă amănunțită de tot ce poseda cu sine, în care arăta că voința sa este ca manuscrisele lui să se dea d-lui Ion Ghica, carele se afla pe atunci în Turcia. Un preot grec din vecinătate primi, de pe cererea sa, cea după urmă a lui mărturisire și cel după urmă al lui suspin, bădiță cu obiectele rămase de la Bălcescu a fost de mult trimisă familiei sale de către proprietarul ospătăriei „alia Trinacria". Ast-fel s'a întâmplat ca d-nul C. Bălcescu, care avea manuscriptele la sine, să mi le încredințeze încă de la 1861 spre a le tipări în Reulsto Română. De atunci ele au stat până estimp la mine (1876).Pe de altă parte, testamentul adus în țară de d. N„ lonescu la 1863, rămăsese și el uitat în dosarele Ministerului-In fine abia acum, prin concursul d-lor Ion Ghica, C. Bălcescu și al meu, voințele ilustrului răposat începu a-și căpăta a lor realisare. 1) Bălcescu, într'o adresă către patronii Asociației lite­ rare române, arăta că scrierea sa asupra Epocei Iul Michaiu Viteazul fiind aproape terminată și având numai câte-va luni de lucru spre a o sfârși, el dorește ca ea să fie tipărită în două frumoase volume în 8”, de pe împăr­ țirea expusă mai sus, și tot de o dată să fie ornată cu un portret al lui Mihaiu Viteazul, gravat pe oțel, de pe al lui Sadeler, făcut în Viena la 1601, precum șî alte patru executate în xilografie. Dorește asemeni să se trimită un june inginer român în țara ca să ridice planurile deose­bitelor localități mai importante, citate în cursul opereii. Aceste cheltiueli cere de la Asociație ca să le facă ; iar pentru ostenelile sale proprii și pentru toate cheltuielile făcute cu cumpărări de cărți rare și cu traducțiuni, el nu reclamă nici o indemnisare, nici măcar cele 400 exemplare"""
-    metrics = util.compute_all_metrics(extracted_text, reference_text)
-    print(metrics)
-    print("Groundtruth:", reference_text)
+    # Load reference text if provided
+    if os.path.exists(args.reference_text_path):
+        with open(args.reference_text_path, 'r', encoding='utf-8') as f:
+            reference_text = f.read()
+        metrics = util.compute_all_metrics(extracted_text, reference_text)
+        print("\nMetrics against reference text:")
+        print(metrics)
+        print("\nGroundtruth:", reference_text)
 
-
-    # visualize_image_parts_lines(image_parts[:1])
+    # Load and process predictions if provided
+    if os.path.exists(args.predictions_file):
+        with open(args.predictions_file, 'r', encoding='utf-8') as f:
+            predictions_data = json.load(f)
+        
+        metrics = util.compute_json_metrics(args.predictions_file)
+        
+        all_predictions = clean_whitespaces(" ".join([pred['prediction'] for pred in predictions_data['predictions']]))
+        all_references = clean_whitespaces(" ".join([pred['reference'] for pred in predictions_data['predictions']]))
+        
+        print("\nConcatenated Predictions:")
+        print(all_predictions)
+        print("\nConcatenated References:")
+        print(all_references)
+        
+        print("\nMean Metrics:")
+        for metric_name, value in metrics['mean_metrics'].items():
+            print(f"{metric_name}: {value:.4f}")
+        
+        concat_metrics = util.compute_metrics(all_predictions, all_references)
+        print("\nMetrics on Concatenated Text:")
+        for metric_name, value in concat_metrics.items():
+            print(f"{metric_name}: {value:.4f}")

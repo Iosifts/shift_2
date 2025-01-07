@@ -1,27 +1,34 @@
 ### Reference Structure ###
 
-data/training/*
-!data/training/.gitkeep
-!data/training/balcescu_test.gitkeep
+data/datasets/*
+!data/datasets/.gitkeep
+# !data/datasets/balcescu_test.gitkeep
 
-# data/output/*
-# !data/output/.gitkeep
-data/output/*.pt
-data/output/*.safetensors
-data/output/*.txt
-# Keep .log files explicitly
-!data/output/*.log
-!data/output/*.pdf
-!data/output/*.json
+# data/configs/*
+# !data/configs/config.yaml.gitkeep
 
-data/inference/*
-!data/inference/.gitkeep
-!data/inference/Balcescu.pdf.gitkeep
-!data/inference/Balcescu.png.gitkeep
-!data/inference/test_image.png.gitkeep
+data/output/*
+!data/output/.gitkeep
 
-data/generation/*
-!data/generation/.gitkeep
+#data/inference/*
+# !data/inference/.gitkeep
+# !data/inference/Balcescu.pdf.gitkeep
+# !data/inference/Balcescu.png.gitkeep
+# !data/inference/test_image.png.gitkeep
+
+data/generation/data/input/*
+!data/generation/data/input/.gitkeep
+
+data/generation/data/output/*
+!data/generation/data/output/.gitkeep
+
+data/generation/assets/backgrounds/*
+!data/generation/assets/backgrounds/.gitkeep
+
+data/generation/assets/fonts/combined
+
+*.pt
+*.safetensors
 
 ### General Ignores ###
 
@@ -38,7 +45,7 @@ node_modules/
 bower_components/
 
 # Ignore log files and temp files
-*.log
+# *.log
 *.tmp
 *.temp
 *.out

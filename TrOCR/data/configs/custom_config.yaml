@@ -1,13 +1,14 @@
 # Data Parameters
-data: "data/datasets/oscar_v1.12_5k"  # Directory with labeled image data
+data: "data/datasets/oscar_v2_50k"  # Directory with labeled image data
 dataset: "custom"                      # Dataset type: IAM, MNIST, custom
-fraction: 0.1                        # Dataset fraction for splits
+fraction: 1.0                       # Dataset fraction for splits
 testdata: "data/datasets/balcesu_test" # Optional separate test data directory
 test_frac: 1.0                        # Test data fraction if testdata used
 
 # Model Parameters
 model: "microsoft/trocr-large-handwritten"  # Model identifier
-checkpoint: null                            # Path to checkpoint file for resuming training
+# checkpoint: "data/output/oscar_v1.12_5k/trocr-large-handwritten/e17_lr2e-05_b1_fr0.1_tfr1.0_balcesu_test_ckpt_ft/trocr-large-handwritten-best-char_acc.pt"
+# tokenizer: "dumitrescustefan/bert-base-romanian-cased-v1" # Overwrite tokenizer for the language
 special_chars:                              # Special characters to add to tokenizer
   - "ă"
   - "â"
@@ -22,10 +23,10 @@ special_chars:                              # Special characters to add to token
 
 # Training Parameters
 epochs: 20                    # Number of training epochs
-batchsize: 1                 # Batch size for training
+batchsize: 4                 # Batch size for training
 val_iters: 1                 # Run validation every N epochs
 test_iters: 2               # Run testing every N epochs
-lr: 0.000001                # Learning rate (1e-6)
+lr: 1e-6                    # Learning rate (2e-5, 5e-5, 1e-6)
 lr_patience: 2              # LR scheduler patience epochs
 lr_factor: 0.5              # LR scheduler reduction factor
 num_samples: 10             # Number of samples to print during evaluation
@@ -34,3 +35,5 @@ seed: 42                    # Random seed for reproducibility
 # Output Parameters
 output: "data/output"       # Output directory path
 timestamp: false            # Whether to add timestamp to output directory
+save_predictions: true       # Whether to save predictions to file
+suffix: ""    # Suffix for the output directory
