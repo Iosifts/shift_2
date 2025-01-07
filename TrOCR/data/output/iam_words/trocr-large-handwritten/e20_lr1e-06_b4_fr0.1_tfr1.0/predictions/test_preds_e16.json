@@ -1,0 +1,10736 @@
+{
+  "predictions": [
+    {
+      "prediction": "speech",
+      "reference": "speech",
+      "confidence": 0.6817861363386629,
+      "token_ids": [
+        0,
+        0,
+        40511,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "premiere",
+      "reference": "premiere",
+      "confidence": 0.4998620011448259,
+      "token_ids": [
+        0,
+        0,
+        20692,
+        14116,
+        2
+      ]
+    },
+    {
+      "prediction": "out",
+      "reference": "out",
+      "confidence": 0.2498643245675206,
+      "token_ids": [
+        0,
+        0,
+        995,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "people",
+      "reference": "people",
+      "confidence": 0.499861997317371,
+      "token_ids": [
+        0,
+        0,
+        11970,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "committee",
+      "reference": "committee",
+      "confidence": 0.9925755659739176,
+      "token_ids": [
+        0,
+        0,
+        41328,
+        2
+      ]
+    },
+    {
+      "prediction": "around",
+      "reference": "around",
+      "confidence": 0.333208932309953,
+      "token_ids": [
+        0,
+        0,
+        13837,
+        2
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": ",",
+      "confidence": 0.3332088496131199,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.6665408884147132,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2
+      ]
+    },
+    {
+      "prediction": "taken",
+      "reference": "taken",
+      "confidence": 0.9965278953313828,
+      "token_ids": [
+        0,
+        0,
+        90,
+        12578,
+        2
+      ]
+    },
+    {
+      "prediction": "side",
+      "reference": "side",
+      "confidence": 0.24949708977895263,
+      "token_ids": [
+        0,
+        0,
+        3730,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.2494972407344047,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "convicted",
+      "reference": "convicted",
+      "confidence": 0.4994828999052193,
+      "token_ids": [
+        0,
+        0,
+        40474,
+        19799,
+        2
+      ]
+    },
+    {
+      "prediction": "scenes",
+      "reference": "scenes",
+      "confidence": 0.7147589670284269,
+      "token_ids": [
+        0,
+        0,
+        22270,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "followed",
+      "reference": "followed",
+      "confidence": 0.49960483794417737,
+      "token_ids": [
+        0,
+        0,
+        28481,
+        196,
+        2
+      ]
+    },
+    {
+      "prediction": "an",
+      "reference": "on",
+      "confidence": 0.24966273252802562,
+      "token_ids": [
+        0,
+        0,
+        260,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "may",
+      "reference": "may",
+      "confidence": 0.24965312387793642,
+      "token_ids": [
+        0,
+        0,
+        12488,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "cannot",
+      "reference": "cannot",
+      "confidence": 0.7988818280118266,
+      "token_ids": [
+        0,
+        0,
+        438,
+        37250,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "part",
+      "reference": "port",
+      "confidence": 0.19994239148825868,
+      "token_ids": [
+        0,
+        0,
+        7755,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "with",
+      "reference": "with",
+      "confidence": 0.19994130060446552,
+      "token_ids": [
+        0,
+        0,
+        5632,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "outwardly",
+      "reference": "outwardly",
+      "confidence": 0.3996027779342139,
+      "token_ids": [
+        0,
+        0,
+        995,
+        7767,
+        352,
+        2
+      ]
+    },
+    {
+      "prediction": "hows",
+      "reference": "hours",
+      "confidence": 0.5957269546209958,
+      "token_ids": [
+        0,
+        0,
+        298,
+        2176,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Parliaments",
+      "reference": "Parliaments",
+      "confidence": 0.3996469577070863,
+      "token_ids": [
+        0,
+        0,
+        22011,
+        37003,
+        4189,
+        2
+      ]
+    },
+    {
+      "prediction": "as",
+      "reference": "As",
+      "confidence": 0.3998869514901898,
+      "token_ids": [
+        0,
+        0,
+        281,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "story",
+      "reference": "story",
+      "confidence": 0.1999916785040746,
+      "token_ids": [
+        0,
+        0,
+        6462,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "chief",
+      "reference": "chief",
+      "confidence": 0.9972470800081888,
+      "token_ids": [
+        0,
+        0,
+        15276,
+        2
+      ]
+    },
+    {
+      "prediction": "country",
+      "reference": "country",
+      "confidence": 0.66653851669787,
+      "token_ids": [
+        0,
+        0,
+        12659,
+        2
+      ]
+    },
+    {
+      "prediction": "could",
+      "reference": "could",
+      "confidence": 0.33321134317962836,
+      "token_ids": [
+        0,
+        0,
+        17304,
+        2
+      ]
+    },
+    {
+      "prediction": "we",
+      "reference": "we",
+      "confidence": 0.6665412187857154,
+      "token_ids": [
+        0,
+        0,
+        1694,
+        2
+      ]
+    },
+    {
+      "prediction": "are",
+      "reference": "are",
+      "confidence": 0.7085355078340873,
+      "token_ids": [
+        0,
+        0,
+        1322,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "sung",
+      "reference": "sung",
+      "confidence": 0.4998070646880646,
+      "token_ids": [
+        0,
+        0,
+        34160,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "would",
+      "reference": "would",
+      "confidence": 0.4998122562028424,
+      "token_ids": [
+        0,
+        0,
+        14656,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "carried",
+      "reference": "carried",
+      "confidence": 0.4908075496487818,
+      "token_ids": [
+        0,
+        0,
+        5901,
+        10382,
+        2
+      ]
+    },
+    {
+      "prediction": "led",
+      "reference": "led",
+      "confidence": 0.7489018635027831,
+      "token_ids": [
+        0,
+        0,
+        1329,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "never",
+      "reference": "never",
+      "confidence": 0.49958206329554916,
+      "token_ids": [
+        0,
+        0,
+        20042,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "dingy",
+      "reference": "dingy",
+      "confidence": 0.4995471258067866,
+      "token_ids": [
+        0,
+        0,
+        11303,
+        219,
+        2
+      ]
+    },
+    {
+      "prediction": "leadership",
+      "reference": "leadership",
+      "confidence": 0.4995762408958292,
+      "token_ids": [
+        0,
+        0,
+        23240,
+        4128,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.999646802743276,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.6664798638417698,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.6664797797973042,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2
+      ]
+    },
+    {
+      "prediction": "Prime",
+      "reference": "Prime",
+      "confidence": 0.6664804816584512,
+      "token_ids": [
+        0,
+        0,
+        25973,
+        2
+      ]
+    },
+    {
+      "prediction": "that",
+      "reference": "that",
+      "confidence": 0.5848270642581156,
+      "token_ids": [
+        0,
+        0,
+        6025,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "it",
+      "reference": "it",
+      "confidence": 0.20493998714867132,
+      "token_ids": [
+        0,
+        0,
+        405,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "the-Bomb",
+      "reference": "the-Bomb",
+      "confidence": 0.41524584172587764,
+      "token_ids": [
+        0,
+        0,
+        627,
+        12,
+        42984,
+        2
+      ]
+    },
+    {
+      "prediction": "roun",
+      "reference": "rain",
+      "confidence": 0.39988142009716576,
+      "token_ids": [
+        0,
+        0,
+        338,
+        7928,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "before",
+      "reference": "before",
+      "confidence": 0.7499152479312556,
+      "token_ids": [
+        0,
+        0,
+        23033,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Chancellor",
+      "reference": "Chancellor",
+      "confidence": 0.4999543429240231,
+      "token_ids": [
+        0,
+        0,
+        35272,
+        31836,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.49997443374250994,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ";",
+      "reference": ";",
+      "confidence": 0.24997703650373115,
+      "token_ids": [
+        0,
+        0,
+        131,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "plare",
+      "reference": "plane",
+      "confidence": 0.853392519056797,
+      "token_ids": [
+        0,
+        0,
+        2911,
+        1322,
+        2
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.4998798551467796,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "what",
+      "reference": "what",
+      "confidence": 0.49987931649367756,
+      "token_ids": [
+        0,
+        0,
+        12196,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.4998594214496122,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.7188985536234571,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Holy",
+      "reference": "Holy",
+      "confidence": 0.4996198882723117,
+      "token_ids": [
+        0,
+        0,
+        40422,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "become",
+      "reference": "become",
+      "confidence": 0.49991221821826837,
+      "token_ids": [
+        0,
+        0,
+        13639,
+        4399,
+        2
+      ]
+    },
+    {
+      "prediction": "findings",
+      "reference": "findings",
+      "confidence": 0.49991543611252465,
+      "token_ids": [
+        0,
+        0,
+        26559,
+        1033,
+        2
+      ]
+    },
+    {
+      "prediction": "straightness",
+      "reference": "straightness",
+      "confidence": 0.9918898046016693,
+      "token_ids": [
+        0,
+        0,
+        25868,
+        1825,
+        2
+      ]
+    },
+    {
+      "prediction": "they",
+      "reference": "they",
+      "confidence": 0.2497728540508805,
+      "token_ids": [
+        0,
+        0,
+        10010,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "con-",
+      "reference": "con-",
+      "confidence": 0.4998095360655362,
+      "token_ids": [
+        0,
+        0,
+        3865,
+        12,
+        2
+      ]
+    },
+    {
+      "prediction": "from",
+      "reference": "from",
+      "confidence": 0.2497729658496274,
+      "token_ids": [
+        0,
+        0,
+        7761,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "failed",
+      "reference": "failed",
+      "confidence": 0.7394659223683439,
+      "token_ids": [
+        0,
+        0,
+        38323,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "United",
+      "reference": "United",
+      "confidence": 0.2498025763357823,
+      "token_ids": [
+        0,
+        0,
+        20556,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.4997769750541281,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "contemporary",
+      "reference": "contemporary",
+      "confidence": 0.49980154636437457,
+      "token_ids": [
+        0,
+        0,
+        10800,
+        45732,
+        2
+      ]
+    },
+    {
+      "prediction": "attempting",
+      "reference": "attempting",
+      "confidence": 0.9960511088371277,
+      "token_ids": [
+        0,
+        0,
+        2611,
+        15318,
+        154,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.39902453719092223,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "make",
+      "reference": "make",
+      "confidence": 0.19902766555164803,
+      "token_ids": [
+        0,
+        0,
+        19746,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Mr.",
+      "reference": "Mr.",
+      "confidence": 0.19902763537452267,
+      "token_ids": [
+        0,
+        0,
+        10980,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.5965848947480324,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Municipal",
+      "reference": "Municipal",
+      "confidence": 0.3991478582911613,
+      "token_ids": [
+        0,
+        0,
+        448,
+        46951,
+        337,
+        2
+      ]
+    },
+    {
+      "prediction": "but",
+      "reference": "but",
+      "confidence": 0.39977411047268346,
+      "token_ids": [
+        0,
+        0,
+        4297,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.40551716407947536,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "all",
+      "reference": "all",
+      "confidence": 0.7489794945364705,
+      "token_ids": [
+        0,
+        0,
+        1250,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Delaney",
+      "reference": "Delaney",
+      "confidence": 0.49944268216381066,
+      "token_ids": [
+        0,
+        0,
+        21502,
+        8650,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.4995627138237584,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "who",
+      "reference": "who",
+      "confidence": 0.4995529513938448,
+      "token_ids": [
+        0,
+        0,
+        8155,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "get",
+      "reference": "get",
+      "confidence": 0.998154362042745,
+      "token_ids": [
+        0,
+        0,
+        6460,
+        2
+      ]
+    },
+    {
+      "prediction": "more",
+      "reference": "more",
+      "confidence": 0.664964378008172,
+      "token_ids": [
+        0,
+        0,
+        4321,
+        2
+      ]
+    },
+    {
+      "prediction": "But",
+      "reference": "But",
+      "confidence": 0.6649659369995101,
+      "token_ids": [
+        0,
+        0,
+        1708,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.6649655989757667,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.7497702242956417,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "down",
+      "reference": "down",
+      "confidence": 0.4998323183513387,
+      "token_ids": [
+        0,
+        0,
+        3955,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": " # Frankie",
+      "reference": "trouble",
+      "confidence": 0.4998151230120258,
+      "token_ids": [
+        0,
+        0,
+        849,
+        23447,
+        2
+      ]
+    },
+    {
+      "prediction": "how",
+      "reference": "how",
+      "confidence": 0.4998330878075167,
+      "token_ids": [
+        0,
+        0,
+        9178,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "suggests",
+      "reference": "suggests",
+      "confidence": 0.9961257874965668,
+      "token_ids": [
+        0,
+        0,
+        42353,
+        29,
+        2
+      ]
+    },
+    {
+      "prediction": "fine",
+      "reference": "fine",
+      "confidence": 0.2498207651837911,
+      "token_ids": [
+        0,
+        0,
+        35093,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "National",
+      "reference": "national",
+      "confidence": 0.2498207523952561,
+      "token_ids": [
+        0,
+        0,
+        18285,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.2498220380115108,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "personal",
+      "reference": "personal",
+      "confidence": 0.4903765947561956,
+      "token_ids": [
+        0,
+        0,
+        26892,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "newspaper",
+      "reference": "newspaper",
+      "confidence": 0.3999073378820007,
+      "token_ids": [
+        0,
+        0,
+        4651,
+        4182,
+        15888,
+        2
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.3998791127214759,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "like",
+      "reference": "like",
+      "confidence": 0.38567464766821435,
+      "token_ids": [
+        0,
+        0,
+        3341,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "s",
+      "reference": ",",
+      "confidence": 0.7477395832538605,
+      "token_ids": [
+        0,
+        0,
+        29,
+        2
+      ]
+    },
+    {
+      "prediction": "be",
+      "reference": "be",
+      "confidence": 0.6665858792533376,
+      "token_ids": [
+        0,
+        0,
+        1610,
+        2
+      ]
+    },
+    {
+      "prediction": "do",
+      "reference": "do",
+      "confidence": 0.6665847425946936,
+      "token_ids": [
+        0,
+        0,
+        5016,
+        2
+      ]
+    },
+    {
+      "prediction": "They",
+      "reference": "They",
+      "confidence": 0.6665801116452977,
+      "token_ids": [
+        0,
+        0,
+        1213,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.715333582301225,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.5713984069065674,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "yt",
+      "reference": "It",
+      "confidence": 0.5713641674242569,
+      "token_ids": [
+        0,
+        0,
+        10884,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Ihoroeghty",
+      "reference": "thoroughly",
+      "confidence": 0.14463528204841486,
+      "token_ids": [
+        0,
+        0,
+        100,
+        13562,
+        3540,
+        4147,
+        2553,
+        2
+      ]
+    },
+    {
+      "prediction": "doorway",
+      "reference": "doorway",
+      "confidence": 0.7987715502044125,
+      "token_ids": [
+        0,
+        0,
+        11219,
+        1970,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "report",
+      "reference": "report",
+      "confidence": 0.1995500478007448,
+      "token_ids": [
+        0,
+        0,
+        7415,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "inaginative",
+      "reference": "imaginative",
+      "confidence": 0.3995402932439863,
+      "token_ids": [
+        0,
+        0,
+        179,
+        23065,
+        3693,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.1995504504347036,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.9951376914978027,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "at",
+      "reference": "at",
+      "confidence": 0.6663895089584386,
+      "token_ids": [
+        0,
+        0,
+        415,
+        2
+      ]
+    },
+    {
+      "prediction": "word",
+      "reference": "word",
+      "confidence": 0.6662788209025946,
+      "token_ids": [
+        0,
+        0,
+        14742,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.9960575898488363,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.7496902354850903,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "also",
+      "reference": "also",
+      "confidence": 0.4999266126012654,
+      "token_ids": [
+        0,
+        0,
+        19726,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "negro",
+      "reference": "negro",
+      "confidence": 0.499435726460707,
+      "token_ids": [
+        0,
+        0,
+        858,
+        15821,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.49993015523856066,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "it",
+      "reference": "it",
+      "confidence": 0.9893402854601542,
+      "token_ids": [
+        0,
+        0,
+        405,
+        2
+      ]
+    },
+    {
+      "prediction": "do",
+      "reference": "do",
+      "confidence": 0.6664913807879694,
+      "token_ids": [
+        0,
+        0,
+        5016,
+        2
+      ]
+    },
+    {
+      "prediction": "#",
+      "reference": "...",
+      "confidence": 0.6664753932548896,
+      "token_ids": [
+        0,
+        0,
+        10431,
+        2
+      ]
+    },
+    {
+      "prediction": "than",
+      "reference": "than",
+      "confidence": 0.6665219304570371,
+      "token_ids": [
+        0,
+        0,
+        5652,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ")",
+      "confidence": 0.5934750772065627,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "cost",
+      "reference": "cost",
+      "confidence": 0.49892037784656695,
+      "token_ids": [
+        0,
+        0,
+        10111,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.5116598474510283,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "representatives",
+      "reference": "representatives",
+      "confidence": 0.4989184148845442,
+      "token_ids": [
+        0,
+        0,
+        35213,
+        11649,
+        2
+      ]
+    },
+    {
+      "prediction": "my",
+      "reference": "my",
+      "confidence": 0.9050406614939371,
+      "token_ids": [
+        0,
+        0,
+        4783,
+        2
+      ]
+    },
+    {
+      "prediction": "at",
+      "reference": "at",
+      "confidence": 0.6666270024005362,
+      "token_ids": [
+        0,
+        0,
+        415,
+        2
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.6667272884224076,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.6665264664309992,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "dept",
+      "reference": "debt",
+      "confidence": 0.8899552077054977,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        3320,
+        2
+      ]
+    },
+    {
+      "prediction": "Ro",
+      "reference": "R.",
+      "confidence": 0.2538991727996178,
+      "token_ids": [
+        0,
+        0,
+        27110,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.24970771646833612,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "1",
+      "reference": "1",
+      "confidence": 0.406233959390363,
+      "token_ids": [
+        0,
+        0,
+        134,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.9998140335083008,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.6665353066370395,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.6665017240876132,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2
+      ]
+    },
+    {
+      "prediction": "Britain",
+      "reference": "Britain",
+      "confidence": 0.666551252225727,
+      "token_ids": [
+        0,
+        0,
+        29246,
+        2
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.7496442259669092,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.49986844126422714,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Murville",
+      "reference": "Murville",
+      "confidence": 0.499867856504034,
+      "token_ids": [
+        0,
+        0,
+        32405,
+        1352,
+        2
+      ]
+    },
+    {
+      "prediction": "him",
+      "reference": "him",
+      "confidence": 0.4998374550726885,
+      "token_ids": [
+        0,
+        0,
+        24770,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "sick",
+      "reference": "sick",
+      "confidence": 0.9965677857398987,
+      "token_ids": [
+        0,
+        0,
+        29,
+        1758,
+        2
+      ]
+    },
+    {
+      "prediction": "airiver",
+      "reference": "arrives",
+      "confidence": 0.4998235337905282,
+      "token_ids": [
+        0,
+        0,
+        2456,
+        8538,
+        2
+      ]
+    },
+    {
+      "prediction": "believes",
+      "reference": "believes",
+      "confidence": 0.49987633527064923,
+      "token_ids": [
+        0,
+        0,
+        8494,
+        30381,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.4416059057733548,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ";",
+      "reference": ";",
+      "confidence": 0.6567506606407676,
+      "token_ids": [
+        0,
+        0,
+        131,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "different",
+      "reference": "different",
+      "confidence": 0.4997474867646119,
+      "token_ids": [
+        0,
+        0,
+        37251,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "social",
+      "reference": "social",
+      "confidence": 0.5004465745605202,
+      "token_ids": [
+        0,
+        0,
+        19027,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "allowing",
+      "reference": "allowing",
+      "confidence": 0.49973041168121046,
+      "token_ids": [
+        0,
+        0,
+        1250,
+        6932,
+        2
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.988724152247111,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2
+      ]
+    },
+    {
+      "prediction": "burst",
+      "reference": "burst",
+      "confidence": 0.6665573916089468,
+      "token_ids": [
+        0,
+        0,
+        42342,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.3341623662029936,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2
+      ]
+    },
+    {
+      "prediction": "false",
+      "reference": "false",
+      "confidence": 0.6658960139389597,
+      "token_ids": [
+        0,
+        0,
+        22303,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.9997240702311198,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "night",
+      "reference": "night",
+      "confidence": 0.6664064327876521,
+      "token_ids": [
+        0,
+        0,
+        8498,
+        2
+      ]
+    },
+    {
+      "prediction": "cut",
+      "reference": "cut",
+      "confidence": 0.6664063135945635,
+      "token_ids": [
+        0,
+        0,
+        8267,
+        2
+      ]
+    },
+    {
+      "prediction": "support",
+      "reference": "support",
+      "confidence": 0.6664063930528579,
+      "token_ids": [
+        0,
+        0,
+        22930,
+        2
+      ]
+    },
+    {
+      "prediction": "ranging",
+      "reference": "ranging",
+      "confidence": 0.999563972155253,
+      "token_ids": [
+        0,
+        0,
+        20091,
+        2
+      ]
+    },
+    {
+      "prediction": "this",
+      "reference": "this",
+      "confidence": 0.33311790228897076,
+      "token_ids": [
+        0,
+        0,
+        9226,
+        2
+      ]
+    },
+    {
+      "prediction": "year",
+      "reference": "year",
+      "confidence": 0.6664492489509121,
+      "token_ids": [
+        0,
+        0,
+        180,
+        2
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.3331207987336029,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.7188580981811583,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "subjects",
+      "reference": "subjects",
+      "confidence": 0.4998150470059714,
+      "token_ids": [
+        0,
+        0,
+        40747,
+        29,
+        2
+      ]
+    },
+    {
+      "prediction": "fact",
+      "reference": "fact",
+      "confidence": 0.49986091298461677,
+      "token_ids": [
+        0,
+        0,
+        24905,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.5001092538184757,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "on",
+      "reference": "on",
+      "confidence": 0.7404581902002292,
+      "token_ids": [
+        0,
+        0,
+        261,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "pleased",
+      "reference": "pleased",
+      "confidence": 0.49983683237246773,
+      "token_ids": [
+        0,
+        0,
+        8293,
+        11835,
+        2
+      ]
+    },
+    {
+      "prediction": "seriously",
+      "reference": "seriously",
+      "confidence": 0.49973481173356793,
+      "token_ids": [
+        0,
+        0,
+        12778,
+        9997,
+        2
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.4999447513549171,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "gives",
+      "reference": "gives",
+      "confidence": 0.9993286281824112,
+      "token_ids": [
+        0,
+        0,
+        571,
+        3699,
+        2
+      ]
+    },
+    {
+      "prediction": "feeling",
+      "reference": "feeling",
+      "confidence": 0.49983614974263624,
+      "token_ids": [
+        0,
+        0,
+        7068,
+        10244,
+        2
+      ]
+    },
+    {
+      "prediction": "for",
+      "reference": "for",
+      "confidence": 0.4970912123387614,
+      "token_ids": [
+        0,
+        0,
+        1990,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "much",
+      "reference": "much",
+      "confidence": 0.4998371309098616,
+      "token_ids": [
+        0,
+        0,
+        28431,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "but",
+      "reference": "but",
+      "confidence": 0.9949324329694113,
+      "token_ids": [
+        0,
+        0,
+        4297,
+        2
+      ]
+    },
+    {
+      "prediction": "In",
+      "reference": "In",
+      "confidence": 0.6665930223797526,
+      "token_ids": [
+        0,
+        0,
+        1121,
+        2
+      ]
+    },
+    {
+      "prediction": "been",
+      "reference": "been",
+      "confidence": 0.6666010335338797,
+      "token_ids": [
+        0,
+        0,
+        35507,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.6666022883931172,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "free",
+      "reference": "free",
+      "confidence": 0.9991592963536581,
+      "token_ids": [
+        0,
+        0,
+        3743,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "and",
+      "confidence": 0.6665694277768731,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "nuclear",
+      "reference": "nuclear",
+      "confidence": 0.6665618618374114,
+      "token_ids": [
+        0,
+        0,
+        31242,
+        2
+      ]
+    },
+    {
+      "prediction": "many",
+      "reference": "many",
+      "confidence": 0.3332406008676189,
+      "token_ids": [
+        0,
+        0,
+        19827,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.9889156222343445,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.6667883547100549,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "which",
+      "reference": "which",
+      "confidence": 0.6664833195918618,
+      "token_ids": [
+        0,
+        0,
+        5488,
+        2
+      ]
+    },
+    {
+      "prediction": "likely",
+      "reference": "likely",
+      "confidence": 0.6664971738781938,
+      "token_ids": [
+        0,
+        0,
+        30266,
+        2
+      ]
+    },
+    {
+      "prediction": "ask",
+      "reference": "ask",
+      "confidence": 0.9959081411361694,
+      "token_ids": [
+        0,
+        0,
+        4970,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.6665710473084422,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.666568498869909,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "gain",
+      "reference": "gain",
+      "confidence": 0.40319366360956294,
+      "token_ids": [
+        0,
+        0,
+        38654,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.736796599328045,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Among",
+      "reference": "Among",
+      "confidence": 0.5004953178947211,
+      "token_ids": [
+        0,
+        0,
+        36342,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": "'",
+      "confidence": 0.7396561579780894,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "lives",
+      "reference": "lives",
+      "confidence": 0.49984326930971856,
+      "token_ids": [
+        0,
+        0,
+        462,
+        3699,
+        2
+      ]
+    },
+    {
+      "prediction": "can",
+      "reference": "can",
+      "confidence": 0.9988040924072266,
+      "token_ids": [
+        0,
+        0,
+        7424,
+        2
+      ]
+    },
+    {
+      "prediction": "Most",
+      "reference": "Most",
+      "confidence": 0.66650573412613,
+      "token_ids": [
+        0,
+        0,
+        2895,
+        2
+      ]
+    },
+    {
+      "prediction": "House",
+      "reference": "House",
+      "confidence": 0.6664999730385711,
+      "token_ids": [
+        0,
+        0,
+        18691,
+        2
+      ]
+    },
+    {
+      "prediction": "sit",
+      "reference": "sit",
+      "confidence": 0.6664869785348806,
+      "token_ids": [
+        0,
+        0,
+        23428,
+        2
+      ]
+    },
+    {
+      "prediction": "director",
+      "reference": "director",
+      "confidence": 0.5989340378459019,
+      "token_ids": [
+        0,
+        0,
+        19709,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "as",
+      "reference": "as",
+      "confidence": 0.3994056153668787,
+      "token_ids": [
+        0,
+        0,
+        281,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "if",
+      "reference": "if",
+      "confidence": 0.19942338496816783,
+      "token_ids": [
+        0,
+        0,
+        1594,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Betti's",
+      "reference": "Betti's",
+      "confidence": 0.3987508298055309,
+      "token_ids": [
+        0,
+        0,
+        387,
+        13238,
+        18,
+        2
+      ]
+    },
+    {
+      "prediction": "building",
+      "reference": "building",
+      "confidence": 0.49518843247682703,
+      "token_ids": [
+        0,
+        0,
+        11557,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Krushchov",
+      "reference": "Krushchov",
+      "confidence": 0.3332111286012977,
+      "token_ids": [
+        0,
+        0,
+        530,
+        29349,
+        611,
+        1417,
+        2
+      ]
+    },
+    {
+      "prediction": "their",
+      "reference": "their",
+      "confidence": 0.16664885019547748,
+      "token_ids": [
+        0,
+        0,
+        25017,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "concealed",
+      "reference": "concealed",
+      "confidence": 0.3332998558561755,
+      "token_ids": [
+        0,
+        0,
+        3865,
+        1755,
+        9389,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "up",
+      "reference": "up",
+      "confidence": 0.9991336464881897,
+      "token_ids": [
+        0,
+        0,
+        658,
+        2
+      ]
+    },
+    {
+      "prediction": "was",
+      "reference": "was",
+      "confidence": 0.6666052787096565,
+      "token_ids": [
+        0,
+        0,
+        7325,
+        2
+      ]
+    },
+    {
+      "prediction": "first",
+      "reference": "first",
+      "confidence": 0.66658790917391,
+      "token_ids": [
+        0,
+        0,
+        9502,
+        2
+      ]
+    },
+    {
+      "prediction": "prop",
+      "reference": "prop",
+      "confidence": 0.6665108685289424,
+      "token_ids": [
+        0,
+        0,
+        27128,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.7494523087792775,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "countries",
+      "reference": "countries",
+      "confidence": 0.49987649926426575,
+      "token_ids": [
+        0,
+        0,
+        11432,
+        4458,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.7484236924624952,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.4998967708582711,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "lived",
+      "reference": "lived",
+      "confidence": 0.7233594325775812,
+      "token_ids": [
+        0,
+        0,
+        18062,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "remain",
+      "reference": "remain",
+      "confidence": 0.49933692830586707,
+      "token_ids": [
+        0,
+        0,
+        5593,
+        1851,
+        2
+      ]
+    },
+    {
+      "prediction": "into",
+      "reference": "into",
+      "confidence": 0.24991617944947303,
+      "token_ids": [
+        0,
+        0,
+        12473,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ".",
+      "confidence": 0.2497648086125881,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.9994353254636129,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2
+      ]
+    },
+    {
+      "prediction": "more",
+      "reference": "more",
+      "confidence": 0.6666019562464388,
+      "token_ids": [
+        0,
+        0,
+        4321,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.6665998280886924,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "not",
+      "reference": "and",
+      "confidence": 0.6605059936447676,
+      "token_ids": [
+        0,
+        0,
+        3654,
+        2
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.7497901706171728,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "LESS",
+      "reference": "LESS",
+      "confidence": 0.49979284016995956,
+      "token_ids": [
+        0,
+        0,
+        43023,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Robertson",
+      "reference": "Robertson",
+      "confidence": 0.49981463317935054,
+      "token_ids": [
+        0,
+        0,
+        42178,
+        261,
+        2
+      ]
+    },
+    {
+      "prediction": "be",
+      "reference": "be",
+      "confidence": 0.49982077552385873,
+      "token_ids": [
+        0,
+        0,
+        1610,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.6222323446110181,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "that",
+      "reference": "that",
+      "confidence": 0.42503668244152804,
+      "token_ids": [
+        0,
+        0,
+        6025,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Alan",
+      "reference": "Alan",
+      "confidence": 0.4250320352050827,
+      "token_ids": [
+        0,
+        0,
+        41540,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "delectable",
+      "reference": "delectable",
+      "confidence": 0.37381957012105194,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        17601,
+        868,
+        2
+      ]
+    },
+    {
+      "prediction": "for",
+      "reference": "for",
+      "confidence": 0.9981850981712341,
+      "token_ids": [
+        0,
+        0,
+        1990,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.666534440716608,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.666518791370739,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "on",
+      "reference": "on",
+      "confidence": 0.6665597585364015,
+      "token_ids": [
+        0,
+        0,
+        261,
+        2
+      ]
+    },
+    {
+      "prediction": "as",
+      "reference": "as",
+      "confidence": 0.9998416900634766,
+      "token_ids": [
+        0,
+        0,
+        281,
+        2
+      ]
+    },
+    {
+      "prediction": "ed",
+      "reference": "joined",
+      "confidence": 0.6665467822029695,
+      "token_ids": [
+        0,
+        0,
+        196,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.6665427763447488,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.6665457586684719,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.6422831738668666,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.5322982766665518,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "nishes",
+      "reference": "higher",
+      "confidence": 0.49999257189114793,
+      "token_ids": [
+        0,
+        0,
+        282,
+        10776,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.5108125717379153,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "now",
+      "reference": "now",
+      "confidence": 0.9862990776697794,
+      "token_ids": [
+        0,
+        0,
+        8310,
+        2
+      ]
+    },
+    {
+      "prediction": "join",
+      "reference": "join",
+      "confidence": 0.6663726769823854,
+      "token_ids": [
+        0,
+        0,
+        26960,
+        2
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.6663724401228858,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2
+      ]
+    },
+    {
+      "prediction": "It",
+      "reference": "It",
+      "confidence": 0.6663719618221217,
+      "token_ids": [
+        0,
+        0,
+        243,
+        2
+      ]
+    },
+    {
+      "prediction": "underpinning",
+      "reference": "underpinning",
+      "confidence": 0.8848977267742157,
+      "token_ids": [
+        0,
+        0,
+        5087,
+        10188,
+        3509,
+        2
+      ]
+    },
+    {
+      "prediction": "Mr.",
+      "reference": "Mr.",
+      "confidence": 0.39997941647502017,
+      "token_ids": [
+        0,
+        0,
+        10980,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "them",
+      "reference": "them",
+      "confidence": 0.20208149115149077,
+      "token_ids": [
+        0,
+        0,
+        35369,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.19998112550520847,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "who",
+      "reference": "who",
+      "confidence": 0.9132002393404642,
+      "token_ids": [
+        0,
+        0,
+        8155,
+        2
+      ]
+    },
+    {
+      "prediction": "American",
+      "reference": "American",
+      "confidence": 0.6665618817530355,
+      "token_ids": [
+        0,
+        0,
+        4310,
+        2
+      ]
+    },
+    {
+      "prediction": "European",
+      "reference": "European",
+      "confidence": 0.33351429980671554,
+      "token_ids": [
+        0,
+        0,
+        17108,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.6665610670343582,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "boved",
+      "reference": "bored",
+      "confidence": 0.8978247046470642,
+      "token_ids": [
+        0,
+        0,
+        428,
+        12677,
+        2
+      ]
+    },
+    {
+      "prediction": "be",
+      "reference": "be",
+      "confidence": 0.24993495813746114,
+      "token_ids": [
+        0,
+        0,
+        1610,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "much",
+      "reference": "much",
+      "confidence": 0.49992299140308805,
+      "token_ids": [
+        0,
+        0,
+        28431,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "willing",
+      "reference": "willing",
+      "confidence": 0.4999179565059333,
+      "token_ids": [
+        0,
+        0,
+        605,
+        7491,
+        2
+      ]
+    },
+    {
+      "prediction": "his",
+      "reference": "his",
+      "confidence": 0.9964739680290222,
+      "token_ids": [
+        0,
+        0,
+        12724,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.6665766967455357,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "William",
+      "reference": "William",
+      "confidence": 0.6665852296730893,
+      "token_ids": [
+        0,
+        0,
+        33531,
+        2
+      ]
+    },
+    {
+      "prediction": "say",
+      "reference": "say",
+      "confidence": 0.33326373139973836,
+      "token_ids": [
+        0,
+        0,
+        28357,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.5999100161025743,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Belgium",
+      "reference": "Belgium",
+      "confidence": 0.3998850584697994,
+      "token_ids": [
+        0,
+        0,
+        19877,
+        571,
+        4031,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.599910306948954,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "waiting",
+      "reference": "waiting",
+      "confidence": 0.39989447114223287,
+      "token_ids": [
+        0,
+        0,
+        2739,
+        2838,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Press",
+      "reference": "Press",
+      "confidence": 0.9795612096786499,
+      "token_ids": [
+        0,
+        0,
+        20142,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.6651529474885759,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.6651564132396786,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2
+      ]
+    },
+    {
+      "prediction": "Royal",
+      "reference": "Royal",
+      "confidence": 0.3318286380876408,
+      "token_ids": [
+        0,
+        0,
+        30394,
+        2
+      ]
+    },
+    {
+      "prediction": "then",
+      "reference": "then",
+      "confidence": 0.984633227189382,
+      "token_ids": [
+        0,
+        0,
+        13040,
+        2
+      ]
+    },
+    {
+      "prediction": "Labour",
+      "reference": "Labour",
+      "confidence": 0.6666041040192402,
+      "token_ids": [
+        0,
+        0,
+        38664,
+        2
+      ]
+    },
+    {
+      "prediction": "Third",
+      "reference": "Third",
+      "confidence": 0.666602671154596,
+      "token_ids": [
+        0,
+        0,
+        42200,
+        2
+      ]
+    },
+    {
+      "prediction": "It",
+      "reference": "It",
+      "confidence": 0.3535579039025407,
+      "token_ids": [
+        0,
+        0,
+        243,
+        2
+      ]
+    },
+    {
+      "prediction": "peace",
+      "reference": "peace",
+      "confidence": 0.5766641393553822,
+      "token_ids": [
+        0,
+        0,
+        30861,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": ",",
+      "confidence": 0.19968337000179978,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "tape",
+      "reference": "taper",
+      "confidence": 0.39967300493288604,
+      "token_ids": [
+        0,
+        0,
+        90,
+        5776,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "hectoring",
+      "reference": "hectoring",
+      "confidence": 0.39961394805573314,
+      "token_ids": [
+        0,
+        0,
+        700,
+        24427,
+        154,
+        2
+      ]
+    },
+    {
+      "prediction": "6th",
+      "reference": "with",
+      "confidence": 0.791064128279686,
+      "token_ids": [
+        0,
+        0,
+        401,
+        212,
+        2
+      ]
+    },
+    {
+      "prediction": "only",
+      "reference": "only",
+      "confidence": 0.49951647713735525,
+      "token_ids": [
+        0,
+        0,
+        8338,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": ",",
+      "confidence": 0.2501474060317719,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "colon",
+      "reference": "colour",
+      "confidence": 0.49948942261520635,
+      "token_ids": [
+        0,
+        0,
+        9119,
+        261,
+        2
+      ]
+    },
+    {
+      "prediction": "no",
+      "reference": "as",
+      "confidence": 0.6211406937086696,
+      "token_ids": [
+        0,
+        0,
+        2362,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "vestigation",
+      "reference": "vestigation",
+      "confidence": 0.4999440777323708,
+      "token_ids": [
+        0,
+        0,
+        13493,
+        18541,
+        2
+      ]
+    },
+    {
+      "prediction": "grew",
+      "reference": "grew",
+      "confidence": 0.49995139195190474,
+      "token_ids": [
+        0,
+        0,
+        571,
+        10461,
+        2
+      ]
+    },
+    {
+      "prediction": "it",
+      "reference": "it",
+      "confidence": 0.4999474502993735,
+      "token_ids": [
+        0,
+        0,
+        405,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.7355402228413368,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Press",
+      "reference": "Press",
+      "confidence": 0.5006149708558708,
+      "token_ids": [
+        0,
+        0,
+        20142,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "last",
+      "reference": "last",
+      "confidence": 0.49952064230902876,
+      "token_ids": [
+        0,
+        0,
+        13751,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "pressive",
+      "reference": "pressive",
+      "confidence": 0.4997325221945472,
+      "token_ids": [
+        0,
+        0,
+        642,
+        22075,
+        2
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.6709741312279593,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "greatest",
+      "reference": "greatest",
+      "confidence": 0.49989308607859534,
+      "token_ids": [
+        0,
+        0,
+        12338,
+        990,
+        2
+      ]
+    },
+    {
+      "prediction": "published",
+      "reference": "publishes",
+      "confidence": 0.49989347609218227,
+      "token_ids": [
+        0,
+        0,
+        34167,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "story",
+      "reference": "story",
+      "confidence": 0.4998768798296238,
+      "token_ids": [
+        0,
+        0,
+        6462,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Labour",
+      "reference": "Labour",
+      "confidence": 0.5951227617018334,
+      "token_ids": [
+        0,
+        0,
+        38664,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.37405807068407115,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "clear-cut",
+      "reference": "clear-cut",
+      "confidence": 0.39488394394436066,
+      "token_ids": [
+        0,
+        0,
+        18763,
+        12,
+        8267,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.3951395876628666,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "taken",
+      "reference": "taken",
+      "confidence": 0.9994140118360519,
+      "token_ids": [
+        0,
+        0,
+        90,
+        12578,
+        2
+      ]
+    },
+    {
+      "prediction": "other",
+      "reference": "other",
+      "confidence": 0.24969409510542576,
+      "token_ids": [
+        0,
+        0,
+        7443,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "world",
+      "reference": "world",
+      "confidence": 0.24969415808426929,
+      "token_ids": [
+        0,
+        0,
+        8331,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "for",
+      "reference": "for",
+      "confidence": 0.24969423700937426,
+      "token_ids": [
+        0,
+        0,
+        1990,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "quite",
+      "reference": "quite",
+      "confidence": 0.7472696008042246,
+      "token_ids": [
+        0,
+        0,
+        24638,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "tnon",
+      "reference": "turn",
+      "confidence": 0.4998433070048568,
+      "token_ids": [
+        0,
+        0,
+        90,
+        13424,
+        2
+      ]
+    },
+    {
+      "prediction": "film",
+      "reference": "film",
+      "confidence": 0.4998441645200684,
+      "token_ids": [
+        0,
+        0,
+        21928,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "no",
+      "reference": "no",
+      "confidence": 0.4998438080273435,
+      "token_ids": [
+        0,
+        0,
+        2362,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.7496307448856054,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "lefty",
+      "reference": "hefty",
+      "confidence": 0.4996874348868742,
+      "token_ids": [
+        0,
+        0,
+        6960,
+        219,
+        2
+      ]
+    },
+    {
+      "prediction": "as",
+      "reference": "as",
+      "confidence": 0.49968651103734696,
+      "token_ids": [
+        0,
+        0,
+        281,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "national",
+      "reference": "national",
+      "confidence": 0.499693184666067,
+      "token_ids": [
+        0,
+        0,
+        11535,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "last",
+      "reference": "last",
+      "confidence": 0.6548905244343217,
+      "token_ids": [
+        0,
+        0,
+        13751,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "tools",
+      "reference": "tools",
+      "confidence": 0.49974322439301133,
+      "token_ids": [
+        0,
+        0,
+        46200,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": "2",
+      "confidence": 0.4997430043291038,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "shares",
+      "reference": "shares",
+      "confidence": 0.49970300503909804,
+      "token_ids": [
+        0,
+        0,
+        1193,
+        5347,
+        2
+      ]
+    },
+    {
+      "prediction": "constitute",
+      "reference": "constitute",
+      "confidence": 0.9694313406944275,
+      "token_ids": [
+        0,
+        0,
+        20836,
+        26261,
+        2
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.24989623671476346,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.49987221819333394,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Fill",
+      "reference": ")",
+      "confidence": 0.499880659132533,
+      "token_ids": [
+        0,
+        0,
+        597,
+        1873,
+        2
+      ]
+    },
+    {
+      "prediction": "woods",
+      "reference": "moods",
+      "confidence": 0.8571679989496866,
+      "token_ids": [
+        0,
+        0,
+        27684,
+        2
+      ]
+    },
+    {
+      "prediction": "practice",
+      "reference": "practice",
+      "confidence": 0.6666096233947011,
+      "token_ids": [
+        0,
+        0,
+        32524,
+        2
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.33329083920337627,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2
+      ]
+    },
+    {
+      "prediction": "weight",
+      "reference": "weight",
+      "confidence": 0.33345195685804185,
+      "token_ids": [
+        0,
+        0,
+        4301,
+        2
+      ]
+    },
+    {
+      "prediction": "which",
+      "reference": "which",
+      "confidence": 0.7489694624163121,
+      "token_ids": [
+        0,
+        0,
+        5488,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "pass",
+      "reference": "pass",
+      "confidence": 0.4994003304179,
+      "token_ids": [
+        0,
+        0,
+        10212,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "partically",
+      "reference": "partially",
+      "confidence": 0.49937219963331825,
+      "token_ids": [
+        0,
+        0,
+        7755,
+        3435,
+        2
+      ]
+    },
+    {
+      "prediction": "although",
+      "reference": "although",
+      "confidence": 0.49939923940961517,
+      "token_ids": [
+        0,
+        0,
+        24648,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "break",
+      "reference": "break",
+      "confidence": 0.5999052496480907,
+      "token_ids": [
+        0,
+        0,
+        10339,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "seen to",
+      "reference": "seen",
+      "confidence": 0.3998516660876435,
+      "token_ids": [
+        0,
+        0,
+        24196,
+        7,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "agriculture",
+      "reference": "agriculture",
+      "confidence": 0.39991685152137635,
+      "token_ids": [
+        0,
+        0,
+        1073,
+        4063,
+        17898,
+        2
+      ]
+    },
+    {
+      "prediction": "his",
+      "reference": "his",
+      "confidence": 0.4001549969492288,
+      "token_ids": [
+        0,
+        0,
+        12724,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.9995869000752767,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "be",
+      "reference": "be",
+      "confidence": 0.6664668020209774,
+      "token_ids": [
+        0,
+        0,
+        1610,
+        2
+      ]
+    },
+    {
+      "prediction": "check",
+      "reference": "check",
+      "confidence": 0.6664835026274852,
+      "token_ids": [
+        0,
+        0,
+        15954,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.6663526506357206,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "which",
+      "reference": "which",
+      "confidence": 0.5874035680426072,
+      "token_ids": [
+        0,
+        0,
+        5488,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.19993683052790878,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "class",
+      "reference": "can",
+      "confidence": 0.26919107191650726,
+      "token_ids": [
+        0,
+        0,
+        4684,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "busay",
+      "reference": "fussy",
+      "confidence": 0.3999384600451753,
+      "token_ids": [
+        0,
+        0,
+        0,
+        18924,
+        857,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.598962589815922,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "union",
+      "reference": "union",
+      "confidence": 0.39988717757369857,
+      "token_ids": [
+        0,
+        0,
+        18988,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "crowna",
+      "reference": "crowd",
+      "confidence": 0.39987217588479596,
+      "token_ids": [
+        0,
+        0,
+        438,
+        19649,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "though",
+      "reference": "tough",
+      "confidence": 0.3986741858675851,
+      "token_ids": [
+        0,
+        0,
+        18401,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "against",
+      "reference": "against",
+      "confidence": 0.7497409194290228,
+      "token_ids": [
+        0,
+        0,
+        22268,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "illness",
+      "reference": "illness",
+      "confidence": 0.24997943366140646,
+      "token_ids": [
+        0,
+        0,
+        1873,
+        1825,
+        2
+      ]
+    },
+    {
+      "prediction": "Bill",
+      "reference": "Bill",
+      "confidence": 0.4999115471313579,
+      "token_ids": [
+        0,
+        0,
+        19993,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "A",
+      "reference": "A",
+      "confidence": 0.24996246305031028,
+      "token_ids": [
+        0,
+        0,
+        250,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.9994821151097616,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2
+      ]
+    },
+    {
+      "prediction": "claimed",
+      "reference": "claimed",
+      "confidence": 0.666564325493821,
+      "token_ids": [
+        0,
+        0,
+        29639,
+        2
+      ]
+    },
+    {
+      "prediction": "best",
+      "reference": "last",
+      "confidence": 0.3335313602085712,
+      "token_ids": [
+        0,
+        0,
+        7885,
+        2
+      ]
+    },
+    {
+      "prediction": "I",
+      "reference": "(",
+      "confidence": 0.6665572330208723,
+      "token_ids": [
+        0,
+        0,
+        100,
+        2
+      ]
+    },
+    {
+      "prediction": "whereby",
+      "reference": "whereby",
+      "confidence": 0.9955163896083832,
+      "token_ids": [
+        0,
+        0,
+        8569,
+        1409,
+        2
+      ]
+    },
+    {
+      "prediction": "existence",
+      "reference": "existence",
+      "confidence": 0.25093744218353037,
+      "token_ids": [
+        0,
+        0,
+        35445,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.24987239398308025,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "The",
+      "reference": "The",
+      "confidence": 0.24991469676053746,
+      "token_ids": [
+        0,
+        0,
+        133,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.9933724602063497,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "was",
+      "reference": "was",
+      "confidence": 0.6664113787839199,
+      "token_ids": [
+        0,
+        0,
+        7325,
+        2
+      ]
+    },
+    {
+      "prediction": "question",
+      "reference": "question",
+      "confidence": 0.6664635176660495,
+      "token_ids": [
+        0,
+        0,
+        40018,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.9934040904045105,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "on",
+      "reference": ",",
+      "confidence": 0.6883449669976471,
+      "token_ids": [
+        0,
+        0,
+        261,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "made",
+      "reference": "made",
+      "confidence": 0.4999418987352868,
+      "token_ids": [
+        0,
+        0,
+        7078,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Allies",
+      "reference": "Allies",
+      "confidence": 0.4997338371156427,
+      "token_ids": [
+        0,
+        0,
+        3684,
+        918,
+        2
+      ]
+    },
+    {
+      "prediction": "no",
+      "reference": "no",
+      "confidence": 0.49058357211762527,
+      "token_ids": [
+        0,
+        0,
+        2362,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "non-combatant",
+      "reference": "non-combatant",
+      "confidence": 0.9884803195794424,
+      "token_ids": [
+        0,
+        0,
+        13424,
+        12,
+        42880,
+        927,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.16637539396516995,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.1663921408303239,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "intelligent",
+      "reference": "intelligent",
+      "confidence": 0.1663709576438899,
+      "token_ids": [
+        0,
+        0,
+        2544,
+        42732,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "tools",
+      "reference": "tools",
+      "confidence": 0.9875227212905884,
+      "token_ids": [
+        0,
+        0,
+        46200,
+        2
+      ]
+    },
+    {
+      "prediction": "has",
+      "reference": "has",
+      "confidence": 0.33316870051983877,
+      "token_ids": [
+        0,
+        0,
+        7333,
+        2
+      ]
+    },
+    {
+      "prediction": "used",
+      "reference": "used",
+      "confidence": 0.3331918294603909,
+      "token_ids": [
+        0,
+        0,
+        6199,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.6664940916143646,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.9606702327728271,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.6665597614601211,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "had",
+      "reference": "had",
+      "confidence": 0.6665559212982993,
+      "token_ids": [
+        0,
+        0,
+        12186,
+        2
+      ]
+    },
+    {
+      "prediction": "be",
+      "reference": "be",
+      "confidence": 0.6665308314843065,
+      "token_ids": [
+        0,
+        0,
+        1610,
+        2
+      ]
+    },
+    {
+      "prediction": "Congo",
+      "reference": "Congo",
+      "confidence": 0.8894756138324738,
+      "token_ids": [
+        0,
+        0,
+        42337,
+        139,
+        2
+      ]
+    },
+    {
+      "prediction": "per",
+      "reference": "per",
+      "confidence": 0.250009952633901,
+      "token_ids": [
+        0,
+        0,
+        1741,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "deal",
+      "reference": "deal",
+      "confidence": 0.2501861692470632,
+      "token_ids": [
+        0,
+        0,
+        14861,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "unless",
+      "reference": "unless",
+      "confidence": 0.24990858408561867,
+      "token_ids": [
+        0,
+        0,
+        36100,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.6020959070353769,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "36",
+      "reference": "36",
+      "confidence": 0.43530815775782267,
+      "token_ids": [
+        0,
+        0,
+        3367,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "remained",
+      "reference": "remained",
+      "confidence": 0.402271153965831,
+      "token_ids": [
+        0,
+        0,
+        5593,
+        7153,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "strikers",
+      "reference": "strikers",
+      "confidence": 0.39752523914210414,
+      "token_ids": [
+        0,
+        0,
+        620,
+        8836,
+        268,
+        2
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.9997192621231079,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "they",
+      "reference": "they",
+      "confidence": 0.6664280893116975,
+      "token_ids": [
+        0,
+        0,
+        10010,
+        2
+      ]
+    },
+    {
+      "prediction": "all",
+      "reference": "all",
+      "confidence": 0.6663206687004516,
+      "token_ids": [
+        0,
+        0,
+        1250,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.6662083695471495,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2
+      ]
+    },
+    {
+      "prediction": "also",
+      "reference": "also",
+      "confidence": 0.9995463291803995,
+      "token_ids": [
+        0,
+        0,
+        19726,
+        2
+      ]
+    },
+    {
+      "prediction": "they",
+      "reference": "they",
+      "confidence": 0.6662660902065399,
+      "token_ids": [
+        0,
+        0,
+        10010,
+        2
+      ]
+    },
+    {
+      "prediction": "they",
+      "reference": "they",
+      "confidence": 0.6662677924055537,
+      "token_ids": [
+        0,
+        0,
+        10010,
+        2
+      ]
+    },
+    {
+      "prediction": "his",
+      "reference": "his",
+      "confidence": 0.33297096227532225,
+      "token_ids": [
+        0,
+        0,
+        12724,
+        2
+      ]
+    },
+    {
+      "prediction": "spawning",
+      "reference": "spawning",
+      "confidence": 0.9177823305130005,
+      "token_ids": [
+        0,
+        0,
+        4182,
+        1584,
+        3509,
+        2
+      ]
+    },
+    {
+      "prediction": "probably",
+      "reference": "probably",
+      "confidence": 0.20100919844135348,
+      "token_ids": [
+        0,
+        0,
+        27737,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.3795204887350326,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.3999203467550147,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "subject",
+      "reference": "subject",
+      "confidence": 0.5963663640752124,
+      "token_ids": [
+        0,
+        0,
+        40747,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "do",
+      "reference": "do",
+      "confidence": 0.3963623923168811,
+      "token_ids": [
+        0,
+        0,
+        5016,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "unccidental",
+      "reference": "anecdotal",
+      "confidence": 0.3964174764794171,
+      "token_ids": [
+        0,
+        0,
+        879,
+        7309,
+        27350,
+        2
+      ]
+    },
+    {
+      "prediction": "we",
+      "reference": "we",
+      "confidence": 0.396359622111483,
+      "token_ids": [
+        0,
+        0,
+        1694,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.7797584875685345,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Delaney's",
+      "reference": "Delaney's",
+      "confidence": 0.21744520093696346,
+      "token_ids": [
+        0,
+        0,
+        21502,
+        8650,
+        18,
+        2
+      ]
+    },
+    {
+      "prediction": "making",
+      "reference": "making",
+      "confidence": 0.58207624737568,
+      "token_ids": [
+        0,
+        0,
+        5349,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "they",
+      "reference": "they",
+      "confidence": 0.5822822051778273,
+      "token_ids": [
+        0,
+        0,
+        10010,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.7499196752082868,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.4999297587834304,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "characters",
+      "reference": "characters",
+      "confidence": 0.49981638789493177,
+      "token_ids": [
+        0,
+        0,
+        24262,
+        48060,
+        2
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "In",
+      "confidence": 0.4999298021822913,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "cabinet",
+      "reference": "cabinet",
+      "confidence": 0.9929040193557739,
+      "token_ids": [
+        0,
+        0,
+        438,
+        17531,
+        594,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.19990006594686155,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.1999002635121455,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.19990008803290565,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.7498432548535646,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "timing",
+      "reference": "timing",
+      "confidence": 0.49988773617216475,
+      "token_ids": [
+        0,
+        0,
+        10519,
+        154,
+        2
+      ]
+    },
+    {
+      "prediction": "over",
+      "reference": "over",
+      "confidence": 0.4999098784135858,
+      "token_ids": [
+        0,
+        0,
+        2137,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "war",
+      "reference": "war",
+      "confidence": 0.49991075998731815,
+      "token_ids": [
+        0,
+        0,
+        5557,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "as",
+      "reference": "as",
+      "confidence": 0.7461810842079952,
+      "token_ids": [
+        0,
+        0,
+        281,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "reserves",
+      "reference": "reserves",
+      "confidence": 0.49986116856394647,
+      "token_ids": [
+        0,
+        0,
+        1535,
+        22812,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.4999149667582259,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "said",
+      "reference": "said",
+      "confidence": 0.37818261466683345,
+      "token_ids": [
+        0,
+        0,
+        28613,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.7382102244455826,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "must",
+      "reference": "must",
+      "confidence": 0.4999604508666624,
+      "token_ids": [
+        0,
+        0,
+        26895,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "on",
+      "reference": "on",
+      "confidence": 0.4999467998527729,
+      "token_ids": [
+        0,
+        0,
+        261,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "looked",
+      "reference": "looked",
+      "confidence": 0.4999418194524093,
+      "token_ids": [
+        0,
+        0,
+        13724,
+        196,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.7373724031364475,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.2570000168499633,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.7356981724704781,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Ministers",
+      "reference": "Ministers",
+      "confidence": 0.49994933618698545,
+      "token_ids": [
+        0,
+        0,
+        20086,
+        16729,
+        2
+      ]
+    },
+    {
+      "prediction": "Shakes",
+      "reference": "shakes",
+      "confidence": 0.9407978951931,
+      "token_ids": [
+        0,
+        0,
+        3609,
+        5556,
+        2
+      ]
+    },
+    {
+      "prediction": "ine",
+      "reference": "une",
+      "confidence": 0.2499455971014395,
+      "token_ids": [
+        0,
+        0,
+        833,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "has",
+      "reference": "has",
+      "confidence": 0.2499455859512696,
+      "token_ids": [
+        0,
+        0,
+        7333,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "their",
+      "reference": "their",
+      "confidence": 0.49994669333909414,
+      "token_ids": [
+        0,
+        0,
+        25017,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.971064567565918,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.6665222047210287,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.6665290186065249,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "status",
+      "reference": "stylus",
+      "confidence": 0.6664762338398079,
+      "token_ids": [
+        0,
+        0,
+        29552,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.7498527766753865,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "legs",
+      "reference": "legs",
+      "confidence": 0.4998819384128576,
+      "token_ids": [
+        0,
+        0,
+        4308,
+        29,
+        2
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.49989698911743785,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Police",
+      "reference": "Police",
+      "confidence": 0.49989783612486643,
+      "token_ids": [
+        0,
+        0,
+        9497,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "only",
+      "reference": "only",
+      "confidence": 0.742351259052966,
+      "token_ids": [
+        0,
+        0,
+        8338,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "actually",
+      "reference": "actually",
+      "confidence": 0.4999602622747589,
+      "token_ids": [
+        0,
+        0,
+        40808,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "meinstein",
+      "reference": "maintain",
+      "confidence": 0.49848082742915656,
+      "token_ids": [
+        0,
+        0,
+        1794,
+        40335,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.49996408514560287,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.7469575803993918,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "that",
+      "reference": "that",
+      "confidence": 0.49956857398601784,
+      "token_ids": [
+        0,
+        0,
+        6025,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "sel",
+      "reference": "set",
+      "confidence": 0.49973898564939484,
+      "token_ids": [
+        0,
+        0,
+        5317,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "means",
+      "reference": "means",
+      "confidence": 0.4998226062028443,
+      "token_ids": [
+        0,
+        0,
+        1794,
+        1253,
+        2
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.7497721954503014,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "restrained",
+      "reference": "restrained",
+      "confidence": 0.49983011187631404,
+      "token_ids": [
+        0,
+        0,
+        7110,
+        26492,
+        2
+      ]
+    },
+    {
+      "prediction": "problems",
+      "reference": "problems",
+      "confidence": 0.4998570241376309,
+      "token_ids": [
+        0,
+        0,
+        4892,
+        42216,
+        2
+      ]
+    },
+    {
+      "prediction": "first",
+      "reference": "first",
+      "confidence": 0.4997981630127357,
+      "token_ids": [
+        0,
+        0,
+        9502,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "decided",
+      "reference": "decided",
+      "confidence": 0.9984906166791916,
+      "token_ids": [
+        0,
+        0,
+        11127,
+        8598,
+        2
+      ]
+    },
+    {
+      "prediction": "British",
+      "reference": "British",
+      "confidence": 0.4997985439221666,
+      "token_ids": [
+        0,
+        0,
+        24270,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "oppose",
+      "reference": "oppose",
+      "confidence": 0.4998024106228678,
+      "token_ids": [
+        0,
+        0,
+        10223,
+        3876,
+        2
+      ]
+    },
+    {
+      "prediction": "been",
+      "reference": "been",
+      "confidence": 0.49978159093633634,
+      "token_ids": [
+        0,
+        0,
+        35507,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "that",
+      "reference": "that",
+      "confidence": 0.7489667339002191,
+      "token_ids": [
+        0,
+        0,
+        6025,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "mouth",
+      "reference": "smooth",
+      "confidence": 0.49989269818668025,
+      "token_ids": [
+        0,
+        0,
+        119,
+        15617,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.49947782121693685,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "structures",
+      "reference": "structures",
+      "confidence": 0.49988971743242516,
+      "token_ids": [
+        0,
+        0,
+        25384,
+        4123,
+        2
+      ]
+    },
+    {
+      "prediction": "pinued",
+      "reference": "pinned",
+      "confidence": 0.9911502599716187,
+      "token_ids": [
+        0,
+        0,
+        10188,
+        6796,
+        2
+      ]
+    },
+    {
+      "prediction": "severely",
+      "reference": "severely",
+      "confidence": 0.4997816012047087,
+      "token_ids": [
+        0,
+        0,
+        26251,
+        352,
+        2
+      ]
+    },
+    {
+      "prediction": "some",
+      "reference": "some",
+      "confidence": 0.24978975996398967,
+      "token_ids": [
+        0,
+        0,
+        12465,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "worn",
+      "reference": "worn",
+      "confidence": 0.24979004811491648,
+      "token_ids": [
+        0,
+        0,
+        35738,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.8025416566058994,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "deprived",
+      "reference": "deprived",
+      "confidence": 0.5998615980350046,
+      "token_ids": [
+        0,
+        0,
+        17272,
+        36040,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.6000419212954696,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "insjalled",
+      "reference": "installed",
+      "confidence": 0.19991386550655538,
+      "token_ids": [
+        0,
+        0,
+        1344,
+        267,
+        9315,
+        2
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "\"",
+      "confidence": 0.8698515097300211,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.6665514095002436,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2
+      ]
+    },
+    {
+      "prediction": "effective",
+      "reference": "effective",
+      "confidence": 0.6662382887819452,
+      "token_ids": [
+        0,
+        0,
+        20278,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.671860475714008,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "whether",
+      "reference": "whether",
+      "confidence": 0.9971387386322021,
+      "token_ids": [
+        0,
+        0,
+        29676,
+        2
+      ]
+    },
+    {
+      "prediction": "do",
+      "reference": "do",
+      "confidence": 0.6664318560609459,
+      "token_ids": [
+        0,
+        0,
+        5016,
+        2
+      ]
+    },
+    {
+      "prediction": "its",
+      "reference": "its",
+      "confidence": 0.33310937883714575,
+      "token_ids": [
+        0,
+        0,
+        2629,
+        2
+      ]
+    },
+    {
+      "prediction": "it",
+      "reference": "it",
+      "confidence": 0.6663886710495291,
+      "token_ids": [
+        0,
+        0,
+        405,
+        2
+      ]
+    },
+    {
+      "prediction": "Fanny",
+      "reference": "Fanny",
+      "confidence": 0.9981087893247604,
+      "token_ids": [
+        0,
+        0,
+        597,
+        13749,
+        2
+      ]
+    },
+    {
+      "prediction": "defence",
+      "reference": "defence",
+      "confidence": 0.49975733526036314,
+      "token_ids": [
+        0,
+        0,
+        9232,
+        4086,
+        2
+      ]
+    },
+    {
+      "prediction": "more",
+      "reference": "more",
+      "confidence": 0.24976711969343673,
+      "token_ids": [
+        0,
+        0,
+        4321,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "before",
+      "reference": "before",
+      "confidence": 0.24976723035920323,
+      "token_ids": [
+        0,
+        0,
+        23033,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "possible",
+      "reference": "possible",
+      "confidence": 0.9548406004905701,
+      "token_ids": [
+        0,
+        0,
+        642,
+        31497,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.4976434329933328,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.24988326696532914,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "two",
+      "reference": "two",
+      "confidence": 0.49988027148958447,
+      "token_ids": [
+        0,
+        0,
+        7109,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.9530575474103292,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2
+      ]
+    },
+    {
+      "prediction": "all",
+      "reference": "all",
+      "confidence": 0.6662681051830125,
+      "token_ids": [
+        0,
+        0,
+        1250,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.666497142095371,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2
+      ]
+    },
+    {
+      "prediction": "were",
+      "reference": "were",
+      "confidence": 0.6661593717999494,
+      "token_ids": [
+        0,
+        0,
+        17341,
+        2
+      ]
+    },
+    {
+      "prediction": "but",
+      "reference": "but",
+      "confidence": 0.7477103358508064,
+      "token_ids": [
+        0,
+        0,
+        4297,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "untrained",
+      "reference": "untrained",
+      "confidence": 0.4998230063512276,
+      "token_ids": [
+        0,
+        0,
+        5973,
+        26492,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.49996470146884064,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "local",
+      "reference": "local",
+      "confidence": 0.24997264953268322,
+      "token_ids": [
+        0,
+        0,
+        18076,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "inside",
+      "reference": "inside",
+      "confidence": 0.7496140456113531,
+      "token_ids": [
+        0,
+        0,
+        36615,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.4999452695816128,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "s.",
+      "reference": "S.",
+      "confidence": 0.49990535021735805,
+      "token_ids": [
+        0,
+        0,
+        29,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "writes",
+      "reference": "writes",
+      "confidence": 0.499863758770155,
+      "token_ids": [
+        0,
+        0,
+        42002,
+        293,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.42899611040619284,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "early",
+      "reference": "early",
+      "confidence": 0.2895132294547249,
+      "token_ids": [
+        0,
+        0,
+        23099,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "anti-apartheid",
+      "reference": "anti-apartheid",
+      "confidence": 0.27687778762004916,
+      "token_ids": [
+        0,
+        0,
+        10865,
+        12,
+        1115,
+        2013,
+        30071,
+        2
+      ]
+    },
+    {
+      "prediction": "Arguably",
+      "reference": "Arguably",
+      "confidence": 0.28846017952930275,
+      "token_ids": [
+        0,
+        0,
+        8138,
+        5521,
+        4735,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Foot-",
+      "reference": "Foot-",
+      "confidence": 0.7939484153685044,
+      "token_ids": [
+        0,
+        0,
+        43244,
+        12,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.39735559921206587,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Mr.",
+      "reference": "Mr.",
+      "confidence": 0.5428127486673935,
+      "token_ids": [
+        0,
+        0,
+        10980,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "exhaustion",
+      "reference": "exhaustion",
+      "confidence": 0.38916586532532504,
+      "token_ids": [
+        0,
+        0,
+        3463,
+        41423,
+        1499,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.9997208515803019,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "than",
+      "reference": "than",
+      "confidence": 0.6664104205368488,
+      "token_ids": [
+        0,
+        0,
+        5652,
+        2
+      ]
+    },
+    {
+      "prediction": "easy",
+      "reference": "easy",
+      "confidence": 0.6664094924946012,
+      "token_ids": [
+        0,
+        0,
+        36187,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "The",
+      "confidence": 0.9997180302937826,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "document",
+      "reference": "documents",
+      "confidence": 0.6748828385479086,
+      "token_ids": [
+        0,
+        0,
+        43017,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Premiere",
+      "reference": "premiere",
+      "confidence": 0.49963380933340573,
+      "token_ids": [
+        0,
+        0,
+        35132,
+        14116,
+        2
+      ]
+    },
+    {
+      "prediction": "ensure",
+      "reference": "ensure",
+      "confidence": 0.4996171606976485,
+      "token_ids": [
+        0,
+        0,
+        1290,
+        2407,
+        2
+      ]
+    },
+    {
+      "prediction": "between",
+      "reference": "between",
+      "confidence": 0.24966140626269026,
+      "token_ids": [
+        0,
+        0,
+        25784,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.9918577472368876,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.6679590543111166,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2
+      ]
+    },
+    {
+      "prediction": "about",
+      "reference": "about",
+      "confidence": 0.6664190903628312,
+      "token_ids": [
+        0,
+        0,
+        9006,
+        2
+      ]
+    },
+    {
+      "prediction": "kept",
+      "reference": "kept",
+      "confidence": 0.6664177410261128,
+      "token_ids": [
+        0,
+        0,
+        38584,
+        2
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.8678283294041952,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2
+      ]
+    },
+    {
+      "prediction": "conference",
+      "reference": "conference",
+      "confidence": 0.6664932174437092,
+      "token_ids": [
+        0,
+        0,
+        16459,
+        2
+      ]
+    },
+    {
+      "prediction": "The",
+      "reference": "the",
+      "confidence": 0.6663932946708068,
+      "token_ids": [
+        0,
+        0,
+        133,
+        2
+      ]
+    },
+    {
+      "prediction": "back",
+      "reference": "back",
+      "confidence": 0.3367022600096376,
+      "token_ids": [
+        0,
+        0,
+        1644,
+        2
+      ]
+    },
+    {
+      "prediction": "(",
+      "reference": "(",
+      "confidence": 0.6293882400263101,
+      "token_ids": [
+        0,
+        0,
+        1640,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "rain",
+      "reference": "grain",
+      "confidence": 0.6374391472445339,
+      "token_ids": [
+        0,
+        0,
+        9946,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "balance-sheet",
+      "reference": "balance-sheet",
+      "confidence": 0.35086793858350446,
+      "token_ids": [
+        0,
+        0,
+        30821,
+        12,
+        37425,
+        2
+      ]
+    },
+    {
+      "prediction": "provides",
+      "reference": "provides",
+      "confidence": 0.43814073507392237,
+      "token_ids": [
+        0,
+        0,
+        13138,
+        4376,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "manscript",
+      "reference": "manuscript",
+      "confidence": 0.9322025626897812,
+      "token_ids": [
+        0,
+        0,
+        397,
+        32761,
+        2
+      ]
+    },
+    {
+      "prediction": "away",
+      "reference": "away",
+      "confidence": 0.24992282550085676,
+      "token_ids": [
+        0,
+        0,
+        4384,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "censure",
+      "reference": "censure",
+      "confidence": 0.49983421122642135,
+      "token_ids": [
+        0,
+        0,
+        44177,
+        2407,
+        2
+      ]
+    },
+    {
+      "prediction": "amount",
+      "reference": "amount",
+      "confidence": 0.4999193655637644,
+      "token_ids": [
+        0,
+        0,
+        31233,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Abraham",
+      "reference": "Abraham",
+      "confidence": 0.9988877177238464,
+      "token_ids": [
+        0,
+        0,
+        13112,
+        27092,
+        2
+      ]
+    },
+    {
+      "prediction": "After",
+      "reference": "After",
+      "confidence": 0.24946895777626857,
+      "token_ids": [
+        0,
+        0,
+        4993,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.24946888608555273,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "own",
+      "reference": "own",
+      "confidence": 0.4994498452095683,
+      "token_ids": [
+        0,
+        0,
+        3355,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "British",
+      "reference": "British",
+      "confidence": 0.7347343416330055,
+      "token_ids": [
+        0,
+        0,
+        24270,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "liked",
+      "reference": "liked",
+      "confidence": 0.24976296088130245,
+      "token_ids": [
+        0,
+        0,
+        462,
+        21101,
+        2
+      ]
+    },
+    {
+      "prediction": "censured",
+      "reference": "censured",
+      "confidence": 0.24990712664926107,
+      "token_ids": [
+        0,
+        0,
+        44177,
+        4075,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "will",
+      "confidence": 0.24976351251805107,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.8098599761724472,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "discuss",
+      "reference": "discuss",
+      "confidence": 0.4912694544488158,
+      "token_ids": [
+        0,
+        0,
+        18909,
+        4781,
+        2
+      ]
+    },
+    {
+      "prediction": "Lucas",
+      "reference": "Lucas",
+      "confidence": 0.49994744324998314,
+      "token_ids": [
+        0,
+        0,
+        20793,
+        281,
+        2
+      ]
+    },
+    {
+      "prediction": "Germany's",
+      "reference": "Germany's",
+      "confidence": 0.4999522592435246,
+      "token_ids": [
+        0,
+        0,
+        24596,
+        18,
+        2
+      ]
+    },
+    {
+      "prediction": "now",
+      "reference": "now",
+      "confidence": 0.6512992131455242,
+      "token_ids": [
+        0,
+        0,
+        8310,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Six",
+      "reference": "Six",
+      "confidence": 0.49997936898146456,
+      "token_ids": [
+        0,
+        0,
+        27696,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.4999789087932598,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "declating",
+      "reference": "declaring",
+      "confidence": 0.499942095349527,
+      "token_ids": [
+        0,
+        0,
+        32639,
+        1295,
+        2
+      ]
+    },
+    {
+      "prediction": "Matzos",
+      "reference": "Matzos",
+      "confidence": 0.7573120791910185,
+      "token_ids": [
+        0,
+        0,
+        30121,
+        40945,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Macleod",
+      "reference": "Macleod",
+      "confidence": 0.401485854230173,
+      "token_ids": [
+        0,
+        0,
+        448,
+        24618,
+        1630,
+        2
+      ]
+    },
+    {
+      "prediction": "9",
+      "reference": "Big",
+      "confidence": 0.19983956846683407,
+      "token_ids": [
+        0,
+        0,
+        466,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "London",
+      "reference": "London",
+      "confidence": 0.19983958052859477,
+      "token_ids": [
+        0,
+        0,
+        23122,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Delaney's",
+      "reference": "Delaney's",
+      "confidence": 0.989131224155426,
+      "token_ids": [
+        0,
+        0,
+        21502,
+        8650,
+        18,
+        2
+      ]
+    },
+    {
+      "prediction": "Callaghan",
+      "reference": "Callaghan",
+      "confidence": 0.1961808282952319,
+      "token_ids": [
+        0,
+        0,
+        20653,
+        22185,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.19618147643579653,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.1991247413518659,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.7416465113290087,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "ramps",
+      "reference": "ramps",
+      "confidence": 0.47086523916843026,
+      "token_ids": [
+        0,
+        0,
+        338,
+        9782,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.49980512884167183,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "has",
+      "reference": "has",
+      "confidence": 0.4994904820927095,
+      "token_ids": [
+        0,
+        0,
+        7333,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "scared",
+      "reference": "scared",
+      "confidence": 0.7992986421558108,
+      "token_ids": [
+        0,
+        0,
+        3866,
+        6537,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.1999416584851859,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "hunched",
+      "reference": "hundred",
+      "confidence": 0.39992498166877055,
+      "token_ids": [
+        0,
+        0,
+        18458,
+        3804,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Arms'",
+      "reference": "Arms'",
+      "confidence": 0.19993596257300073,
+      "token_ids": [
+        0,
+        0,
+        8138,
+        4339,
+        108,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.751296732807532,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.4999107593002563,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "THE",
+      "reference": "THE",
+      "confidence": 0.49990849477136035,
+      "token_ids": [
+        0,
+        0,
+        13354,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "ito",
+      "reference": "it",
+      "confidence": 0.4987883085191258,
+      "token_ids": [
+        0,
+        0,
+        405,
+        139,
+        2
+      ]
+    },
+    {
+      "prediction": "Government",
+      "reference": "Govern-",
+      "confidence": 0.455251522332717,
+      "token_ids": [
+        0,
+        0,
+        28747,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "attempting",
+      "reference": "attempting",
+      "confidence": 0.3998710832995158,
+      "token_ids": [
+        0,
+        0,
+        2611,
+        15318,
+        154,
+        2
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.19994595966815537,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "their",
+      "reference": "their",
+      "confidence": 0.19993084369421582,
+      "token_ids": [
+        0,
+        0,
+        25017,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "we",
+      "reference": "we",
+      "confidence": 0.7467865411589605,
+      "token_ids": [
+        0,
+        0,
+        1694,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Berlin",
+      "reference": "Berlin",
+      "confidence": 0.49985645719881433,
+      "token_ids": [
+        0,
+        0,
+        26795,
+        2614,
+        2
+      ]
+    },
+    {
+      "prediction": "Roy",
+      "reference": "Roy",
+      "confidence": 0.4998649423410011,
+      "token_ids": [
+        0,
+        0,
+        20512,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.4998621272755823,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.5999170702603177,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "mourning",
+      "reference": "mourning",
+      "confidence": 0.3999518860102219,
+      "token_ids": [
+        0,
+        0,
+        119,
+        46269,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.5999130278309167,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "BRITAIN",
+      "reference": "BRITAIN",
+      "confidence": 0.39974415334217805,
+      "token_ids": [
+        0,
+        0,
+        7202,
+        2068,
+        33178,
+        2
+      ]
+    },
+    {
+      "prediction": "two",
+      "reference": "two",
+      "confidence": 0.963528573513031,
+      "token_ids": [
+        0,
+        0,
+        7109,
+        2
+      ]
+    },
+    {
+      "prediction": "West",
+      "reference": "West",
+      "confidence": 0.6666165601858499,
+      "token_ids": [
+        0,
+        0,
+        9634,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.6666162994730863,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "roll",
+      "reference": "roll",
+      "confidence": 0.6666116421376435,
+      "token_ids": [
+        0,
+        0,
+        9671,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.7477546830152733,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "lost",
+      "reference": "lost",
+      "confidence": 0.49971219562101776,
+      "token_ids": [
+        0,
+        0,
+        27905,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Century",
+      "reference": "century",
+      "confidence": 0.4916820229331612,
+      "token_ids": [
+        0,
+        0,
+        31230,
+        6801,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": "I",
+      "confidence": 0.7473920893827426,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "with",
+      "reference": "with",
+      "confidence": 0.9989939133326212,
+      "token_ids": [
+        0,
+        0,
+        5632,
+        2
+      ]
+    },
+    {
+      "prediction": "still",
+      "reference": "still",
+      "confidence": 0.6661447490258893,
+      "token_ids": [
+        0,
+        0,
+        17830,
+        2
+      ]
+    },
+    {
+      "prediction": "here",
+      "reference": "here",
+      "confidence": 0.6661441922415268,
+      "token_ids": [
+        0,
+        0,
+        10859,
+        2
+      ]
+    },
+    {
+      "prediction": "mile",
+      "reference": "mile",
+      "confidence": 0.6661449873486042,
+      "token_ids": [
+        0,
+        0,
+        7800,
+        2
+      ]
+    },
+    {
+      "prediction": "gro",
+      "reference": "quoting",
+      "confidence": 0.7112608646402805,
+      "token_ids": [
+        0,
+        0,
+        15821,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Africans",
+      "reference": "Africans",
+      "confidence": 0.49813851943725673,
+      "token_ids": [
+        0,
+        0,
+        30112,
+        29,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.49985751075922735,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "He",
+      "reference": "He",
+      "confidence": 0.499782337022182,
+      "token_ids": [
+        0,
+        0,
+        894,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "than",
+      "reference": "than",
+      "confidence": 0.7497941111713793,
+      "token_ids": [
+        0,
+        0,
+        5652,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Top",
+      "reference": "Top",
+      "confidence": 0.49990867642977943,
+      "token_ids": [
+        0,
+        0,
+        14323,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "quies",
+      "reference": "gives",
+      "confidence": 0.24999710683658136,
+      "token_ids": [
+        0,
+        0,
+        2253,
+        918,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.49991068167013175,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.9998162587483724,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "South",
+      "reference": "South",
+      "confidence": 0.6665099859250595,
+      "token_ids": [
+        0,
+        0,
+        10050,
+        2
+      ]
+    },
+    {
+      "prediction": "forward",
+      "reference": "forward",
+      "confidence": 0.6665103832911154,
+      "token_ids": [
+        0,
+        0,
+        16135,
+        2
+      ]
+    },
+    {
+      "prediction": "no",
+      "reference": "no",
+      "confidence": 0.6665105422626932,
+      "token_ids": [
+        0,
+        0,
+        2362,
+        2
+      ]
+    },
+    {
+      "prediction": "Independence",
+      "reference": "Independence",
+      "confidence": 0.9948631972074509,
+      "token_ids": [
+        0,
+        0,
+        15248,
+        41575,
+        2
+      ]
+    },
+    {
+      "prediction": "had",
+      "reference": "had",
+      "confidence": 0.4995721829444051,
+      "token_ids": [
+        0,
+        0,
+        12186,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.24973137031845027,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.24973076203022368,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "but",
+      "reference": "but",
+      "confidence": 0.999849259853363,
+      "token_ids": [
+        0,
+        0,
+        4297,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.33327729711017146,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.6666017363501121,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.6666081353072051,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.9997841119766235,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2
+      ]
+    },
+    {
+      "prediction": "hew",
+      "reference": "new",
+      "confidence": 0.6666088502187407,
+      "token_ids": [
+        0,
+        0,
+        16152,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.6666101402546095,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.3333228267656523,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "makes",
+      "reference": "makes",
+      "confidence": 0.5098097066096451,
+      "token_ids": [
+        0,
+        0,
+        39082,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "whether",
+      "reference": "whether",
+      "confidence": 0.17665680358599078,
+      "token_ids": [
+        0,
+        0,
+        29676,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "codex",
+      "reference": "codex",
+      "confidence": 0.17699250362470864,
+      "token_ids": [
+        0,
+        0,
+        29659,
+        3463,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "fartright's",
+      "reference": "fortnight's",
+      "confidence": 0.32312804136848344,
+      "token_ids": [
+        0,
+        0,
+        15476,
+        4328,
+        5971,
+        18,
+        2
+      ]
+    },
+    {
+      "prediction": "powers",
+      "reference": "powers",
+      "confidence": 0.7340670730953058,
+      "token_ids": [
+        0,
+        0,
+        24367,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "that",
+      "reference": "that",
+      "confidence": 0.24978905769160442,
+      "token_ids": [
+        0,
+        0,
+        6025,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "easier",
+      "reference": "easier",
+      "confidence": 0.4997827121610936,
+      "token_ids": [
+        0,
+        0,
+        29358,
+        906,
+        2
+      ]
+    },
+    {
+      "prediction": "pleaded",
+      "reference": "pleaded",
+      "confidence": 0.4997828017592463,
+      "token_ids": [
+        0,
+        0,
+        8293,
+        7560,
+        2
+      ]
+    },
+    {
+      "prediction": "authority",
+      "reference": "authority",
+      "confidence": 0.99867944419384,
+      "token_ids": [
+        0,
+        0,
+        11515,
+        1571,
+        2
+      ]
+    },
+    {
+      "prediction": "central",
+      "reference": "central",
+      "confidence": 0.24976641375433253,
+      "token_ids": [
+        0,
+        0,
+        16620,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.24975859298002925,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "against",
+      "reference": "against",
+      "confidence": 0.24975807037202236,
+      "token_ids": [
+        0,
+        0,
+        22268,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "base",
+      "reference": "base",
+      "confidence": 0.5950990688976088,
+      "token_ids": [
+        0,
+        0,
+        11070,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Fourth",
+      "reference": "Fourth",
+      "confidence": 0.3999282878588601,
+      "token_ids": [
+        0,
+        0,
+        46354,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "worn",
+      "reference": "worn",
+      "confidence": 0.3999253877519829,
+      "token_ids": [
+        0,
+        0,
+        35738,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Alguia",
+      "reference": "Algeria",
+      "confidence": 0.24258016418579306,
+      "token_ids": [
+        0,
+        0,
+        7083,
+        5521,
+        493,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": "\"",
+      "confidence": 0.9969944953918457,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "higher",
+      "reference": "higher",
+      "confidence": 0.6663937371528922,
+      "token_ids": [
+        0,
+        0,
+        40499,
+        2
+      ]
+    },
+    {
+      "prediction": "has",
+      "reference": "has",
+      "confidence": 0.666394335843707,
+      "token_ids": [
+        0,
+        0,
+        7333,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "The",
+      "confidence": 0.6663943835710597,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "Anglican",
+      "reference": "Anglican",
+      "confidence": 0.9991368532180787,
+      "token_ids": [
+        0,
+        0,
+        25441,
+        5895,
+        260,
+        2
+      ]
+    },
+    {
+      "prediction": "cent",
+      "reference": "cent",
+      "confidence": 0.19987427220850001,
+      "token_ids": [
+        0,
+        0,
+        6342,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ay",
+      "reference": "an",
+      "confidence": 0.3996343775642891,
+      "token_ids": [
+        0,
+        0,
+        857,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "After",
+      "reference": "AFTER",
+      "confidence": 0.19987432875665812,
+      "token_ids": [
+        0,
+        0,
+        4993,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "spending",
+      "reference": "spending",
+      "confidence": 0.9995332360267639,
+      "token_ids": [
+        0,
+        0,
+        4182,
+        4345,
+        2
+      ]
+    },
+    {
+      "prediction": "Defence",
+      "reference": "Defence",
+      "confidence": 0.24981528294141853,
+      "token_ids": [
+        0,
+        0,
+        17425,
+        4086,
+        2
+      ]
+    },
+    {
+      "prediction": "realised",
+      "reference": "realised",
+      "confidence": 0.49981181327159063,
+      "token_ids": [
+        0,
+        0,
+        8726,
+        1720,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": "\"",
+      "confidence": 0.4998098261522227,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "by",
+      "reference": "by",
+      "confidence": 0.7499072044083732,
+      "token_ids": [
+        0,
+        0,
+        1409,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "aircraft",
+      "reference": "aircraft",
+      "confidence": 0.4998838901732025,
+      "token_ids": [
+        0,
+        0,
+        2456,
+        17536,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.5067709875475853,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "directed",
+      "reference": "directed",
+      "confidence": 0.5070089916706865,
+      "token_ids": [
+        0,
+        0,
+        25706,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.7513797007200509,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "also",
+      "reference": "also",
+      "confidence": 0.5604136554445927,
+      "token_ids": [
+        0,
+        0,
+        19726,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "tiredness",
+      "reference": "tiredness",
+      "confidence": 0.23902845668802727,
+      "token_ids": [
+        0,
+        0,
+        90,
+        7651,
+        1825,
+        2
+      ]
+    },
+    {
+      "prediction": "Their",
+      "reference": "Their",
+      "confidence": 0.5603264710586171,
+      "token_ids": [
+        0,
+        0,
+        16837,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "are",
+      "reference": "are",
+      "confidence": 0.7497906253120782,
+      "token_ids": [
+        0,
+        0,
+        1322,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "texts",
+      "reference": "texts",
+      "confidence": 0.49997502640475416,
+      "token_ids": [
+        0,
+        0,
+        29015,
+        29,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.4999784419616615,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.28930901269560594,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "early",
+      "reference": "early",
+      "confidence": 0.7496389595683652,
+      "token_ids": [
+        0,
+        0,
+        23099,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.24997620987987818,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.49996368251584045,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "society",
+      "reference": "society",
+      "confidence": 0.26313672308034064,
+      "token_ids": [
+        0,
+        0,
+        32460,
+        25717,
+        2
+      ]
+    },
+    {
+      "prediction": "industry",
+      "reference": "industry",
+      "confidence": 0.68692418887512,
+      "token_ids": [
+        0,
+        0,
+        21267,
+        1506,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "will",
+      "reference": "will",
+      "confidence": 0.35385013092697665,
+      "token_ids": [
+        0,
+        0,
+        6677,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "dexterity",
+      "reference": "dexterity",
+      "confidence": 0.3119630773628939,
+      "token_ids": [
+        0,
+        0,
+        417,
+        3463,
+        1334,
+        1571,
+        2
+      ]
+    },
+    {
+      "prediction": "Mr.",
+      "reference": "Mr.",
+      "confidence": 0.35367645219515403,
+      "token_ids": [
+        0,
+        0,
+        10980,
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "way in",
+      "reference": "way",
+      "confidence": 0.7929679284628947,
+      "token_ids": [
+        0,
+        0,
+        1970,
+        11,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Vienna",
+      "reference": "Vienna",
+      "confidence": 0.5999261500154649,
+      "token_ids": [
+        0,
+        0,
+        43640,
+        18974,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "hadcey",
+      "reference": "hockey",
+      "confidence": 0.39954053806475043,
+      "token_ids": [
+        0,
+        0,
+        12186,
+        1755,
+        219,
+        2
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.22729869968482647,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.5543504849252372,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Brezhnev",
+      "reference": "Brezhnev",
+      "confidence": 0.2303726475589297,
+      "token_ids": [
+        0,
+        0,
+        31607,
+        13808,
+        858,
+        705,
+        2
+      ]
+    },
+    {
+      "prediction": "found",
+      "reference": "found",
+      "confidence": 0.43483889450840935,
+      "token_ids": [
+        0,
+        0,
+        19256,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "lessory",
+      "reference": "lessons",
+      "confidence": 0.4336395786154715,
+      "token_ids": [
+        0,
+        0,
+        1672,
+        4405,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.9730440974235535,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "aline",
+      "reference": "alike",
+      "confidence": 0.6662708920133514,
+      "token_ids": [
+        0,
+        0,
+        34637,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.6662534037612886,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.6815468693772951,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.9958239595095316,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.6665302620358075,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.6665129093943515,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.6663308386975757,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.9993143677711487,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2
+      ]
+    },
+    {
+      "prediction": "would",
+      "reference": "would",
+      "confidence": 0.666600962487402,
+      "token_ids": [
+        0,
+        0,
+        14656,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.6665954809978606,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "picture",
+      "reference": "picture",
+      "confidence": 0.6664004921936383,
+      "token_ids": [
+        0,
+        0,
+        37587,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.7497878388851417,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "dingy",
+      "reference": "dingy",
+      "confidence": 0.4998277455101177,
+      "token_ids": [
+        0,
+        0,
+        11303,
+        219,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.4999100365577225,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "great",
+      "reference": "great",
+      "confidence": 0.49990843609072355,
+      "token_ids": [
+        0,
+        0,
+        12338,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.7332889534877225,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.5041045267171285,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "cute",
+      "reference": "cute",
+      "confidence": 0.4998567413067941,
+      "token_ids": [
+        0,
+        0,
+        438,
+        4467,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.4998901628304515,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "has",
+      "reference": "has",
+      "confidence": 0.5997459707386508,
+      "token_ids": [
+        0,
+        0,
+        7333,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "courageous",
+      "reference": "courageous",
+      "confidence": 0.3998687772592408,
+      "token_ids": [
+        0,
+        0,
+        438,
+        22815,
+        1827,
+        2
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.39995131789145133,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.39997217125273343,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "sure",
+      "reference": "sure",
+      "confidence": 0.6333094090773616,
+      "token_ids": [
+        0,
+        0,
+        41404,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.34787358413496366,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.49072853994896004,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Hammarskjold",
+      "reference": "Hammarskjold",
+      "confidence": 0.14427777238241773,
+      "token_ids": [
+        0,
+        0,
+        725,
+        12614,
+        2726,
+        36085,
+        279,
+        2
+      ]
+    },
+    {
+      "prediction": "century",
+      "reference": "century",
+      "confidence": 0.5945880245055946,
+      "token_ids": [
+        0,
+        0,
+        11046,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.19985375776125203,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "(",
+      "reference": "(",
+      "confidence": 0.3998351446246698,
+      "token_ids": [
+        0,
+        0,
+        1640,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "week-end",
+      "reference": "week-end",
+      "confidence": 0.395866099288099,
+      "token_ids": [
+        0,
+        0,
+        3583,
+        12,
+        1397,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.749834433448146,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Governments",
+      "reference": "Governments",
+      "confidence": 0.4998084310102443,
+      "token_ids": [
+        0,
+        0,
+        28747,
+        29,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.7498350312371116,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "enjoy",
+      "reference": "enjoy",
+      "confidence": 0.49978810548806674,
+      "token_ids": [
+        0,
+        0,
+        225,
+        20768,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": "-",
+      "confidence": 0.8913520773251852,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "bear",
+      "reference": "bear",
+      "confidence": 0.6665055395138785,
+      "token_ids": [
+        0,
+        0,
+        36429,
+        2
+      ]
+    },
+    {
+      "prediction": "Northern",
+      "reference": "Northern",
+      "confidence": 0.666551570346379,
+      "token_ids": [
+        0,
+        0,
+        37982,
+        2
+      ]
+    },
+    {
+      "prediction": "year",
+      "reference": "year",
+      "confidence": 0.6665562254848586,
+      "token_ids": [
+        0,
+        0,
+        180,
+        2
+      ]
+    },
+    {
+      "prediction": "incidents",
+      "reference": "incidents",
+      "confidence": 0.8677327185869217,
+      "token_ids": [
+        0,
+        0,
+        3976,
+        22612,
+        2
+      ]
+    },
+    {
+      "prediction": "very",
+      "reference": "very",
+      "confidence": 0.2499638182681332,
+      "token_ids": [
+        0,
+        0,
+        5525,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "rocket-",
+      "reference": "rocket-",
+      "confidence": 0.255258469570137,
+      "token_ids": [
+        0,
+        0,
+        42967,
+        12,
+        2
+      ]
+    },
+    {
+      "prediction": "by",
+      "reference": "by",
+      "confidence": 0.2499672596943281,
+      "token_ids": [
+        0,
+        0,
+        1409,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Ghana's",
+      "reference": "Ghana's",
+      "confidence": 0.9789332509040832,
+      "token_ids": [
+        0,
+        0,
+        28916,
+        1113,
+        18,
+        2
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.19695697390698572,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "that",
+      "reference": "that",
+      "confidence": 0.19695763015337783,
+      "token_ids": [
+        0,
+        0,
+        6025,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.19695766741742454,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "on",
+      "reference": "on",
+      "confidence": 0.746840383004649,
+      "token_ids": [
+        0,
+        0,
+        261,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "are",
+      "reference": "are",
+      "confidence": 0.49994391997316256,
+      "token_ids": [
+        0,
+        0,
+        1322,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "disclosed",
+      "reference": "disclosed",
+      "confidence": 0.499681281270552,
+      "token_ids": [
+        0,
+        0,
+        7779,
+        25315,
+        2
+      ]
+    },
+    {
+      "prediction": "decide",
+      "reference": "decide",
+      "confidence": 0.4999358208091883,
+      "token_ids": [
+        0,
+        0,
+        11127,
+        1949,
+        2
+      ]
+    },
+    {
+      "prediction": "spectulators",
+      "reference": "speculators",
+      "confidence": 0.8091056644916534,
+      "token_ids": [
+        0,
+        0,
+        25594,
+        17810,
+        2
+      ]
+    },
+    {
+      "prediction": "cally",
+      "reference": "cally",
+      "confidence": 0.24970511561123887,
+      "token_ids": [
+        0,
+        0,
+        438,
+        2368,
+        2
+      ]
+    },
+    {
+      "prediction": "can",
+      "reference": "can",
+      "confidence": 0.25024988688078764,
+      "token_ids": [
+        0,
+        0,
+        7424,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "are",
+      "reference": "are",
+      "confidence": 0.24970371479784195,
+      "token_ids": [
+        0,
+        0,
+        1322,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.7992805375513854,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "trimmed",
+      "reference": "trimmed",
+      "confidence": 0.20044911079183853,
+      "token_ids": [
+        0,
+        0,
+        4328,
+        757,
+        4567,
+        2
+      ]
+    },
+    {
+      "prediction": "lunch",
+      "reference": "lunch",
+      "confidence": 0.599160909682988,
+      "token_ids": [
+        0,
+        0,
+        462,
+        11842,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "speak",
+      "reference": "speak",
+      "confidence": 0.5992957985042212,
+      "token_ids": [
+        0,
+        0,
+        39397,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "our",
+      "reference": "our",
+      "confidence": 0.595547952760181,
+      "token_ids": [
+        0,
+        0,
+        2126,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.40206612737273983,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "moulds",
+      "reference": "moulds",
+      "confidence": 0.3974838630118779,
+      "token_ids": [
+        0,
+        0,
+        119,
+        25513,
+        29,
+        2
+      ]
+    },
+    {
+      "prediction": "birds",
+      "reference": "birds",
+      "confidence": 0.4020661688930957,
+      "token_ids": [
+        0,
+        0,
+        17921,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "poisonous",
+      "reference": "poisonous",
+      "confidence": 0.9872124433517456,
+      "token_ids": [
+        0,
+        0,
+        5873,
+        4060,
+        1827,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.1997914980964879,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "am",
+      "reference": "am",
+      "confidence": 0.1997932840833973,
+      "token_ids": [
+        0,
+        0,
+        424,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "from",
+      "reference": "from",
+      "confidence": 0.19979315893999985,
+      "token_ids": [
+        0,
+        0,
+        7761,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.7486095320492119,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "1950",
+      "reference": "1950",
+      "confidence": 4.3371001918381526e-08,
+      "token_ids": [
+        0,
+        43545,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "b.",
+      "reference": "b.",
+      "confidence": 0.49982405499465443,
+      "token_ids": [
+        0,
+        0,
+        428,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.49992988987579867,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "on",
+      "reference": "on",
+      "confidence": 0.7487322881246001,
+      "token_ids": [
+        0,
+        0,
+        261,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "help",
+      "reference": "help",
+      "confidence": 0.4999506184265403,
+      "token_ids": [
+        0,
+        0,
+        19178,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "NATO",
+      "reference": "NATO",
+      "confidence": 0.49984116125366584,
+      "token_ids": [
+        0,
+        0,
+        28693,
+        673,
+        2
+      ]
+    },
+    {
+      "prediction": "1",
+      "reference": ")",
+      "confidence": 0.4999434106001524,
+      "token_ids": [
+        0,
+        0,
+        134,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "I.R.A",
+      "reference": "I.R.A.",
+      "confidence": 0.8513055744614186,
+      "token_ids": [
+        0,
+        0,
+        100,
+        4,
+        500,
+        4,
+        250,
+        2
+      ]
+    },
+    {
+      "prediction": "tooloy",
+      "reference": "today",
+      "confidence": 0.24030963179784656,
+      "token_ids": [
+        0,
+        0,
+        43342,
+        2160,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "changes",
+      "reference": "changes",
+      "confidence": 0.14270984925024416,
+      "token_ids": [
+        0,
+        0,
+        34980,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "though",
+      "reference": "though",
+      "confidence": 0.14264471574295726,
+      "token_ids": [
+        0,
+        0,
+        18401,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "(",
+      "reference": "(",
+      "confidence": 0.692386417551279,
+      "token_ids": [
+        0,
+        0,
+        1640,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "destroying",
+      "reference": "destroying",
+      "confidence": 0.4726928852497985,
+      "token_ids": [
+        0,
+        0,
+        31549,
+        43417,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "four",
+      "reference": "four",
+      "confidence": 0.6179210613207857,
+      "token_ids": [
+        0,
+        0,
+        10231,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "concentration",
+      "reference": "concentration",
+      "confidence": 0.2862092056254365,
+      "token_ids": [
+        0,
+        0,
+        3865,
+        6342,
+        8475,
+        2
+      ]
+    },
+    {
+      "prediction": "correct",
+      "reference": "correct",
+      "confidence": 0.48810862947258016,
+      "token_ids": [
+        0,
+        0,
+        36064,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "on",
+      "reference": "on",
+      "confidence": 0.24288904218494523,
+      "token_ids": [
+        0,
+        0,
+        261,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "food",
+      "reference": "food",
+      "confidence": 0.24287947255389614,
+      "token_ids": [
+        0,
+        0,
+        13193,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "MACMILLAN'S",
+      "reference": "MACMILLAN'S",
+      "confidence": 0.23890991070208437,
+      "token_ids": [
+        0,
+        0,
+        41458,
+        448,
+        10259,
+        1889,
+        108,
+        104,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": ":",
+      "confidence": 0.8690319856007894,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2
+      ]
+    },
+    {
+      "prediction": "Canadian",
+      "reference": "Canadian",
+      "confidence": 0.6665040656919968,
+      "token_ids": [
+        0,
+        0,
+        24819,
+        2
+      ]
+    },
+    {
+      "prediction": "The",
+      "reference": "The",
+      "confidence": 0.6665057698037344,
+      "token_ids": [
+        0,
+        0,
+        133,
+        2
+      ]
+    },
+    {
+      "prediction": "Government",
+      "reference": "Government",
+      "confidence": 0.6665019995569627,
+      "token_ids": [
+        0,
+        0,
+        28747,
+        2
+      ]
+    },
+    {
+      "prediction": "same",
+      "reference": "some",
+      "confidence": 0.62421726529368,
+      "token_ids": [
+        0,
+        0,
+        41690,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Francis",
+      "reference": "Francis",
+      "confidence": 0.49987837821757564,
+      "token_ids": [
+        0,
+        0,
+        38461,
+        354,
+        2
+      ]
+    },
+    {
+      "prediction": "thought",
+      "reference": "thought",
+      "confidence": 0.49987243722378705,
+      "token_ids": [
+        0,
+        0,
+        26086,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "for",
+      "reference": "for",
+      "confidence": 0.4998772809612446,
+      "token_ids": [
+        0,
+        0,
+        1990,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "86",
+      "reference": "86",
+      "confidence": 0.7875911457658731,
+      "token_ids": [
+        0,
+        0,
+        5334,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "proposals",
+      "reference": "proposals",
+      "confidence": 0.2068617066847148,
+      "token_ids": [
+        0,
+        0,
+        4892,
+        11474,
+        1536,
+        2
+      ]
+    },
+    {
+      "prediction": "bed",
+      "reference": "bed",
+      "confidence": 0.7882326978940171,
+      "token_ids": [
+        0,
+        0,
+        5134,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ",",
+      "confidence": 0.591998932579736,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "against",
+      "reference": "against",
+      "confidence": 0.9981091817220052,
+      "token_ids": [
+        0,
+        0,
+        22268,
+        2
+      ]
+    },
+    {
+      "prediction": "and",
+      "reference": "and",
+      "confidence": 0.3328638824208383,
+      "token_ids": [
+        0,
+        0,
+        463,
+        2
+      ]
+    },
+    {
+      "prediction": "no",
+      "reference": "no",
+      "confidence": 0.6661678553882452,
+      "token_ids": [
+        0,
+        0,
+        2362,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.33284592635058124,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "Mr.",
+      "reference": "Mr.",
+      "confidence": 0.9996728748083115,
+      "token_ids": [
+        0,
+        0,
+        10980,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "there",
+      "reference": "there",
+      "confidence": 0.4539445849495017,
+      "token_ids": [
+        0,
+        0,
+        8585,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "in",
+      "reference": "in",
+      "confidence": 0.24991773301944953,
+      "token_ids": [
+        0,
+        0,
+        179,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "turn",
+      "reference": "turn",
+      "confidence": 0.2500742268617174,
+      "token_ids": [
+        0,
+        0,
+        15922,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.9939441084861755,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "it",
+      "reference": "it",
+      "confidence": 0.6663660545531608,
+      "token_ids": [
+        0,
+        0,
+        405,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.6663213471374547,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "killing",
+      "reference": "killing",
+      "confidence": 0.6662917337598809,
+      "token_ids": [
+        0,
+        0,
+        34549,
+        2
+      ]
+    },
+    {
+      "prediction": "Minister",
+      "reference": "Minister",
+      "confidence": 0.9987082183361053,
+      "token_ids": [
+        0,
+        0,
+        20086,
+        4742,
+        2
+      ]
+    },
+    {
+      "prediction": "will",
+      "reference": "will",
+      "confidence": 0.4988371820929619,
+      "token_ids": [
+        0,
+        0,
+        6677,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "an",
+      "reference": ",",
+      "confidence": 0.24884444699018743,
+      "token_ids": [
+        0,
+        0,
+        260,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "8th",
+      "reference": "still",
+      "confidence": 0.49853563408277246,
+      "token_ids": [
+        0,
+        0,
+        398,
+        212,
+        2
+      ]
+    },
+    {
+      "prediction": "which",
+      "reference": "which",
+      "confidence": 0.7497826086733799,
+      "token_ids": [
+        0,
+        0,
+        5488,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.49980519580387184,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "him",
+      "reference": "him",
+      "confidence": 0.4998082508076876,
+      "token_ids": [
+        0,
+        0,
+        24770,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": " sympathisers",
+      "reference": "sympathisers",
+      "confidence": 0.2501048597401069,
+      "token_ids": [
+        0,
+        0,
+        19023,
+        13844,
+        2
+      ]
+    },
+    {
+      "prediction": "timber",
+      "reference": "timber",
+      "confidence": 0.9653556793928146,
+      "token_ids": [
+        0,
+        0,
+        10519,
+        1943,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.49840912184312014,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "that",
+      "reference": "that",
+      "confidence": 0.4993771543832004,
+      "token_ids": [
+        0,
+        0,
+        6025,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "He",
+      "reference": "the",
+      "confidence": 0.36105412774478685,
+      "token_ids": [
+        0,
+        0,
+        894,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "shall",
+      "reference": "shall",
+      "confidence": 0.9966205755869547,
+      "token_ids": [
+        0,
+        0,
+        42065,
+        2
+      ]
+    },
+    {
+      "prediction": "The",
+      "reference": "THE",
+      "confidence": 0.6664601620231304,
+      "token_ids": [
+        0,
+        0,
+        133,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.3331343683249391,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "That",
+      "reference": "That",
+      "confidence": 0.6664649493155205,
+      "token_ids": [
+        0,
+        0,
+        1711,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.7498050884050436,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Trades",
+      "reference": "Trades",
+      "confidence": 0.4913000315457835,
+      "token_ids": [
+        0,
+        0,
+        12667,
+        4216,
+        2
+      ]
+    },
+    {
+      "prediction": "blame",
+      "reference": "blame",
+      "confidence": 0.4999457599618728,
+      "token_ids": [
+        0,
+        0,
+        3662,
+        4344,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.4999595018344838,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.7497384144268007,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "means",
+      "reference": "means",
+      "confidence": 0.4998211418362707,
+      "token_ids": [
+        0,
+        0,
+        1794,
+        1253,
+        2
+      ]
+    },
+    {
+      "prediction": "The",
+      "reference": "The",
+      "confidence": 0.49982531699565735,
+      "token_ids": [
+        0,
+        0,
+        133,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "General",
+      "reference": "General",
+      "confidence": 0.4998275829639478,
+      "token_ids": [
+        0,
+        0,
+        9344,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "A",
+      "reference": "A",
+      "confidence": 0.7228566465812776,
+      "token_ids": [
+        0,
+        0,
+        250,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "o",
+      "reference": "who",
+      "confidence": 0.49975237920514815,
+      "token_ids": [
+        0,
+        0,
+        139,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "United",
+      "reference": "United",
+      "confidence": 0.4996995130319414,
+      "token_ids": [
+        0,
+        0,
+        20556,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "striven",
+      "reference": "striven",
+      "confidence": 0.49974744867968535,
+      "token_ids": [
+        0,
+        0,
+        25354,
+        2987,
+        2
+      ]
+    },
+    {
+      "prediction": "doctor",
+      "reference": "doctor",
+      "confidence": 0.7491532243409225,
+      "token_ids": [
+        0,
+        0,
+        44914,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.49935628826536416,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "will",
+      "reference": "will",
+      "confidence": 0.4993715765535813,
+      "token_ids": [
+        0,
+        0,
+        6677,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "ensush",
+      "reference": "enough",
+      "confidence": 0.49932086468006043,
+      "token_ids": [
+        0,
+        0,
+        1290,
+        3810,
+        2
+      ]
+    },
+    {
+      "prediction": "ply",
+      "reference": "ply",
+      "confidence": 0.9771729509035746,
+      "token_ids": [
+        0,
+        0,
+        26308,
+        2
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": "\"",
+      "confidence": 0.3332187484698134,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "week",
+      "reference": "week",
+      "confidence": 0.6665315639192513,
+      "token_ids": [
+        0,
+        0,
+        3583,
+        2
+      ]
+    },
+    {
+      "prediction": "who",
+      "reference": "who",
+      "confidence": 0.6665196942198234,
+      "token_ids": [
+        0,
+        0,
+        8155,
+        2
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.9991115729014078,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2
+      ]
+    },
+    {
+      "prediction": "seen",
+      "reference": "seen",
+      "confidence": 0.6664763490477329,
+      "token_ids": [
+        0,
+        0,
+        24196,
+        2
+      ]
+    },
+    {
+      "prediction": "she",
+      "reference": "she",
+      "confidence": 0.6664889880670142,
+      "token_ids": [
+        0,
+        0,
+        8877,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.3333863426522612,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": "which",
+      "reference": "which",
+      "confidence": 0.7498500350858605,
+      "token_ids": [
+        0,
+        0,
+        5488,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "they",
+      "reference": "they",
+      "confidence": 0.4998562609505933,
+      "token_ids": [
+        0,
+        0,
+        10010,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "wrong",
+      "reference": "wrong",
+      "confidence": 0.49985617069088134,
+      "token_ids": [
+        0,
+        0,
+        35621,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "divorce",
+      "reference": "divorce",
+      "confidence": 0.49983793531331555,
+      "token_ids": [
+        0,
+        0,
+        26037,
+        34260,
+        2
+      ]
+    },
+    {
+      "prediction": "whole",
+      "reference": "whole",
+      "confidence": 0.9725868105888367,
+      "token_ids": [
+        0,
+        0,
+        11613,
+        4104,
+        2
+      ]
+    },
+    {
+      "prediction": "why",
+      "reference": "why",
+      "confidence": 0.49996923172052177,
+      "token_ids": [
+        0,
+        0,
+        25800,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Rabb",
+      "reference": "Rabh",
+      "confidence": 0.250878961319963,
+      "token_ids": [
+        0,
+        0,
+        500,
+        8448,
+        2
+      ]
+    },
+    {
+      "prediction": "too",
+      "reference": "too",
+      "confidence": 0.49996643629706056,
+      "token_ids": [
+        0,
+        0,
+        15605,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "under",
+      "reference": "under",
+      "confidence": 0.9514722426732382,
+      "token_ids": [
+        0,
+        0,
+        5087,
+        2
+      ]
+    },
+    {
+      "prediction": "\"",
+      "reference": "\"",
+      "confidence": 0.6666297251867945,
+      "token_ids": [
+        0,
+        0,
+        113,
+        2
+      ]
+    },
+    {
+      "prediction": "(",
+      "reference": "(",
+      "confidence": 0.6666392544066184,
+      "token_ids": [
+        0,
+        0,
+        1640,
+        2
+      ]
+    },
+    {
+      "prediction": "eve",
+      "reference": "eve",
+      "confidence": 0.6665921825556703,
+      "token_ids": [
+        0,
+        0,
+        26707,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "had",
+      "confidence": 0.5741921779360135,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "written",
+      "reference": "written",
+      "confidence": 0.4999440110076101,
+      "token_ids": [
+        0,
+        0,
+        23460,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "efforts",
+      "reference": "efforts",
+      "confidence": 0.49993257864797286,
+      "token_ids": [
+        0,
+        0,
+        29678,
+        8807,
+        2
+      ]
+    },
+    {
+      "prediction": "He",
+      "reference": "The",
+      "confidence": 0.499895876617356,
+      "token_ids": [
+        0,
+        0,
+        894,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "counter-revolution",
+      "reference": "counter-revolution",
+      "confidence": 0.9972944378852844,
+      "token_ids": [
+        0,
+        0,
+        24774,
+        12,
+        38111,
+        2
+      ]
+    },
+    {
+      "prediction": "blouses",
+      "reference": "blouses",
+      "confidence": 0.39940287438971434,
+      "token_ids": [
+        0,
+        0,
+        3662,
+        27195,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "on",
+      "reference": "on",
+      "confidence": 0.19940744950681452,
+      "token_ids": [
+        0,
+        0,
+        261,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "decided",
+      "reference": "decided",
+      "confidence": 0.3992266685524041,
+      "token_ids": [
+        0,
+        0,
+        11127,
+        8598,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Britain",
+      "reference": "Britain",
+      "confidence": 0.7494894618847354,
+      "token_ids": [
+        0,
+        0,
+        29246,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "clash",
+      "reference": "clash",
+      "confidence": 0.4983263167589358,
+      "token_ids": [
+        0,
+        0,
+        3998,
+        1671,
+        2
+      ]
+    },
+    {
+      "prediction": "can",
+      "reference": "can",
+      "confidence": 0.4995067237000731,
+      "token_ids": [
+        0,
+        0,
+        7424,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.49958214312147187,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "And",
+      "reference": "And",
+      "confidence": 0.927878201007843,
+      "token_ids": [
+        0,
+        0,
+        2409,
+        2
+      ]
+    },
+    {
+      "prediction": "be",
+      "reference": "be",
+      "confidence": 0.6665800963603843,
+      "token_ids": [
+        0,
+        0,
+        1610,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.6666539358945253,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.6665815925713711,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.7388519920717496,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "spite",
+      "reference": "spite",
+      "confidence": 0.49938289803260016,
+      "token_ids": [
+        0,
+        0,
+        4182,
+        1459,
+        2
+      ]
+    },
+    {
+      "prediction": "That",
+      "reference": "That",
+      "confidence": 0.5379846304396487,
+      "token_ids": [
+        0,
+        0,
+        1711,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "was",
+      "reference": "was",
+      "confidence": 0.49955305166198727,
+      "token_ids": [
+        0,
+        0,
+        7325,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "or",
+      "reference": "or",
+      "confidence": 0.746304595404375,
+      "token_ids": [
+        0,
+        0,
+        368,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "talk",
+      "reference": "talk",
+      "confidence": 0.49991946248508357,
+      "token_ids": [
+        0,
+        0,
+        26594,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "that",
+      "reference": "that",
+      "confidence": 0.4999241215895065,
+      "token_ids": [
+        0,
+        0,
+        6025,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "hasl",
+      "reference": "had",
+      "confidence": 0.49989526047703503,
+      "token_ids": [
+        0,
+        0,
+        7333,
+        462,
+        2
+      ]
+    },
+    {
+      "prediction": "kinds",
+      "reference": "kinds",
+      "confidence": 0.9957369714975357,
+      "token_ids": [
+        0,
+        0,
+        11584,
+        29,
+        2
+      ]
+    },
+    {
+      "prediction": "stride",
+      "reference": "stride",
+      "confidence": 0.4997663560966645,
+      "token_ids": [
+        0,
+        0,
+        6031,
+        1949,
+        2
+      ]
+    },
+    {
+      "prediction": "both",
+      "reference": "both",
+      "confidence": 0.24981484099263937,
+      "token_ids": [
+        0,
+        0,
+        17143,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "yesterday",
+      "reference": "yesterday",
+      "confidence": 0.2562426781387086,
+      "token_ids": [
+        0,
+        0,
+        10932,
+        45869,
+        2
+      ]
+    },
+    {
+      "prediction": "child",
+      "reference": "child",
+      "confidence": 0.7441094668601613,
+      "token_ids": [
+        0,
+        0,
+        14069,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "probably",
+      "reference": "probably",
+      "confidence": 0.4984222610917278,
+      "token_ids": [
+        0,
+        0,
+        27737,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "finish",
+      "reference": "finish",
+      "confidence": 0.4999552985395164,
+      "token_ids": [
+        0,
+        0,
+        13597,
+        1173,
+        2
+      ]
+    },
+    {
+      "prediction": "of",
+      "reference": "of",
+      "confidence": 0.499066170363317,
+      "token_ids": [
+        0,
+        0,
+        1116,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.7466427957856556,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "colour",
+      "reference": "colour",
+      "confidence": 0.49979092686495197,
+      "token_ids": [
+        0,
+        0,
+        42082,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Continent",
+      "reference": "Continent",
+      "confidence": 0.49978906186052485,
+      "token_ids": [
+        0,
+        0,
+        26412,
+        19336,
+        2
+      ]
+    },
+    {
+      "prediction": "Warner",
+      "reference": "Warner",
+      "confidence": 0.49052940320495786,
+      "token_ids": [
+        0,
+        0,
+        20096,
+        1396,
+        2
+      ]
+    },
+    {
+      "prediction": "out",
+      "reference": "out",
+      "confidence": 0.7981359504308785,
+      "token_ids": [
+        0,
+        0,
+        995,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.5999363074858592,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "to",
+      "reference": "to",
+      "confidence": 0.5999303009987512,
+      "token_ids": [
+        0,
+        0,
+        560,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Parlophone",
+      "reference": "Parlophone",
+      "confidence": 0.19997111550269903,
+      "token_ids": [
+        0,
+        0,
+        510,
+        11278,
+        25999,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.749156684453922,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "wellface",
+      "reference": "welfare",
+      "confidence": 0.4999247946486781,
+      "token_ids": [
+        0,
+        0,
+        3056,
+        9021,
+        2
+      ]
+    },
+    {
+      "prediction": "good",
+      "reference": "good",
+      "confidence": 0.4999213082707681,
+      "token_ids": [
+        0,
+        0,
+        8396,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.49938663677583595,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "you",
+      "reference": "you",
+      "confidence": 0.7483512162510699,
+      "token_ids": [
+        0,
+        0,
+        6968,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "homosexual",
+      "reference": "homosexual",
+      "confidence": 0.4994961374015253,
+      "token_ids": [
+        0,
+        0,
+        24792,
+        41746,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.4994889711888548,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.49950939280534373,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "it",
+      "reference": "its",
+      "confidence": 0.5258355149646917,
+      "token_ids": [
+        0,
+        0,
+        405,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "on",
+      "reference": "on",
+      "confidence": 0.3996836915175613,
+      "token_ids": [
+        0,
+        0,
+        261,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "MACLEOD",
+      "reference": "MACLEOD",
+      "confidence": 0.3996812418638708,
+      "token_ids": [
+        0,
+        0,
+        41458,
+        3850,
+        7111,
+        2
+      ]
+    },
+    {
+      "prediction": "Claudette",
+      "reference": "Claudette",
+      "confidence": 0.3993274782642441,
+      "token_ids": [
+        0,
+        0,
+        11428,
+        5247,
+        3398,
+        2
+      ]
+    },
+    {
+      "prediction": "Council",
+      "reference": "Council",
+      "confidence": 0.5983635096856404,
+      "token_ids": [
+        0,
+        0,
+        38625,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": ".",
+      "reference": ".",
+      "confidence": 0.19861006563786815,
+      "token_ids": [
+        0,
+        0,
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "will",
+      "reference": "will",
+      "confidence": 0.1986750034062102,
+      "token_ids": [
+        0,
+        0,
+        6677,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Quinim",
+      "reference": "Quinim",
+      "confidence": 0.39853636168379475,
+      "token_ids": [
+        0,
+        0,
+        12444,
+        179,
+        757,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": "I",
+      "confidence": 0.9541616241137186,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": ",",
+      "reference": ",",
+      "confidence": 0.9515472650527954,
+      "token_ids": [
+        0,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.6661406757613736,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "under",
+      "reference": "under",
+      "confidence": 0.6661215655120808,
+      "token_ids": [
+        0,
+        0,
+        5087,
+        2
+      ]
+    },
+    {
+      "prediction": "run",
+      "reference": "run",
+      "confidence": 0.7425432659522074,
+      "token_ids": [
+        0,
+        0,
+        2962,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "status",
+      "reference": "status",
+      "confidence": 0.4998699907038877,
+      "token_ids": [
+        0,
+        0,
+        29552,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "understand",
+      "reference": "understand",
+      "confidence": 0.4998676270622313,
+      "token_ids": [
+        0,
+        0,
+        5087,
+        8490,
+        2
+      ]
+    },
+    {
+      "prediction": "is",
+      "reference": "is",
+      "confidence": 0.2500102948693558,
+      "token_ids": [
+        0,
+        0,
+        354,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "speech",
+      "reference": "speech",
+      "confidence": 0.9969744682312012,
+      "token_ids": [
+        0,
+        0,
+        40511,
+        2
+      ]
+    },
+    {
+      "prediction": "the",
+      "reference": "the",
+      "confidence": 0.6658084151908218,
+      "token_ids": [
+        0,
+        0,
+        627,
+        2
+      ]
+    }
+  ],
+  "metrics": {
+    "loss": 0.005867689847946167,
+    "cer": 0.05325644511804281,
+    "wer": 0.12219730941704036,
+    "acc": 0.8789237668161435,
+    "char_acc": 0.9282707358660276,
+    "lev_dist": 0.22085201793721973
+  },
+  "model": "microsoft/trocr-large-handwritten",
+  "epoch": 16
+}

@@ -7,8 +7,11 @@ data/datasets/*
 # data/configs/*
 # !data/configs/config.yaml.gitkeep
 
-data/output/*
-!data/output/.gitkeep
+# data/output/*
+# !data/output/.gitkeep
+
+*.pt
+*.safetensors
 
 #data/inference/*
 # !data/inference/.gitkeep
@@ -26,9 +29,6 @@ data/generation/assets/backgrounds/*
 !data/generation/assets/backgrounds/.gitkeep
 
 data/generation/assets/fonts/combined
-
-*.pt
-*.safetensors
 
 ### General Ignores ###
 

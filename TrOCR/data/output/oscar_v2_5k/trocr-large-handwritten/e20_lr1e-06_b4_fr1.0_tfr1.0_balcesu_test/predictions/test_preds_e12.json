@@ -1,0 +1,5300 @@
+{
+  "predictions": [
+    {
+      "prediction": "Michaiu",
+      "reference": "Michaiu",
+      "confidence": 0.9973352074623107,
+      "token_ids": [
+        0,
+        0,
+        40648,
+        1439,
+        257,
+        2
+      ]
+    },
+    {
+      "prediction": "el",
+      "reference": "el",
+      "confidence": 0.19998119865516054,
+      "token_ids": [
+        0,
+        0,
+        523,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.3999383547774594,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "ingener",
+      "reference": "inginer",
+      "confidence": 0.19998242890284512,
+      "token_ids": [
+        0,
+        0,
+        34264,
+        254,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "sine,",
+      "reference": "sine,",
+      "confidence": 0.6237331107271427,
+      "token_ids": [
+        0,
+        0,
+        29,
+        833,
+        6,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "toate",
+      "reference": "toate",
+      "confidence": 0.24997194941428916,
+      "token_ids": [
+        0,
+        0,
+        560,
+        877,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "îndeplinesc",
+      "reference": "îndeplinesc",
+      "confidence": 0.24977837628039512,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        1187,
+        242,
+        2911,
+        3141,
+        438,
+        2
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.24997202621876963,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.6665081282462398,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "s‘a",
+      "reference": "s’a",
+      "confidence": 0.33329755708197617,
+      "token_ids": [
+        0,
+        0,
+        29,
+        17,
+        711,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "grec",
+      "reference": "grec",
+      "confidence": 0.3332898227327014,
+      "token_ids": [
+        0,
+        0,
+        28819,
+        438,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "cu",
+      "reference": "cu",
+      "confidence": 0.16662386341812527,
+      "token_ids": [
+        0,
+        0,
+        16312,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "adresă",
+      "reference": "adresă",
+      "confidence": 0.8567106042629289,
+      "token_ids": [
+        0,
+        0,
+        625,
+        1535,
+        649,
+        862,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "pe",
+      "reference": "pe",
+      "confidence": 0.14284789830384745,
+      "token_ids": [
+        0,
+        0,
+        2379,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "proprietarul",
+      "reference": "proprietarul",
+      "confidence": 0.2856510107418188,
+      "token_ids": [
+        0,
+        0,
+        4892,
+        13718,
+        594,
+        271,
+        922,
+        2
+      ]
+    },
+    {
+      "prediction": "ca",
+      "reference": "ca",
+      "confidence": 0.14284766638332694,
+      "token_ids": [
+        0,
+        0,
+        3245,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "asemeni",
+      "reference": "asemeni",
+      "confidence": 0.6003690515809443,
+      "token_ids": [
+        0,
+        0,
+        3175,
+        2262,
+        118,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "xilografie.",
+      "reference": "xilografie.",
+      "confidence": 0.1627028006877364,
+      "token_ids": [
+        0,
+        0,
+        1178,
+        718,
+        2154,
+        13883,
+        324,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "încă",
+      "reference": "încă",
+      "confidence": 0.24998051599661864,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        11326,
+        649,
+        862,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "măcar",
+      "reference": "măcar",
+      "confidence": 0.2499800233041405,
+      "token_ids": [
+        0,
+        0,
+        119,
+        649,
+        862,
+        5901,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.3333064450867072,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Epocei",
+      "reference": "Epocei",
+      "confidence": 0.21889124695138706,
+      "token_ids": [
+        0,
+        0,
+        39318,
+        139,
+        1755,
+        118,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ca",
+      "reference": "ca",
+      "confidence": 0.22220978479631137,
+      "token_ids": [
+        0,
+        0,
+        3245,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "răposatul,",
+      "reference": "răposatul,",
+      "confidence": 0.21333813101799948,
+      "token_ids": [
+        0,
+        0,
+        338,
+        649,
+        862,
+        11474,
+        415,
+        922,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "ln",
+      "reference": "In",
+      "confidence": 0.30890376121642915,
+      "token_ids": [
+        0,
+        0,
+        8502,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "sa",
+      "reference": "sa",
+      "confidence": 0.24996435146078191,
+      "token_ids": [
+        0,
+        0,
+        11146,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.3763384298800266,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Asociaţie",
+      "reference": "Asociație",
+      "confidence": 0.2355101216452199,
+      "token_ids": [
+        0,
+        0,
+        1620,
+        1975,
+        493,
+        1277,
+        2469,
+        324,
+        2
+      ]
+    },
+    {
+      "prediction": "cu",
+      "reference": "cu",
+      "confidence": 0.49647135606167253,
+      "token_ids": [
+        0,
+        0,
+        16312,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "carcle",
+      "reference": "carele",
+      "confidence": 0.3333037119229861,
+      "token_ids": [
+        0,
+        0,
+        5901,
+        16008,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ornată",
+      "reference": "ornată",
+      "confidence": 0.30622267417577737,
+      "token_ids": [
+        0,
+        0,
+        4244,
+        415,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "după",
+      "reference": "după",
+      "confidence": 0.30622278080680915,
+      "token_ids": [
+        0,
+        0,
+        6588,
+        642,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "cu",
+      "reference": "cu",
+      "confidence": 0.4965572225902232,
+      "token_ids": [
+        0,
+        0,
+        16312,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Revista",
+      "reference": "Revista",
+      "confidence": 0.3333036172246859,
+      "token_ids": [
+        0,
+        0,
+        38494,
+        6377,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "mult",
+      "reference": "mult",
+      "confidence": 0.33330041849359976,
+      "token_ids": [
+        0,
+        0,
+        42527,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Simţind",
+      "reference": "Simțind",
+      "confidence": 0.18660355565698447,
+      "token_ids": [
+        0,
+        0,
+        29656,
+        1277,
+        2469,
+        2028,
+        2
+      ]
+    },
+    {
+      "prediction": "al",
+      "reference": "al",
+      "confidence": 0.7498058229685588,
+      "token_ids": [
+        0,
+        0,
+        337,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "400",
+      "reference": "400",
+      "confidence": 0.46324796974708315,
+      "token_ids": [
+        0,
+        0,
+        4017,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "lui",
+      "reference": "lui",
+      "confidence": 0.4998998999219685,
+      "token_ids": [
+        0,
+        0,
+        6487,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "cea",
+      "reference": "cea",
+      "confidence": 0.4998878688076799,
+      "token_ids": [
+        0,
+        0,
+        1755,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "sale",
+      "reference": "sale",
+      "confidence": 0.33174966441763504,
+      "token_ids": [
+        0,
+        0,
+        25248,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "încredinţat",
+      "reference": "Încredințat",
+      "confidence": 0.21892859543033444,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        11326,
+        2050,
+        179,
+        1277,
+        2469,
+        415,
+        2
+      ]
+    },
+    {
+      "prediction": "fara",
+      "reference": "țara",
+      "confidence": 0.2221861430816889,
+      "token_ids": [
+        0,
+        0,
+        506,
+        1742,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "la",
+      "reference": "la",
+      "confidence": 0.2221874398625224,
+      "token_ids": [
+        0,
+        0,
+        2560,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "estimp",
+      "reference": "estimp",
+      "confidence": 0.9995335340499878,
+      "token_ids": [
+        0,
+        0,
+        990,
+        11850,
+        2
+      ]
+    },
+    {
+      "prediction": "numai",
+      "reference": "numai",
+      "confidence": 0.49994432926732385,
+      "token_ids": [
+        0,
+        0,
+        42666,
+        1439,
+        2
+      ]
+    },
+    {
+      "prediction": "cu",
+      "reference": "cu",
+      "confidence": 0.24997580677703193,
+      "token_ids": [
+        0,
+        0,
+        16312,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "şi",
+      "reference": "și",
+      "confidence": 0.5001565046284168,
+      "token_ids": [
+        0,
+        0,
+        5235,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "î",
+      "reference": "i",
+      "confidence": 0.7405569106346518,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "fiind",
+      "reference": "fiind",
+      "confidence": 0.49784238314616586,
+      "token_ids": [
+        0,
+        0,
+        9169,
+        2028,
+        2
+      ]
+    },
+    {
+      "prediction": "pe",
+      "reference": "pe",
+      "confidence": 0.49775067460064554,
+      "token_ids": [
+        0,
+        0,
+        2379,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "spre",
+      "reference": "spre",
+      "confidence": 0.497627651757208,
+      "token_ids": [
+        0,
+        0,
+        4182,
+        241,
+        2
+      ]
+    },
+    {
+      "prediction": "şi",
+      "reference": "șî",
+      "confidence": 0.7991559624672642,
+      "token_ids": [
+        0,
+        0,
+        5235,
+        118,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.20001474719018816,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "el",
+      "reference": "el",
+      "confidence": 0.1998959975416319,
+      "token_ids": [
+        0,
+        0,
+        523,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "acum,",
+      "reference": "acum,",
+      "confidence": 0.3998881199439627,
+      "token_ids": [
+        0,
+        0,
+        1043,
+        783,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "însă,",
+      "reference": "însă,",
+      "confidence": 0.9894574880599976,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        6852,
+        649,
+        862,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "sale",
+      "reference": "sale",
+      "confidence": 0.1428508746838714,
+      "token_ids": [
+        0,
+        0,
+        25248,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "pe",
+      "reference": "pe",
+      "confidence": 0.14285087585679848,
+      "token_ids": [
+        0,
+        0,
+        2379,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "volume",
+      "reference": "volume",
+      "confidence": 0.142850841417344,
+      "token_ids": [
+        0,
+        0,
+        13728,
+        9271,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "este",
+      "reference": "este",
+      "confidence": 0.4999157786439901,
+      "token_ids": [
+        0,
+        0,
+        13967,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "se",
+      "reference": "se",
+      "confidence": 0.16664742609782726,
+      "token_ids": [
+        0,
+        0,
+        1090,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "către",
+      "reference": "către",
+      "confidence": 0.3313889894068411,
+      "token_ids": [
+        0,
+        0,
+        438,
+        649,
+        862,
+        18468,
+        2
+      ]
+    },
+    {
+      "prediction": "atunci",
+      "reference": "atunci",
+      "confidence": 0.3333128094852614,
+      "token_ids": [
+        0,
+        0,
+        415,
+        19856,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Ghica,",
+      "reference": "Ghica,",
+      "confidence": 0.49595853094321607,
+      "token_ids": [
+        0,
+        0,
+        28916,
+        2426,
+        6,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "vecinătate",
+      "reference": "vecinătate",
+      "confidence": 0.19863422479406712,
+      "token_ids": [
+        0,
+        0,
+        25369,
+        179,
+        649,
+        862,
+        90,
+        877,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "traducţiuni,",
+      "reference": "traducțiuni,",
+      "confidence": 0.19427474109779636,
+      "token_ids": [
+        0,
+        0,
+        4328,
+        625,
+        3964,
+        1277,
+        2469,
+        118,
+        20967,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "alistrului",
+      "reference": "ilustrului",
+      "confidence": 0.19998891460473212,
+      "token_ids": [
+        0,
+        0,
+        39295,
+        338,
+        922,
+        3371,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ţirea",
+      "reference": "țirea",
+      "confidence": 0.9742974042892456,
+      "token_ids": [
+        0,
+        0,
+        1277,
+        2469,
+        1885,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.16665061023443425,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "făcut",
+      "reference": "făcut",
+      "confidence": 0.3333022999119746,
+      "token_ids": [
+        0,
+        0,
+        506,
+        649,
+        862,
+        8267,
+        2
+      ]
+    },
+    {
+      "prediction": "meu,",
+      "reference": "meu,",
+      "confidence": 0.16664987103835308,
+      "token_ids": [
+        0,
+        0,
+        1794,
+        257,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.9996288418769836,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2
+      ]
+    },
+    {
+      "prediction": "şi",
+      "reference": "și",
+      "confidence": 0.24991622765964294,
+      "token_ids": [
+        0,
+        0,
+        5235,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "alte",
+      "reference": "alte",
+      "confidence": 0.24991520480616944,
+      "token_ids": [
+        0,
+        0,
+        337,
+        859,
+        2
+      ]
+    },
+    {
+      "prediction": "afla",
+      "reference": "afla",
+      "confidence": 0.49991420060399233,
+      "token_ids": [
+        0,
+        0,
+        2001,
+        2560,
+        2
+      ]
+    },
+    {
+      "prediction": "expusă",
+      "reference": "expusă",
+      "confidence": 0.7461788356579241,
+      "token_ids": [
+        0,
+        0,
+        18793,
+        687,
+        649,
+        862,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "îndemnisare,",
+      "reference": "indemnisare,",
+      "confidence": 0.25060006402272816,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        1187,
+        43298,
+        354,
+        1322,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "2n",
+      "reference": "în",
+      "confidence": 0.12499006954915416,
+      "token_ids": [
+        0,
+        0,
+        176,
+        282,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "lui",
+      "reference": "lui",
+      "confidence": 0.12511704641566734,
+      "token_ids": [
+        0,
+        0,
+        6487,
+        118,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "manuscriptele",
+      "reference": "manuscriptele",
+      "confidence": 0.9855680704116822,
+      "token_ids": [
+        0,
+        0,
+        397,
+        47811,
+        6902,
+        2
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.1999913521181163,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "un",
+      "reference": "un",
+      "confidence": 0.19999330688543052,
+      "token_ids": [
+        0,
+        0,
+        879,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "atunci",
+      "reference": "atunci",
+      "confidence": 0.19999135560687498,
+      "token_ids": [
+        0,
+        0,
+        415,
+        19856,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "opereii.",
+      "reference": "opereii.",
+      "confidence": 0.9305520057678223,
+      "token_ids": [
+        0,
+        0,
+        1517,
+        2816,
+        4132,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "importante,",
+      "reference": "importante,",
+      "confidence": 0.16664518805865536,
+      "token_ids": [
+        0,
+        0,
+        41975,
+        5285,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "asupra",
+      "reference": "asupra",
+      "confidence": 0.16664075163607348,
+      "token_ids": [
+        0,
+        0,
+        281,
+        658,
+        763,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "la",
+      "reference": "la",
+      "confidence": 0.16665241520815127,
+      "token_ids": [
+        0,
+        0,
+        2560,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Bălcescu",
+      "reference": "Bălcescu",
+      "confidence": 0.9745720401406288,
+      "token_ids": [
+        0,
+        0,
+        387,
+        649,
+        862,
+        462,
+        4643,
+        16312,
+        2
+      ]
+    },
+    {
+      "prediction": "un",
+      "reference": "un",
+      "confidence": 0.12498816850033377,
+      "token_ids": [
+        0,
+        0,
+        879,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "că",
+      "reference": "că",
+      "confidence": 0.26422081973808137,
+      "token_ids": [
+        0,
+        0,
+        438,
+        649,
+        862,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "trimisă",
+      "reference": "trimisă",
+      "confidence": 0.2499713241786189,
+      "token_ids": [
+        0,
+        0,
+        4328,
+        757,
+        354,
+        649,
+        862,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "mai",
+      "reference": "mai",
+      "confidence": 0.7999273180965949,
+      "token_ids": [
+        0,
+        0,
+        119,
+        1439,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.1999620797725706,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Viena",
+      "reference": "Viena",
+      "confidence": 0.3999399049506903,
+      "token_ids": [
+        0,
+        0,
+        846,
+        2495,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "şi",
+      "reference": "și",
+      "confidence": 0.399961698068109,
+      "token_ids": [
+        0,
+        0,
+        5235,
+        118,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "parte",
+      "reference": "parte",
+      "confidence": 0.4991978928546731,
+      "token_ids": [
+        0,
+        0,
+        7755,
+        242,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "le",
+      "reference": "le",
+      "confidence": 0.12497968346716311,
+      "token_ids": [
+        0,
+        0,
+        459,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "împreună",
+      "reference": "împreună",
+      "confidence": 0.2487122330588341,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        6195,
+        241,
+        879,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "lui",
+      "reference": "lui",
+      "confidence": 0.24979986191671036,
+      "token_ids": [
+        0,
+        0,
+        6487,
+        118,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "pentru",
+      "reference": "pentru",
+      "confidence": 0.9997957646846771,
+      "token_ids": [
+        0,
+        0,
+        33475,
+        2070,
+        2
+      ]
+    },
+    {
+      "prediction": "fine",
+      "reference": "fine",
+      "confidence": 0.24994738403027394,
+      "token_ids": [
+        0,
+        0,
+        35093,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "mai",
+      "reference": "mai",
+      "confidence": 0.4999462813337056,
+      "token_ids": [
+        0,
+        0,
+        119,
+        1439,
+        2
+      ]
+    },
+    {
+      "prediction": "le",
+      "reference": "le",
+      "confidence": 0.24994744367526037,
+      "token_ids": [
+        0,
+        0,
+        459,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "stat",
+      "reference": "stat",
+      "confidence": 0.4660107099462627,
+      "token_ids": [
+        0,
+        0,
+        24344,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Viteazul",
+      "reference": "Viteazul",
+      "confidence": 0.2584101568115302,
+      "token_ids": [
+        0,
+        0,
+        846,
+        1459,
+        1222,
+        922,
+        2
+      ]
+    },
+    {
+      "prediction": "nici",
+      "reference": "nici",
+      "confidence": 0.3322700338459194,
+      "token_ids": [
+        0,
+        0,
+        12979,
+        118,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "lor",
+      "reference": "lor",
+      "confidence": 0.33328947490880884,
+      "token_ids": [
+        0,
+        0,
+        10159,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "la",
+      "reference": "la",
+      "confidence": 0.3834651624721058,
+      "token_ids": [
+        0,
+        0,
+        2560,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "planurile",
+      "reference": "planurile",
+      "confidence": 0.28567825911077555,
+      "token_ids": [
+        0,
+        0,
+        11181,
+        710,
+        1848,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "testamentul",
+      "reference": "testamentul",
+      "confidence": 0.2856771448455433,
+      "token_ids": [
+        0,
+        0,
+        21959,
+        5511,
+        922,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "făcute",
+      "reference": "făcute",
+      "confidence": 0.27955304023004923,
+      "token_ids": [
+        0,
+        0,
+        506,
+        649,
+        862,
+        438,
+        4467,
+        2
+      ]
+    },
+    {
+      "prediction": "d.",
+      "reference": "D.",
+      "confidence": 0.6632095873400943,
+      "token_ids": [
+        0,
+        0,
+        417,
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "la",
+      "reference": "la",
+      "confidence": 0.16665324198807624,
+      "token_ids": [
+        0,
+        0,
+        2560,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Turcia.",
+      "reference": "Turcia.",
+      "confidence": 0.33303558072447975,
+      "token_ids": [
+        0,
+        0,
+        565,
+        710,
+        14555,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "să",
+      "reference": "să",
+      "confidence": 0.32455063931747136,
+      "token_ids": [
+        0,
+        0,
+        29,
+        649,
+        862,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "îo",
+      "reference": "¹).",
+      "confidence": 0.41199791245862544,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        139,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Asociafiei",
+      "reference": "Asociației",
+      "confidence": 0.23209463009450298,
+      "token_ids": [
+        0,
+        0,
+        1620,
+        1975,
+        493,
+        506,
+        324,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "cu",
+      "reference": "cu",
+      "confidence": 0.12497785909137314,
+      "token_ids": [
+        0,
+        0,
+        16312,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "cheltuielile",
+      "reference": "cheltuielile",
+      "confidence": 0.18489996408920906,
+      "token_ids": [
+        0,
+        0,
+        2871,
+        7984,
+        257,
+        5255,
+        1848,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "către",
+      "reference": "către",
+      "confidence": 0.9996602733929952,
+      "token_ids": [
+        0,
+        0,
+        438,
+        649,
+        862,
+        18468,
+        2
+      ]
+    },
+    {
+      "prediction": "d e",
+      "reference": "de",
+      "confidence": 0.1666488405512738,
+      "token_ids": [
+        0,
+        0,
+        417,
+        364,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "din",
+      "reference": "din",
+      "confidence": 0.16664838790981654,
+      "token_ids": [
+        0,
+        0,
+        27228,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ele",
+      "reference": "ele",
+      "confidence": 0.16664838791839387,
+      "token_ids": [
+        0,
+        0,
+        6902,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "şi",
+      "reference": "și",
+      "confidence": 0.7985959649086352,
+      "token_ids": [
+        0,
+        0,
+        5235,
+        118,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "dată",
+      "reference": "dată",
+      "confidence": 0.3999657425613388,
+      "token_ids": [
+        0,
+        0,
+        36146,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.3999689679126879,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.3999660487784995,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "fară",
+      "reference": "țară",
+      "confidence": 0.5408147177933166,
+      "token_ids": [
+        0,
+        0,
+        15476,
+        649,
+        862,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "arăta",
+      "reference": "arăta",
+      "confidence": 0.44481086083701776,
+      "token_ids": [
+        0,
+        0,
+        271,
+        649,
+        862,
+        4349,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "fost",
+      "reference": "fost",
+      "confidence": 0.11174459934476759,
+      "token_ids": [
+        0,
+        0,
+        506,
+        2603,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "cărţi",
+      "reference": "cărți",
+      "confidence": 0.4261619625117574,
+      "token_ids": [
+        0,
+        0,
+        438,
+        649,
+        862,
+        338,
+        1277,
+        2469,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "cinci",
+      "reference": "cinci",
+      "confidence": 0.9121567904949188,
+      "token_ids": [
+        0,
+        0,
+        28366,
+        2520,
+        2
+      ]
+    },
+    {
+      "prediction": "june",
+      "reference": "june",
+      "confidence": 0.24996647007750328,
+      "token_ids": [
+        0,
+        0,
+        267,
+        4438,
+        2
+      ]
+    },
+    {
+      "prediction": "el",
+      "reference": "el",
+      "confidence": 0.24996640385896002,
+      "token_ids": [
+        0,
+        0,
+        523,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.2500072744933528,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "altă",
+      "reference": "altă",
+      "confidence": 0.49984325213135844,
+      "token_ids": [
+        0,
+        0,
+        3967,
+        649,
+        862,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Lădiţa",
+      "reference": "Lădiță",
+      "confidence": 0.15907427144295078,
+      "token_ids": [
+        0,
+        0,
+        574,
+        649,
+        862,
+        7506,
+        1277,
+        2469,
+        102,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "preot",
+      "reference": "preot",
+      "confidence": 0.0999864577853076,
+      "token_ids": [
+        0,
+        0,
+        5234,
+        1242,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "rămăsese",
+      "reference": "rămăsese",
+      "confidence": 0.22560372686198882,
+      "token_ids": [
+        0,
+        0,
+        338,
+        649,
+        862,
+        119,
+        649,
+        862,
+        1090,
+        1090,
+        2
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.42853358125303587,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "el",
+      "reference": "el",
+      "confidence": 0.28567352810182484,
+      "token_ids": [
+        0,
+        0,
+        523,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Ministerului-",
+      "reference": "Ministerului-",
+      "confidence": 0.21346632967161863,
+      "token_ids": [
+        0,
+        0,
+        20086,
+        4742,
+        922,
+        3371,
+        12,
+        2
+      ]
+    },
+    {
+      "prediction": "doreşte",
+      "reference": "dorește",
+      "confidence": 0.22270833957966563,
+      "token_ids": [
+        0,
+        0,
+        417,
+        1688,
+        5235,
+        859,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "şi",
+      "reference": "și",
+      "confidence": 0.49964066595699624,
+      "token_ids": [
+        0,
+        0,
+        5235,
+        118,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "urmă",
+      "reference": "urmă",
+      "confidence": 0.249917247284362,
+      "token_ids": [
+        0,
+        0,
+        710,
+        119,
+        649,
+        862,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "dea",
+      "reference": "dea",
+      "confidence": 0.24991855191018958,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        102,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "sfârşi,",
+      "reference": "sfârși,",
+      "confidence": 0.24862822920815736,
+      "token_ids": [
+        0,
+        0,
+        26649,
+        3695,
+        338,
+        5235,
+        118,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "şi",
+      "reference": "și",
+      "confidence": 0.570497129652335,
+      "token_ids": [
+        0,
+        0,
+        5235,
+        118,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "spre",
+      "reference": "spre",
+      "confidence": 0.14295058334164687,
+      "token_ids": [
+        0,
+        0,
+        4182,
+        241,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Viteazul,",
+      "reference": "Viteazul,",
+      "confidence": 0.28274778496171,
+      "token_ids": [
+        0,
+        0,
+        846,
+        1459,
+        1222,
+        922,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "cel",
+      "reference": "cel",
+      "confidence": 0.14261876234295442,
+      "token_ids": [
+        0,
+        0,
+        9736,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "al",
+      "reference": "al",
+      "confidence": 0.42830207674729653,
+      "token_ids": [
+        0,
+        0,
+        337,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "se",
+      "reference": "se",
+      "confidence": 0.26094189868862355,
+      "token_ids": [
+        0,
+        0,
+        1090,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "României,",
+      "reference": "României,",
+      "confidence": 0.22639095132114634,
+      "token_ids": [
+        0,
+        0,
+        38184,
+        3695,
+        7468,
+        118,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "acea",
+      "reference": "acea",
+      "confidence": 0.28463825315958863,
+      "token_ids": [
+        0,
+        0,
+        4450,
+        102,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.3333138100697553,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Trinacria”.",
+      "reference": "Trinacria\".",
+      "confidence": 0.1832847766822998,
+      "token_ids": [
+        0,
+        0,
+        12667,
+        179,
+        1043,
+        6374,
+        17,
+        46,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "să",
+      "reference": "să",
+      "confidence": 0.20575556195499595,
+      "token_ids": [
+        0,
+        0,
+        29,
+        649,
+        862,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "1601,",
+      "reference": "1601,",
+      "confidence": 0.20575345632895897,
+      "token_ids": [
+        0,
+        0,
+        1549,
+        2663,
+        6,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "cursul",
+      "reference": "cursul",
+      "confidence": 0.6249193923214275,
+      "token_ids": [
+        0,
+        0,
+        438,
+        4668,
+        922,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "întâmplat",
+      "reference": "întâmplat",
+      "confidence": 0.2366700045096291,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        3999,
+        3695,
+        119,
+        2911,
+        415,
+        2
+      ]
+    },
+    {
+      "prediction": "tipări",
+      "reference": "tipări",
+      "confidence": 0.24999299661599816,
+      "token_ids": [
+        0,
+        0,
+        39080,
+        649,
+        862,
+        1069,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "începu",
+      "reference": "începu",
+      "confidence": 0.24999401891120665,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        15285,
+        642,
+        257,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.5996236086410223,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "român",
+      "reference": "român",
+      "confidence": 0.39583482300829187,
+      "token_ids": [
+        0,
+        0,
+        5638,
+        3695,
+        282,
+        2
+      ]
+    },
+    {
+      "prediction": "proprii",
+      "reference": "proprii",
+      "confidence": 0.3958349942486178,
+      "token_ids": [
+        0,
+        0,
+        4892,
+        13718,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.39996628009248986,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "aproape",
+      "reference": "aproape",
+      "confidence": 0.6224571243042084,
+      "token_ids": [
+        0,
+        0,
+        1115,
+        1001,
+        5776,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Mihaiu",
+      "reference": "Mihaiu",
+      "confidence": 0.24996085669414703,
+      "token_ids": [
+        0,
+        0,
+        448,
+        4001,
+        1439,
+        257,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Ionescu",
+      "reference": "lonescu",
+      "confidence": 0.24998022049128776,
+      "token_ids": [
+        0,
+        0,
+        100,
+        6909,
+        16312,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "împăr-",
+      "reference": "împăr-",
+      "confidence": 0.2488853499534492,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        6195,
+        649,
+        862,
+        338,
+        12,
+        2
+      ]
+    },
+    {
+      "prediction": "dosarele",
+      "reference": "dosarele",
+      "confidence": 0.5544919967739852,
+      "token_ids": [
+        0,
+        0,
+        19202,
+        1322,
+        459,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "8’",
+      "reference": "8°,",
+      "confidence": 0.11110393409027293,
+      "token_ids": [
+        0,
+        0,
+        398,
+        17,
+        27,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Bălcescu,",
+      "reference": "Bălcescu,",
+      "confidence": 0.22058563928389763,
+      "token_ids": [
+        0,
+        0,
+        387,
+        649,
+        862,
+        462,
+        4643,
+        16312,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "localitate.",
+      "reference": "localitate.",
+      "confidence": 0.22221199916001186,
+      "token_ids": [
+        0,
+        0,
+        18076,
+        12624,
+        4,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "lui",
+      "reference": "lui",
+      "confidence": 0.5709851215233677,
+      "token_ids": [
+        0,
+        0,
+        6487,
+        118,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "luni",
+      "reference": "luni",
+      "confidence": 0.2857309237308221,
+      "token_ids": [
+        0,
+        0,
+        462,
+        20967,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "voinţele",
+      "reference": "voințele",
+      "confidence": 0.25960096284869394,
+      "token_ids": [
+        0,
+        0,
+        5766,
+        179,
+        1277,
+        2469,
+        6902,
+        2
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.1428458314451059,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.7996793627768021,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.19995440796610406,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "având",
+      "reference": "având",
+      "confidence": 0.3999424580169092,
+      "token_ids": [
+        0,
+        0,
+        1469,
+        3695,
+        1187,
+        2
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.19994320780011393,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "pentru",
+      "reference": "pentru",
+      "confidence": 0.9998292177915573,
+      "token_ids": [
+        0,
+        0,
+        33475,
+        2070,
+        2
+      ]
+    },
+    {
+      "prediction": "şi",
+      "reference": "și",
+      "confidence": 0.4999708533483841,
+      "token_ids": [
+        0,
+        0,
+        5235,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "şi",
+      "reference": "și",
+      "confidence": 0.4999724030625634,
+      "token_ids": [
+        0,
+        0,
+        5235,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "ca",
+      "reference": "ca",
+      "confidence": 0.24997329715194272,
+      "token_ids": [
+        0,
+        0,
+        3245,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "parte,",
+      "reference": "parte,",
+      "confidence": 0.4990246123715206,
+      "token_ids": [
+        0,
+        0,
+        7755,
+        242,
+        6,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "cumpărări",
+      "reference": "cumpărări",
+      "confidence": 0.19349708086449224,
+      "token_ids": [
+        0,
+        0,
+        438,
+        7198,
+        649,
+        862,
+        338,
+        649,
+        862,
+        1069,
+        2
+      ]
+    },
+    {
+      "prediction": "să",
+      "reference": "să",
+      "confidence": 0.1999947821645201,
+      "token_ids": [
+        0,
+        0,
+        29,
+        649,
+        862,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "au",
+      "reference": "au",
+      "confidence": 0.09999415048670546,
+      "token_ids": [
+        0,
+        0,
+        1180,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "tipărită",
+      "reference": "tipărită",
+      "confidence": 0.9903626069426537,
+      "token_ids": [
+        0,
+        0,
+        39080,
+        649,
+        862,
+        3961,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "astăzi",
+      "reference": "astăzi",
+      "confidence": 0.12498882707538456,
+      "token_ids": [
+        0,
+        0,
+        1988,
+        649,
+        862,
+        6182,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "familiei",
+      "reference": "familiei",
+      "confidence": 0.12498874413285334,
+      "token_ids": [
+        0,
+        0,
+        27505,
+        718,
+        324,
+        118,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "răposat",
+      "reference": "răposat",
+      "confidence": 0.24938625901388156,
+      "token_ids": [
+        0,
+        0,
+        338,
+        649,
+        862,
+        11474,
+        415,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "localităţi",
+      "reference": "localități",
+      "confidence": 0.8896693110506098,
+      "token_ids": [
+        0,
+        0,
+        18076,
+        405,
+        649,
+        862,
+        1277,
+        2469,
+        118,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "la",
+      "reference": "la",
+      "confidence": 0.09999645224123052,
+      "token_ids": [
+        0,
+        0,
+        2560,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ospătăriei",
+      "reference": "ospătăriei",
+      "confidence": 0.1974608021583863,
+      "token_ids": [
+        0,
+        0,
+        16497,
+        649,
+        862,
+        90,
+        649,
+        862,
+        3636,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "oţel,",
+      "reference": "oțel,",
+      "confidence": 0.1999732833108066,
+      "token_ids": [
+        0,
+        0,
+        139,
+        1277,
+        2469,
+        523,
+        6,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "precum",
+      "reference": "precum",
+      "confidence": 0.6643628279388228,
+      "token_ids": [
+        0,
+        0,
+        5234,
+        30639,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.16665844184326203,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "d-nul",
+      "reference": "d-nul",
+      "confidence": 0.3332239719539479,
+      "token_ids": [
+        0,
+        0,
+        417,
+        12,
+        282,
+        922,
+        2
+      ]
+    },
+    {
+      "prediction": "se",
+      "reference": "se",
+      "confidence": 0.1666603840466556,
+      "token_ids": [
+        0,
+        0,
+        1090,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "patru",
+      "reference": "patru",
+      "confidence": 0.7949625015281879,
+      "token_ids": [
+        0,
+        0,
+        11632,
+        2070,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "fusese",
+      "reference": "fusese",
+      "confidence": 0.3999078807822618,
+      "token_ids": [
+        0,
+        0,
+        506,
+        9764,
+        242,
+        2
+      ]
+    },
+    {
+      "prediction": "din",
+      "reference": "din",
+      "confidence": 0.19996429692933798,
+      "token_ids": [
+        0,
+        0,
+        27228,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "se",
+      "reference": "se",
+      "confidence": 0.19996437666020067,
+      "token_ids": [
+        0,
+        0,
+        1090,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.4999699792144792,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "patronii",
+      "reference": "patronii",
+      "confidence": 0.32971738986263066,
+      "token_ids": [
+        0,
+        0,
+        11632,
+        2839,
+        4132,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "frumoase",
+      "reference": "frumoase",
+      "confidence": 0.3254431106471934,
+      "token_ids": [
+        0,
+        0,
+        506,
+        10904,
+        139,
+        3175,
+        2
+      ]
+    },
+    {
+      "prediction": "la",
+      "reference": "la",
+      "confidence": 0.333318491929222,
+      "token_ids": [
+        0,
+        0,
+        2560,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "abia",
+      "reference": "abia",
+      "confidence": 0.7992375254632336,
+      "token_ids": [
+        0,
+        0,
+        873,
+        493,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "o",
+      "reference": "o",
+      "confidence": 0.39997742176907736,
+      "token_ids": [
+        0,
+        0,
+        139,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "să",
+      "reference": "să",
+      "confidence": 0.3997114058246285,
+      "token_ids": [
+        0,
+        0,
+        29,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "iar",
+      "reference": "iar",
+      "confidence": 0.3999769926099639,
+      "token_ids": [
+        0,
+        0,
+        12202,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "manuscrisele",
+      "reference": "manuscrisele",
+      "confidence": 0.9070298771063486,
+      "token_ids": [
+        0,
+        0,
+        397,
+        20214,
+        15839,
+        459,
+        2
+      ]
+    },
+    {
+      "prediction": "cu",
+      "reference": "cu",
+      "confidence": 0.16665573977929812,
+      "token_ids": [
+        0,
+        0,
+        16312,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "primi,",
+      "reference": "primi,",
+      "confidence": 0.17228232753921324,
+      "token_ids": [
+        0,
+        0,
+        31044,
+        118,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "prin",
+      "reference": "prin",
+      "confidence": 0.16665599262994035,
+      "token_ids": [
+        0,
+        0,
+        4862,
+        179,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "d-lui",
+      "reference": "d-lui",
+      "confidence": 0.9997888406117758,
+      "token_ids": [
+        0,
+        0,
+        417,
+        12,
+        6487,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "mine",
+      "reference": "mine",
+      "confidence": 0.16665726900369113,
+      "token_ids": [
+        0,
+        0,
+        13523,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "moarte,",
+      "reference": "moarte,",
+      "confidence": 0.16665735023693926,
+      "token_ids": [
+        0,
+        0,
+        4992,
+        13775,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "turcesc",
+      "reference": "turcesc",
+      "confidence": 0.16665729904516371,
+      "token_ids": [
+        0,
+        0,
+        18346,
+        4643,
+        438,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "nostru,",
+      "reference": "nostru,",
+      "confidence": 0.7358238250306733,
+      "token_ids": [
+        0,
+        0,
+        282,
+        2603,
+        2070,
+        6,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "d.",
+      "reference": "d.",
+      "confidence": 0.12514770786520527,
+      "token_ids": [
+        0,
+        0,
+        417,
+        4,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "186i",
+      "reference": "1861",
+      "confidence": 0.12963001731773308,
+      "token_ids": [
+        0,
+        0,
+        29024,
+        118,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Română.",
+      "reference": "Română.",
+      "confidence": 0.24490664218851288,
+      "token_ids": [
+        0,
+        0,
+        38184,
+        3695,
+        282,
+        649,
+        862,
+        4,
+        2
+      ]
+    },
+    {
+      "prediction": "fuză",
+      "reference": "Iul",
+      "confidence": 0.7512445598840714,
+      "token_ids": [
+        0,
+        0,
+        506,
+        4987,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "avea",
+      "reference": "avea",
+      "confidence": 0.1668605927652794,
+      "token_ids": [
+        0,
+        0,
+        4097,
+        102,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "lucru",
+      "reference": "lucru",
+      "confidence": 0.17140105611285397,
+      "token_ids": [
+        0,
+        0,
+        462,
+        3964,
+        2070,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.16840911839879102,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "portret",
+      "reference": "portret",
+      "confidence": 0.4436816176518563,
+      "token_ids": [
+        0,
+        0,
+        3427,
+        4903,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "mărturisire",
+      "reference": "mărturisire",
+      "confidence": 0.1947398123653243,
+      "token_ids": [
+        0,
+        0,
+        119,
+        649,
+        862,
+        9713,
+        710,
+        354,
+        1885,
+        2
+      ]
+    },
+    {
+      "prediction": "în",
+      "reference": "în",
+      "confidence": 0.2221830224033231,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "uitat",
+      "reference": "uitat",
+      "confidence": 0.22189537059012673,
+      "token_ids": [
+        0,
+        0,
+        6439,
+        415,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "realisare.",
+      "reference": "realisare.",
+      "confidence": 0.8485970241692239,
+      "token_ids": [
+        0,
+        0,
+        8726,
+        354,
+        1322,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Ast-fel",
+      "reference": "Ast-fel",
+      "confidence": 0.28569796469600395,
+      "token_ids": [
+        0,
+        0,
+        39021,
+        12,
+        506,
+        523,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "său,",
+      "reference": "său,",
+      "confidence": 0.2856890143868086,
+      "token_ids": [
+        0,
+        0,
+        29,
+        649,
+        862,
+        257,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "sa,",
+      "reference": "sa,",
+      "confidence": 0.17283760819321864,
+      "token_ids": [
+        0,
+        0,
+        11146,
+        6,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "al",
+      "reference": "al",
+      "confidence": 0.3331497511621525,
+      "token_ids": [
+        0,
+        0,
+        337,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Bălcescu,",
+      "reference": "Bălcescu,",
+      "confidence": 0.15980606904849454,
+      "token_ids": [
+        0,
+        0,
+        387,
+        649,
+        862,
+        462,
+        4643,
+        16312,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "mi",
+      "reference": "mi",
+      "confidence": 0.2221860528785911,
+      "token_ids": [
+        0,
+        0,
+        5408,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "raportul",
+      "reference": "raportul",
+      "confidence": 0.21995931880930197,
+      "token_ids": [
+        0,
+        0,
+        763,
+        3427,
+        922,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "nici",
+      "reference": "nici",
+      "confidence": 0.5712232597610947,
+      "token_ids": [
+        0,
+        0,
+        12979,
+        118,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "la",
+      "reference": "la",
+      "confidence": 0.284869203379255,
+      "token_ids": [
+        0,
+        0,
+        2560,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "două",
+      "reference": "două",
+      "confidence": 0.27115782745701306,
+      "token_ids": [
+        0,
+        0,
+        417,
+        1438,
+        649,
+        862,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "trimită",
+      "reference": "trimită",
+      "confidence": 0.25806861819484483,
+      "token_ids": [
+        0,
+        0,
+        4328,
+        757,
+        405,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "două-zeci",
+      "reference": "două-zeci",
+      "confidence": 0.9904347777366638,
+      "token_ids": [
+        0,
+        0,
+        417,
+        1438,
+        649,
+        862,
+        12,
+        329,
+        3204,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "12",
+      "reference": "12",
+      "confidence": 0.09999657925341512,
+      "token_ids": [
+        0,
+        0,
+        1092,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.1000031173101226,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "să",
+      "reference": "să",
+      "confidence": 0.09999737508097636,
+      "token_ids": [
+        0,
+        0,
+        29,
+        649,
+        862,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "să",
+      "reference": "să",
+      "confidence": 0.6248997077378403,
+      "token_ids": [
+        0,
+        0,
+        29,
+        649,
+        862,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "al",
+      "reference": "al",
+      "confidence": 0.20634036512891366,
+      "token_ids": [
+        0,
+        0,
+        337,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "terminată",
+      "reference": "terminată",
+      "confidence": 0.25002123398805515,
+      "token_ids": [
+        0,
+        0,
+        42985,
+        415,
+        649,
+        862,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Bălcescu",
+      "reference": "Bălcescu",
+      "confidence": 0.37423970637447324,
+      "token_ids": [
+        0,
+        0,
+        387,
+        649,
+        862,
+        462,
+        4643,
+        16312,
+        2
+      ]
+    },
+    {
+      "prediction": "cheltuieli",
+      "reference": "cheltiueli",
+      "confidence": 0.9253792933055333,
+      "token_ids": [
+        0,
+        0,
+        2871,
+        7984,
+        257,
+        5255,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "rare",
+      "reference": "rare",
+      "confidence": 0.1428402738675946,
+      "token_ids": [
+        0,
+        0,
+        763,
+        241,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Nue",
+      "reference": "N..",
+      "confidence": 0.14284045900791184,
+      "token_ids": [
+        0,
+        0,
+        487,
+        1780,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "după",
+      "reference": "după",
+      "confidence": 0.14284163988723073,
+      "token_ids": [
+        0,
+        0,
+        6588,
+        642,
+        649,
+        862,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "arăta",
+      "reference": "arăta",
+      "confidence": 0.8567135419169662,
+      "token_ids": [
+        0,
+        0,
+        271,
+        649,
+        862,
+        4349,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "voinţa",
+      "reference": "voința",
+      "confidence": 0.2856983448469823,
+      "token_ids": [
+        0,
+        0,
+        5766,
+        179,
+        1277,
+        2469,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "facă",
+      "reference": "facă",
+      "confidence": 0.4285246146077219,
+      "token_ids": [
+        0,
+        0,
+        33492,
+        649,
+        862,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "însuşi",
+      "reference": "însuși",
+      "confidence": 0.28564973314750375,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        282,
+        9228,
+        5235,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "a-şi",
+      "reference": "a-și",
+      "confidence": 0.8509199959899457,
+      "token_ids": [
+        0,
+        0,
+        102,
+        12,
+        5235,
+        118,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Aceste",
+      "reference": "Aceste",
+      "confidence": 0.14284317793160303,
+      "token_ids": [
+        0,
+        0,
+        250,
+        35678,
+        242,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "trimisului",
+      "reference": "trimisului",
+      "confidence": 0.28568972886385424,
+      "token_ids": [
+        0,
+        0,
+        4328,
+        757,
+        354,
+        922,
+        3371,
+        2
+      ]
+    },
+    {
+      "prediction": "Sadeler,",
+      "reference": "Sadeler,",
+      "confidence": 0.2856895595402495,
+      "token_ids": [
+        0,
+        0,
+        104,
+        24451,
+        254,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "câte-va",
+      "reference": "câte-va",
+      "confidence": 0.9922857710293361,
+      "token_ids": [
+        0,
+        0,
+        438,
+        3695,
+        859,
+        12,
+        3952,
+        2
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.14284774375874726,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.14284764352191395,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ca",
+      "reference": "ca",
+      "confidence": 0.14284765898228377,
+      "token_ids": [
+        0,
+        0,
+        3245,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "încredinţeze",
+      "reference": "încredințeze",
+      "confidence": 0.9966039896011353,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        11326,
+        2050,
+        179,
+        1277,
+        2469,
+        242,
+        2158,
+        2
+      ]
+    },
+    {
+      "prediction": "sa",
+      "reference": "sa",
+      "confidence": 0.09999651091123621,
+      "token_ids": [
+        0,
+        0,
+        11146,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "să",
+      "reference": "să",
+      "confidence": 0.0999972892714462,
+      "token_ids": [
+        0,
+        0,
+        29,
+        649,
+        862,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "c.",
+      "reference": "C.",
+      "confidence": 0.10044308788330962,
+      "token_ids": [
+        0,
+        0,
+        438,
+        4,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ani",
+      "reference": "ani",
+      "confidence": 0.42803555738500576,
+      "token_ids": [
+        0,
+        0,
+        1543,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ca",
+      "reference": "ca",
+      "confidence": 0.2856937818319406,
+      "token_ids": [
+        0,
+        0,
+        3245,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "se",
+      "reference": "se",
+      "confidence": 0.14284031651507537,
+      "token_ids": [
+        0,
+        0,
+        1090,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "până",
+      "reference": "până",
+      "confidence": 0.27252073120117154,
+      "token_ids": [
+        0,
+        0,
+        642,
+        3695,
+        282,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "sfArşitul",
+      "reference": "sfârșitul",
+      "confidence": 0.9875909345490592,
+      "token_ids": [
+        0,
+        0,
+        26649,
+        8138,
+        5235,
+        405,
+        922,
+        2
+      ]
+    },
+    {
+      "prediction": "să",
+      "reference": ";",
+      "confidence": 0.14372166053271934,
+      "token_ids": [
+        0,
+        0,
+        29,
+        649,
+        862,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "executate",
+      "reference": "executate",
+      "confidence": 0.14283986617939845,
+      "token_ids": [
+        0,
+        0,
+        22342,
+        1182,
+        877,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "că",
+      "reference": "că",
+      "confidence": 0.14294590552760184,
+      "token_ids": [
+        0,
+        0,
+        438,
+        649,
+        862,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "lui",
+      "reference": "lui",
+      "confidence": 0.49993820529633615,
+      "token_ids": [
+        0,
+        0,
+        6487,
+        118,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "bitelor",
+      "reference": "bitelor",
+      "confidence": 0.24997459397983302,
+      "token_ids": [
+        0,
+        0,
+        5881,
+        523,
+        368,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "o",
+      "reference": "o",
+      "confidence": 0.12498261249063906,
+      "token_ids": [
+        0,
+        0,
+        139,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "într’o",
+      "reference": "într'o",
+      "confidence": 0.2052935473987862,
+      "token_ids": [
+        0,
+        0,
+        14540,
+        3999,
+        338,
+        17,
+        27,
+        139,
+        2
+      ]
+    },
+    {
+      "prediction": "lite-",
+      "reference": "lite-",
+      "confidence": 0.8851998925209046,
+      "token_ids": [
+        0,
+        0,
+        462,
+        1459,
+        12,
+        2
+      ]
+    },
+    {
+      "prediction": "le",
+      "reference": "le",
+      "confidence": 0.19997093694063892,
+      "token_ids": [
+        0,
+        0,
+        459,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.19996852125466671,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "nu",
+      "reference": "nu",
+      "confidence": 0.19996829688406464,
+      "token_ids": [
+        0,
+        0,
+        18373,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "facă",
+      "reference": "facă",
+      "confidence": 0.5540849367977626,
+      "token_ids": [
+        0,
+        0,
+        33492,
+        649,
+        862,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "al",
+      "reference": "al",
+      "confidence": 0.11110264977883745,
+      "token_ids": [
+        0,
+        0,
+        337,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "căpăta",
+      "reference": "căpăta",
+      "confidence": 0.44208794414809277,
+      "token_ids": [
+        0,
+        0,
+        438,
+        649,
+        862,
+        642,
+        649,
+        862,
+        4349,
+        2
+      ]
+    },
+    {
+      "prediction": "Pe",
+      "reference": "Pe",
+      "confidence": 0.1111026209228267,
+      "token_ids": [
+        0,
+        0,
+        23029,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "puse",
+      "reference": "puse",
+      "confidence": 0.6665305992723268,
+      "token_ids": [
+        0,
+        0,
+        642,
+        3698,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "scrierea",
+      "reference": "scrierea",
+      "confidence": 0.2724702883446868,
+      "token_ids": [
+        0,
+        0,
+        3866,
+        1069,
+        2816,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "Ghica,",
+      "reference": "Ghica,",
+      "confidence": 0.3335612525249119,
+      "token_ids": [
+        0,
+        0,
+        28916,
+        2426,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "toi",
+      "reference": "tot",
+      "confidence": 0.3333069484521211,
+      "token_ids": [
+        0,
+        0,
+        560,
+        118,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "obiectele",
+      "reference": "obiectele",
+      "confidence": 0.879402369260788,
+      "token_ids": [
+        0,
+        0,
+        2413,
+        324,
+        3894,
+        6902,
+        2
+      ]
+    },
+    {
+      "prediction": "ce",
+      "reference": "ce",
+      "confidence": 0.16665587859363928,
+      "token_ids": [
+        0,
+        0,
+        1755,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Abia",
+      "reference": "Abia",
+      "confidence": 0.3333076406311119,
+      "token_ids": [
+        0,
+        0,
+        13112,
+        493,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "listă",
+      "reference": "listă",
+      "confidence": 0.16665588111569538,
+      "token_ids": [
+        0,
+        0,
+        8458,
+        649,
+        862,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "Un",
+      "reference": "Un",
+      "confidence": 0.4992861989234186,
+      "token_ids": [
+        0,
+        0,
+        9685,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "1",
+      "reference": "1)",
+      "confidence": 0.3332265930170726,
+      "token_ids": [
+        0,
+        0,
+        134,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "consulului",
+      "reference": "consulului",
+      "confidence": 0.17016443427572536,
+      "token_ids": [
+        0,
+        0,
+        10998,
+        922,
+        922,
+        3371,
+        2
+      ]
+    },
+    {
+      "prediction": "să",
+      "reference": "să",
+      "confidence": 0.17723066802639087,
+      "token_ids": [
+        0,
+        0,
+        29,
+        649,
+        862,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "după",
+      "reference": "după",
+      "confidence": 0.9995619455973307,
+      "token_ids": [
+        0,
+        0,
+        6588,
+        642,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "tot",
+      "reference": "tot",
+      "confidence": 0.1666590375995329,
+      "token_ids": [
+        0,
+        0,
+        90,
+        1242,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "fie",
+      "reference": "fie",
+      "confidence": 0.16665905350682012,
+      "token_ids": [
+        0,
+        0,
+        506,
+        324,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ea",
+      "reference": "ea",
+      "confidence": 0.16665904382429916,
+      "token_ids": [
+        0,
+        0,
+        13184,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ele",
+      "reference": "ele",
+      "confidence": 0.5997399091727333,
+      "token_ids": [
+        0,
+        0,
+        6902,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "cererea",
+      "reference": "cererea",
+      "confidence": 0.3999527504699496,
+      "token_ids": [
+        0,
+        0,
+        1755,
+        241,
+        9891,
+        2
+      ]
+    },
+    {
+      "prediction": "gravat",
+      "reference": "gravat",
+      "confidence": 0.3999587758541644,
+      "token_ids": [
+        0,
+        0,
+        571,
+        6472,
+        415,
+        2
+      ]
+    },
+    {
+      "prediction": "adus",
+      "reference": "adus",
+      "confidence": 0.39996840966793656,
+      "token_ids": [
+        0,
+        0,
+        625,
+        687,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "o",
+      "reference": "o",
+      "confidence": 0.5998740196538263,
+      "token_ids": [
+        0,
+        0,
+        139,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "sine,",
+      "reference": "sine,",
+      "confidence": 0.3986921384645425,
+      "token_ids": [
+        0,
+        0,
+        29,
+        833,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "ridice",
+      "reference": "ridice",
+      "confidence": 0.3999589801276908,
+      "token_ids": [
+        0,
+        0,
+        10505,
+        2463,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "rare",
+      "reference": "rare",
+      "confidence": 0.39947313391653605,
+      "token_ids": [
+        0,
+        0,
+        763,
+        241,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "cere",
+      "reference": "cere",
+      "confidence": 0.3327118655199855,
+      "token_ids": [
+        0,
+        0,
+        1755,
+        241,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "fi e",
+      "reference": "fie",
+      "confidence": 0.16665219279636226,
+      "token_ids": [
+        0,
+        0,
+        9169,
+        364,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "poseda",
+      "reference": "poseda",
+      "confidence": 0.1666523212422657,
+      "token_ids": [
+        0,
+        0,
+        32704,
+        102,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "amănunţită",
+      "reference": "amănunțită",
+      "confidence": 0.16057345430601258,
+      "token_ids": [
+        0,
+        0,
+        424,
+        649,
+        862,
+        282,
+        879,
+        1277,
+        2469,
+        405,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "1 863,",
+      "reference": "1863,",
+      "confidence": 0.9914416472117106,
+      "token_ids": [
+        0,
+        0,
+        134,
+        290,
+        5449,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "Ion",
+      "reference": "Ion",
+      "confidence": 0.3333358413042274,
+      "token_ids": [
+        0,
+        0,
+        100,
+        261,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "cele",
+      "reference": "cele",
+      "confidence": 0.16665343864897184,
+      "token_ids": [
+        0,
+        0,
+        31828,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "concursul",
+      "reference": "concursul",
+      "confidence": 0.33331985602112907,
+      "token_ids": [
+        0,
+        0,
+        3865,
+        438,
+        4668,
+        922,
+        2
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.999945878982544,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2
+      ]
+    },
+    {
+      "prediction": "care",
+      "reference": "care",
+      "confidence": 0.6666307857746436,
+      "token_ids": [
+        0,
+        0,
+        6350,
+        2
+      ]
+    },
+    {
+      "prediction": "o",
+      "reference": "o",
+      "confidence": 0.666630824955523,
+      "token_ids": [
+        0,
+        0,
+        139,
+        2
+      ]
+    },
+    {
+      "prediction": "a",
+      "reference": "a",
+      "confidence": 0.6666308641574911,
+      "token_ids": [
+        0,
+        0,
+        102,
+        2
+      ]
+    },
+    {
+      "prediction": "pe",
+      "reference": "pe",
+      "confidence": 0.49995570559237784,
+      "token_ids": [
+        0,
+        0,
+        2379,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "publice",
+      "reference": "publice",
+      "confidence": 0.33329603378406647,
+      "token_ids": [
+        0,
+        0,
+        15110,
+        242,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "citate",
+      "reference": "citate",
+      "confidence": 0.3332960524142922,
+      "token_ids": [
+        0,
+        0,
+        438,
+        12624,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "(1876).",
+      "reference": "(1876).",
+      "confidence": 0.3068358874454121,
+      "token_ids": [
+        0,
+        0,
+        1640,
+        1366,
+        5067,
+        322,
+        2
+      ]
+    },
+    {
+      "prediction": "de",
+      "reference": "de",
+      "confidence": 0.49997641652994695,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "c.",
+      "reference": "C.",
+      "confidence": 0.33331854031190966,
+      "token_ids": [
+        0,
+        0,
+        438,
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Doreşte",
+      "reference": "Dorește",
+      "confidence": 0.32376260774236565,
+      "token_ids": [
+        0,
+        0,
+        495,
+        1688,
+        5235,
+        859,
+        2
+      ]
+    },
+    {
+      "prediction": "sus,",
+      "reference": "sus,",
+      "confidence": 0.32914116697321316,
+      "token_ids": [
+        0,
+        0,
+        29,
+        687,
+        6,
+        2,
+        1
+      ]
+    },
+    {
+      "prediction": "deose-",
+      "reference": "deose-",
+      "confidence": 0.999835979938507,
+      "token_ids": [
+        0,
+        0,
+        2794,
+        3876,
+        12,
+        2
+      ]
+    },
+    {
+      "prediction": "lui,",
+      "reference": ">",
+      "confidence": 0.3999724625642422,
+      "token_ids": [
+        0,
+        0,
+        462,
+        3371,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "care",
+      "reference": "care",
+      "confidence": 0.1999778288215579,
+      "token_ids": [
+        0,
+        0,
+        6350,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "De",
+      "reference": "De",
+      "confidence": 0.1999814905684555,
+      "token_ids": [
+        0,
+        0,
+        13365,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "urmă",
+      "reference": "urmă",
+      "confidence": 0.9987888733545939,
+      "token_ids": [
+        0,
+        0,
+        710,
+        119,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "pe",
+      "reference": "pe",
+      "confidence": 0.16665972243823826,
+      "token_ids": [
+        0,
+        0,
+        2379,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "ostenelile",
+      "reference": "ostenelile",
+      "confidence": 0.33263375139686,
+      "token_ids": [
+        0,
+        0,
+        2603,
+        225,
+        523,
+        1848,
+        2
+      ]
+    },
+    {
+      "prediction": "române,",
+      "reference": "române,",
+      "confidence": 0.3331268183724532,
+      "token_ids": [
+        0,
+        0,
+        5638,
+        3695,
+        858,
+        6,
+        2
+      ]
+    },
+    {
+      "prediction": "ş alla",
+      "reference": "„alla",
+      "confidence": 0.41629037265650404,
+      "token_ids": [
+        0,
+        0,
+        5235,
+        70,
+        102,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "exemplare",
+      "reference": "exemplare",
+      "confidence": 0.2000175236607939,
+      "token_ids": [
+        0,
+        0,
+        3463,
+        33037,
+        1322,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Instrucţiunei",
+      "reference": "Insfrucțiunei",
+      "confidence": 0.19078202405826888,
+      "token_ids": [
+        0,
+        0,
+        23754,
+        2070,
+        438,
+        1277,
+        2469,
+        118,
+        4438,
+        118,
+        2
+      ]
+    },
+    {
+      "prediction": "d-lor",
+      "reference": "d-lor",
+      "confidence": 0.19999032143132517,
+      "token_ids": [
+        0,
+        0,
+        417,
+        12,
+        10159,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "Ion",
+      "reference": "Ion",
+      "confidence": 0.5699696032347153,
+      "token_ids": [
+        0,
+        0,
+        100,
+        261,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "rămase",
+      "reference": "rămase",
+      "confidence": 0.26227520987715286,
+      "token_ids": [
+        0,
+        0,
+        338,
+        649,
+        862,
+        119,
+        3175,
+        2
+      ]
+    },
+    {
+      "prediction": "lui",
+      "reference": "lui",
+      "confidence": 0.28569541828514916,
+      "token_ids": [
+        0,
+        0,
+        6487,
+        118,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "prediction": "reclamă",
+      "reference": "reclamă",
+      "confidence": 0.26263512340682366,
+      "token_ids": [
+        0,
+        0,
+        241,
+        3998,
+        424,
+        649,
+        862,
+        2
+      ]
+    },
+    {
+      "prediction": "suspin.",
+      "reference": "suspin,",
+      "confidence": 0.9863560199737549,
+      "token_ids": [
+        0,
+        0,
+        29,
+        687,
+        10188,
+        4,
+        2
+      ]
+    }
+  ],
+  "metrics": {
+    "loss": 0.3027093708515167,
+    "cer": 0.04939792918372032,
+    "wer": 0.18888888888888888,
+    "acc": 0.8222222222222222,
+    "char_acc": 0.9362125605875606,
+    "lev_dist": 0.22777777777777777
+  },
+  "model": "microsoft/trocr-large-handwritten",
+  "epoch": 12
+}
