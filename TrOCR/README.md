@@ -101,7 +101,7 @@ python inference.py --image_path data\inference\Balcescu.png --checkpoint_path d
 
 The `generator.py` script creates synthetic OCR training data. It requires a text dataset (.txt file) and a set of fonts and backgrounds. An alternative is to use the trdg library to generate synthetic data [Download Link](https://github.com/Belval/TextRecognitionDataGenerator), they use the same dataset structure. You may run into some issues setting it up, because the trdg package does not receive support anymore. But once set up the integrated generator has better augmentation than the generator offered here.
 
-First, you need some text data. You can download a sample text dataset in romanian language.
+You can download two romanian language datasets (wiki-dump and OSCAR dataset) using this script:
 ```sh
 python data/generation/download_text_dataset.py
 ```
